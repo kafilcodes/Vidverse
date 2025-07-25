@@ -1,0 +1,479 @@
+/* Custom DatePicker styles for AMOLED Golden Theme */
+.react-datepicker {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(212, 175, 55, 0.1);
+  color: #d4d4d8;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.react-datepicker__header {
+  background: linear-gradient(135deg, #1A1A1A 0%, #0A0A0A 100%);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+  padding: 1.5rem 1rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  color: #D4AF37;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.react-datepicker__navigation {
+  top: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  transition: all 0.3s ease;
+}
+
+.react-datepicker__navigation:hover {
+  background: rgba(212, 175, 55, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.react-datepicker__navigation--previous {
+  border-right-color: #D4AF37;
+}
+
+.react-datepicker__navigation--next {
+  border-left-color: #D4AF37;
+}
+
+.react-datepicker__navigation:hover *::before {
+  border-color: #D4AF37;
+}
+
+.react-datepicker__day-names {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  color: #a1a1aa;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0.125rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.react-datepicker__day-name {
+  color: #D4AF37;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.react-datepicker__day:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+  color: #D4AF37;
+  border-radius: 50%;
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.3),
+    inset 0 1px 0 rgba(212, 175, 55, 0.2);
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+  color: #000000;
+  border-radius: 50%;
+  font-weight: 700;
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 30px rgba(212, 175, 55, 0.6),
+    0 4px 15px rgba(212, 175, 55, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(212, 175, 55, 0.8);
+}
+
+.react-datepicker__day--today {
+  font-weight: 700;
+  color: #D4AF37;
+  background: rgba(212, 175, 55, 0.1);
+  border: 2px solid #D4AF37;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.3),
+    inset 0 1px 0 rgba(212, 175, 55, 0.2);
+}
+
+.react-datepicker__day--disabled {
+  color: #404040;
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.react-datepicker__month-container {
+  background: transparent;
+}
+
+.react-datepicker__month {
+  background: transparent;
+  padding: 1rem;
+}
+
+.react-datepicker__time-container {
+  border-left: 2px solid rgba(212, 175, 55, 0.2);
+  background: linear-gradient(135deg, #1A1A1A 0%, #0A0A0A 100%);
+}
+
+.react-datepicker__time-list {
+  background: transparent;
+}
+
+.react-datepicker__time-list-item {
+  color: #a1a1aa;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  margin: 0.125rem;
+}
+
+.react-datepicker__time-list-item:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%) !important;
+  color: #D4AF37 !important;
+  transform: translateX(0.25rem);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.react-datepicker__time-list-item--selected {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.5rem;
+}
+
+/* Triangle/Pointer styling */
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::after {
+  border-bottom-color: rgba(212, 175, 55, 0.3) !important;
+}
+
+.react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle::after {
+  border-top-color: rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Custom scrollbar for time list */
+.react-datepicker__time-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-track {
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 3px;
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.react-datepicker__time-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #F4D03F 0%, #D4AF37 100%);
+}
+
+/* Animation for date picker appearance */
+.react-datepicker {
+  animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Custom PhoneInput styles for AMOLED Golden Theme - Radio-like design */
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Clean Phone Input for radio-like containers */
+.phone-input-clean .PhoneInputCountry {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: none !important;
+  padding: 0 0.75rem 0 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.phone-input-clean .PhoneInputInput {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: white !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+  font-size: 1rem !important;
+  font-family: 'Grift', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.025em !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.phone-input-clean .PhoneInputInput::placeholder {
+  color: rgba(115, 115, 115, 1) !important;
+  font-family: 'Grift', system-ui, sans-serif !important;
+}
+
+/* Original PhoneInput styles for forms not using radio-like design */
+.PhoneInputCountry {
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.4) 0%, rgba(38, 38, 38, 0.2) 100%) !important;
+  border: 1px solid rgba(115, 115, 115, 0.6) !important;
+  border-radius: 0.75rem 0 0 0.75rem !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(4px) !important;
+  padding: 1rem 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.PhoneInputCountry:hover {
+  background: rgba(38, 38, 38, 0.4) !important;
+  border-color: rgba(251, 191, 36, 0.6) !important;
+}
+
+.PhoneInputCountryIcon {
+  width: 20px !important;
+  height: 15px !important;
+  margin-right: 0.5rem !important;
+}
+
+.PhoneInputCountrySelectArrow {
+  color: rgba(212, 175, 55, 0.8) !important;
+  opacity: 0.8 !important;
+  margin-left: 0.25rem !important;
+}
+
+.PhoneInputInput {
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.4) 0%, rgba(38, 38, 38, 0.2) 100%) !important;
+  border: 1px solid rgba(115, 115, 115, 0.6) !important;
+  border-left: none !important;
+  border-radius: 0 0.75rem 0.75rem 0 !important;
+  color: white !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(4px) !important;
+  padding: 0 1rem !important;
+  font-size: 1rem !important;
+  font-family: 'Grift', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.025em !important;
+}
+
+.PhoneInputInput:hover {
+  background: rgba(38, 38, 38, 0.4) !important;
+  border-color: rgba(251, 191, 36, 0.6) !important;
+}
+
+.PhoneInputInput:focus {
+  border-color: rgba(251, 191, 36, 0.6) !important;
+  background: rgba(38, 38, 38, 0.4) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2) !important;
+}
+
+.PhoneInputInput::placeholder {
+  color: rgba(115, 115, 115, 1) !important;
+  font-family: 'Grift', system-ui, sans-serif !important;
+}
+
+/* Enhanced form input standardization - Radio-like styling */
+.form-input-standard {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.4) 0%, rgba(38, 38, 38, 0.2) 100%);
+  border: 1px solid rgba(115, 115, 115, 0.6);
+  border-radius: 0.75rem;
+  color: white;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  font-size: 1rem;
+  font-family: 'Grift', system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.5;
+}
+
+.form-input-standard:hover {
+  border-color: rgba(251, 191, 36, 0.6);
+  background: rgba(38, 38, 38, 0.4);
+}
+
+.form-input-standard:focus {
+  border-color: rgba(251, 191, 36, 0.6);
+  background: rgba(38, 38, 38, 0.4);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+.form-input-standard::placeholder {
+  color: rgba(115, 115, 115, 1);
+  font-family: 'Grift', system-ui, sans-serif;
+}
+
+/* Textarea specific styling - Radio-like design */
+.form-textarea-standard {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.4) 0%, rgba(38, 38, 38, 0.2) 100%);
+  border: 1px solid rgba(115, 115, 115, 0.6);
+  border-radius: 0.75rem;
+  color: white;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  font-size: 1rem;
+  font-family: 'Grift', system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.form-textarea-standard:hover {
+  border-color: rgba(251, 191, 36, 0.6);
+  background: rgba(38, 38, 38, 0.4);
+}
+
+.form-textarea-standard:focus {
+  border-color: rgba(251, 191, 36, 0.6);
+  background: rgba(38, 38, 38, 0.4);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+.form-textarea-standard::placeholder {
+  color: rgba(115, 115, 115, 1);
+  font-family: 'Grift', system-ui, sans-serif;
+}
+
+/* Enhanced checkbox styling - Radio-like design */
+.form-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(115, 115, 115, 0.6);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.4) 0%, rgba(38, 38, 38, 0.2) 100%);
+  backdrop-filter: blur(4px);
+}
+
+.form-checkbox-container:hover {
+  border-color: rgba(251, 191, 36, 0.6);
+  background: rgba(38, 38, 38, 0.4);
+}
+
+.form-checkbox-box {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  border: 2px solid rgba(115, 115, 115, 0.6);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background: rgba(10, 10, 10, 0.3);
+}
+
+.form-checkbox-container:hover .form-checkbox-box {
+  border-color: rgba(251, 191, 36, 1);
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.form-checkbox-label {
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: 'Grift', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+}
+
+.form-checkbox-container:hover .form-checkbox-label {
+  color: rgba(251, 191, 36, 1);
+}
+
+/* Enhanced DatePicker styling - Reduced size */
+.react-datepicker-wrapper {
+  width: auto;
+  max-width: 320px;
+}
+
+.react-datepicker__input-container input {
+  width: 320px !important;
+  max-width: 320px !important;
+  padding: 1rem !important;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.4) 0%, rgba(38, 38, 38, 0.2) 100%) !important;
+  border: 1px solid rgba(115, 115, 115, 0.6) !important;
+  border-radius: 0.75rem !important;
+  color: white !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(4px) !important;
+  font-size: 1rem !important;
+  font-family: 'Grift', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.025em !important;
+  text-overflow: ellipsis !important;
+}
+
+.react-datepicker__input-container input:hover {
+  border-color: rgba(251, 191, 36, 0.6) !important;
+  background: rgba(38, 38, 38, 0.4) !important;
+}
+
+.react-datepicker__input-container input:focus {
+  border-color: rgba(251, 191, 36, 0.6) !important;
+  background: rgba(38, 38, 38, 0.4) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2) !important;
+}
+
+.react-datepicker__input-container input::placeholder {
+  color: rgba(115, 115, 115, 1) !important;
+  font-family: 'Grift', system-ui, sans-serif !important;
+}

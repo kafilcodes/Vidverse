@@ -1,0 +1,1176 @@
+@import 'react-phone-number-input/style.css';
+@import 'react-datepicker/dist/react-datepicker.css';
+
+/* Grift Font Family - Complete Font Face Declarations */
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-ThinItalic.woff2') format('woff2');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-ExtraLightItalic.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-ExtraBoldItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Grift';
+  src: url('/fonts/Grift-BlackItalic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Grift', system-ui, sans-serif;
+  }
+  
+  body {
+    font-family: 'Grift', system-ui, sans-serif;
+    font-weight: 400;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Grift', system-ui, sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-thin { font-weight: 100; }
+  .font-extralight { font-weight: 200; }
+  .font-light { font-weight: 300; }
+  .font-normal { font-weight: 400; }
+  .font-medium { font-weight: 500; }
+  .font-semibold { font-weight: 600; }
+  .font-bold { font-weight: 700; }
+  .font-extrabold { font-weight: 800; }
+  .font-black { font-weight: 900; }
+}
+
+@layer base {
+  * {
+    font-family: 'Grift', system-ui, sans-serif;
+  }
+  
+  body {
+    font-family: 'Grift', system-ui, sans-serif;
+    font-weight: 400;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Grift', system-ui, sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-thin { font-weight: 100; }
+  .font-extralight { font-weight: 200; }
+  .font-light { font-weight: 300; }
+  .font-normal { font-weight: 400; }
+  .font-medium { font-weight: 500; }
+  .font-semibold { font-weight: 600; }
+  .font-bold { font-weight: 700; }
+  .font-extrabold { font-weight: 800; }
+  .font-black { font-weight: 900; }
+}
+
+@layer components {
+  .star-shimmer {
+    mask-image: linear-gradient(-75deg, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,1) 70%);
+    mask-size: 200%;
+    animation: shimmer 2.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { mask-position: 150% }
+    100% { mask-position: -50% }
+  }
+}
+
+@layer utilities {
+  /* .btn-hero-cta itself has relative, overflow-hidden, bg-transparent, border-gold, text-gold from Tailwind */
+  /* Added 'group' class in JSX for potential parent-driven hovers if needed */
+
+  .btn-hero-cta {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  /* The rotating gradient shine */
+  .btn-hero-cta::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: conic-gradient(
+      transparent,
+      hsl(var(--gold-light) / 1),
+      transparent 15%
+    );
+    animation: rotate 3s linear infinite;
+  }
+
+  /* The black inner part that covers the gradient, creating the border effect */
+  .btn-hero-cta::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 2px;
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: hsl(var(--background));
+    border-radius: inherit;
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+  }
+
+  .text-outline-gold {
+    -webkit-text-stroke: 1px hsl(var(--gold) / 0.8);
+    text-stroke: 1px hsl(var(--gold) / 0.8);
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
+  .text-black-gold-outline {
+    color: hsl(var(--background));
+    -webkit-text-stroke: 1px hsl(var(--gold)) !important;
+    text-stroke: 1px hsl(var(--gold)) !important;
+    paint-order: stroke fill;
+  }
+
+  .nav-link:hover {
+    color: hsl(var(--gold)) !important;
+    background-color: hsl(var(--gold) / 0.1);
+  }
+
+  .text-shimmer {
+    background: linear-gradient(90deg, hsl(var(--foreground)) 40%, hsl(var(--gold-light)) 50%, hsl(var(--foreground)) 60%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s linear infinite alternate;
+  }
+
+  .text-gold-shimmer {
+    background: linear-gradient(90deg, hsl(var(--gold-DEFAULT)) 40%, hsl(var(--gold-light)) 50%, hsl(var(--gold-DEFAULT)) 60%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .golden-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-DEFAULT)));
+  }
+
+  .bg-golden-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-DEFAULT)));
+  }
+
+  .text-golden-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-DEFAULT)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes shimmer {
+    from { background-position: 100% 0; }
+    to { background-position: 0% 0; }
+  }
+
+  @keyframes gentle-giggle {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    25% { transform: translate(1px, -1px) rotate(1deg) scale(1.02); }
+    50% { transform: translate(-1px, 1px) rotate(-1deg) scale(1.04); }
+    75% { transform: translate(1px, 1px) rotate(0.5deg) scale(1.02); }
+  }
+
+  .is-animating {
+    animation: gentle-giggle 0.8s ease-in-out both;
+  }
+
+  /* Removed .animate-float and @keyframes float */
+  /* Removed .animated-border-gold and @keyframes rotate-gradient */
+
+  @keyframes pulse-soft-gold-glow {
+    0%, 100% {
+      box-shadow: 0 0 35px 5px rgba(217, 175, 98, 0.15), 0 0 60px 15px rgba(217, 175, 98, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 50px 8px rgba(217, 175, 98, 0.25), 0 0 80px 20px rgba(217, 175, 98, 0.15);
+    }
+  }
+
+  .newsletter-premium {
+    background-color: #050505; /* Amoled Black */
+    border: 1px solid hsl(var(--gold-DEFAULT) / 0.8);
+    animation: pulse-soft-gold-glow 6s infinite ease-in-out;
+  }
+
+  .benefit-card {
+    position: relative;
+    background-color: #1A1A1A; /* Dark Charcoal */
+    border-radius: 1.5rem; /* Match parent's rounded-3xl */
+    overflow: hidden;
+    will-change: transform;
+    z-index: 1;
+  }
+
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #000;
+    background-image: conic-gradient(
+      transparent,
+      hsl(var(--gold-light) / 0.8),
+      hsl(var(--gold-DEFAULT)),
+      hsl(var(--gold-dark)),
+      transparent 30%
+    );
+    animation: rotate 4s linear infinite;
+  }
+
+  .benefit-card-inner {
+    position: absolute;
+    inset: 2px; /* This creates the border thickness */
+    background: #050505; /* Slightly off-black to sit on top of the pure black */
+    border-radius: inherit; /* Match the parent's border-radius */
+    z-index: 2;
+  }
+
+  /* Custom scrollbar for testimonial cards */
+  .testimonial-quote::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .testimonial-quote::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .testimonial-quote::-webkit-scrollbar-thumb {
+    background-color: #D4AF37; /* golden accent */
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .testimonial-quote::-webkit-scrollbar-thumb:hover {
+    background-color: #b89b31; /* darker gold on hover */
+  }
+
+.process-slide {
+  background-color: #000000;
+}
+
+.process-slide-content {
+  position: relative;
+  border-radius: 1.5rem; /* 24px */
+  overflow: hidden;
+  z-index: 1;
+  padding: 3rem 4rem;
+}
+
+.process-slide-content::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: conic-gradient(
+    transparent,
+    hsl(var(--gold-light) / 0.8),
+    hsl(var(--gold-DEFAULT)),
+    hsl(var(--gold-dark)),
+    transparent 30%
+  );
+  animation: rotate 4s linear infinite;
+}
+
+.process-slide-content::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 2px; /* Border thickness */
+  background: #000000; /* Card background color (AMOLED Black) */
+  border-radius: inherit;
+}
+
+.process-text-container {
+  position: relative;
+  z-index: 10;
+}
+
+.text-fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity; /* Hybrid approach - gentle section attraction with free scrolling */
+  scroll-padding-top: 80px; /* Account for navbar */
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.premium-shadow {
+  box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.1);
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 1rem;
+  /* Make slide a flex container to allow card to grow */
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .embla__slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla__slide {
+    flex: 0 0 33.3333%;
+  }
+}
+
+.testimonial-card {
+  width: 100%; /* Ensure card takes full width of slide */
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.trusted-logo {
+  transition: transform 0.3s ease;
+}
+
+.trusted-logo:hover {
+  transform: scale(1.1);
+}
+
+/* --- Booking Form Styles --- */
+.form-container {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-question {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #f5f5f5;
+  margin-bottom: 1.5rem;
+}
+
+.form-input, .form-textarea {
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  color: #f5f5f5;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: #D4AF37; /* golden */
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+.form-button-primary {
+  background-image: linear-gradient(to right, #D4AF37, #B8860B);
+  color: #111;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.form-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.form-button-secondary {
+  background-color: transparent;
+  border: 1px solid #555;
+  color: #ccc;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.form-button-secondary:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.form-radio-label, .form-checkbox-label {
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.form-radio-label:hover, .form-checkbox-label:hover {
+  border-color: #D4AF37;
+}
+
+input[type="radio"]:checked + .form-radio-label,
+input[type="checkbox"]:checked + .form-checkbox-label {
+  border-color: #D4AF37;
+  background-color: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+/* Phone Number Input */
+.PhoneInputInput {
+  background-color: transparent !important;
+  border: none !important;
+  color: #f5f5f5 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  padding-left: 0.5rem;
+}
+
+.PhoneInputCountry {
+  background-color: #1a1a1a;
+  border-right: 1px solid #444;
+  padding-right: 0.5rem;
+}
+
+/* Datepicker Dark Theme */
+.react-datepicker {
+  background-color: #1a1a1a !important;
+  border-color: #444 !important;
+  border-radius: 0.5rem !important;
+}
+
+.react-datepicker__header {
+  background-color: #111 !important;
+  border-bottom-color: #444 !important;
+}
+
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+  color: #f5f5f5 !important;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+  color: #ccc !important;
+}
+
+.react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover {
+  background-color: #333 !important;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+  background-color: #D4AF37 !important;
+  color: #111 !important;
+}
+
+.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+  background-color: #b8860b !important;
+  color: #111 !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #666 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #f5f5f5 !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
+  background-color: #D4AF37 !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {
+  background-color: #333 !important;
+}
+
+
+.process-text-container h3 {
+  font-size: 2rem; /* 32px */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.process-text-container p {
+  color: #a1a1aa; /* zinc-400 */
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.process-step-number {
+  position: absolute;
+  top: -3rem;
+  left: -1.5rem;
+  font-size: 7rem;
+  font-weight: 800;
+  z-index: 0;
+  background-image: linear-gradient(to top, hsl(var(--gold-light) / 0.1), transparent 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.process-output {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--gold-DEFAULT) / 0.8);
+  color: #000;
+  font-weight: 600;
+}
+
+@reference "tailwindcss";
+
+@layer base {
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  :root {
+    /* Default to light theme variables or fallbacks */
+    --background-val: 210 40% 96.1%; /* e.g., light gray */
+    --foreground-val: 222.2 47.4% 11.2%; /* e.g., dark text */
+    --card-val: 210 40% 100%;
+    --card-foreground-val: 222.2 47.4% 11.2%;
+    --popover-val: 210 40% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary-val: 221.2 83.2% 53.3%;
+    --primary-foreground-val: 210 40% 98%;
+    --secondary-val: 210 40% 96.1%;
+    --secondary-foreground-val: 222.2 47.4% 11.2%;
+    --muted-val: 210 40% 96.1%;
+    --muted-foreground-val: 215.4 16.3% 46.9%;
+    --text-on-accent-val: 0 0% 10%; /* For light theme, if ever needed */
+    --accent-val: 210 40% 96.1%;
+    --accent-foreground-val: 222.2 47.4% 11.2%;
+    --destructive-val: 0 84.2% 60.2%;
+    --destructive-foreground-val: 210 40% 98%;
+    --border-val: 214.3 31.8% 91.4%;
+    --input-val: 214.3 31.8% 91.4%;
+    --ring-val: 221.2 83.2% 53.3%;
+
+    /* General variables that will be overridden by .dark */
+    --background: var(--background-val);
+    --foreground: var(--foreground-val);
+    --card: var(--card-val);
+    --card-foreground: var(--card-foreground-val);
+    --popover: var(--popover-val);
+    --popover-foreground: var(--popover-foreground-val);
+    --primary: var(--primary-val);
+    --primary-foreground: var(--primary-foreground-val);
+    --secondary: var(--secondary-val);
+    --secondary-foreground: var(--secondary-foreground-val);
+    --muted: var(--muted-val);
+    --muted-foreground: var(--muted-foreground-val);
+    --accent: var(--accent-val);
+    --accent-foreground: var(--accent-foreground-val);
+    --text-on-accent: var(--text-on-accent-val);
+    --destructive: var(--destructive-val);
+    --destructive-foreground: var(--destructive-foreground-val);
+    --border: var(--border-val);
+    --input: var(--input-val);
+    --ring: var(--ring-val);
+
+    --radius: 0.75rem;
+    --gold-light: 50 100% 70%;
+    --gold-DEFAULT: 45 100% 60%;
+    --gold-dark: 40 100% 50%;
+    --accent-gold-gradient: linear-gradient(to right, hsl(var(--gold-light)), hsl(var(--gold-DEFAULT)), hsl(var(--gold-dark)));
+  }
+
+  .dark {
+    /* Dark theme overrides */
+    --background: 0 0% 0%; /* AMOLED black */
+    --foreground: 0 0% 98%; /* Primary text */
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: var(--gold-DEFAULT); /* Gold for primary actions */
+    --primary-foreground: var(--text-on-accent); /* Dark text on gold */
+    --secondary: 0 0% 15%; /* Darker gray for secondary elements */
+    --secondary-foreground: 0 0% 80%; /* Lighter gray for secondary text */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%; /* Muted/tertiary text */
+    --accent: var(--gold-DEFAULT); /* Gold for accents */
+    --accent-foreground: var(--text-on-accent); /* Dark text on gold */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 25%;
+    --input: 0 0% 15%;
+    --ring: var(--gold-DEFAULT); /* Gold for focus rings */
+    --text-on-accent: 0 0% 10%; /* Ensure dark theme definition */
+    /* gold colors are already defined in :root and don't need dark versions unless they change */
+  }
+}
+
+/* Remove the problematic border-border application */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background)) !important; /* Force background */
+    color: hsl(var(--foreground)) !important; /* Force text color */
+    min-height: 100vh; /* Ensure body takes full height */
+  }
+}
+
+/* Custom color classes */
+.text-gold {
+  color: hsl(var(--gold-DEFAULT));
+}
+
+.bg-gold {
+  background-color: hsl(var(--gold-DEFAULT));
+}
+
+/* Gradient classes */
+.bg-gradient-gold {
+  background-image: linear-gradient(to right, hsl(var(--gold-light)) 0%, hsl(var(--gold-DEFAULT)) 50%, hsl(var(--gold-dark)) 100%);
+}
+
+.icon-gold {
+  display: inline-block;
+  background-color: hsl(var(--gold-DEFAULT));
+  -webkit-mask-image: url(/images/organic-search.png);
+  mask-image: url(/images/organic-search.png);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.5);
+  transition: border-color 0.3s ease-in-out;
+}
+
+
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Animation classes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+/* Staggered animations */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+
+
+
+.glass-effect {
+  background: rgba(20, 20, 20, 0.6); /* Slightly lighter glass for better visibility on dark bg */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(15, 15, 15, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
+}
+
+/* Dividers */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--gold)), transparent);
+  width: 100%;
+  opacity: 0.3;
+}
+
+.gold-divider-vertical {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, hsl(var(--gold)), transparent);
+  height: 100%;
+  opacity: 0.3;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.4);
+}
+
+.golden-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-DEFAULT)));
+  }
+
+  .bg-golden-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-DEFAULT)));
+  }
+
+  .text-golden-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-DEFAULT)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+/* Enhanced smooth scrolling with hybrid snap behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity; /* Gentle section attraction with free scrolling */
+  scroll-padding-top: 80px; /* Account for navbar height */
+  overflow-x: hidden; /* Prevent horizontal scroll issues */
+}
+
+/* Body scroll container optimization - natural feel */
+body {
+  scroll-snap-type: none; /* Let html handle the snap behavior */
+}
+
+/* Scroll snap utility classes for natural section focus */
+.scroll-snap-start {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal; /* Allow smooth intermediate positions */
+  padding-top: 80px; /* Offset for navbar */
+  margin-top: -80px; /* Compensate for padding */
+}
+
+.scroll-snap-center {
+  scroll-snap-align: center;
+}
+
+.scroll-snap-end {
+  scroll-snap-align: end;
+}
+
+/* Enhanced smooth scrolling performance */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Faster, more responsive scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: auto; /* Let CSS handle smooth scrolling more naturally */
+  }
+}
+
+/* Custom smooth scroll with faster response */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+/* Improved scrolling performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize animations for better performance */
+.motion-reduce-ok {
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Enhanced scroll indicators */
+.scroll-indicator {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Benefits Section - Enhanced Glassmorphism Cards */
+.benefits-glassmorphism-card {
+  background: rgba(25, 25, 25, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.benefits-glassmorphism-card:hover {
+  background: rgba(25, 25, 25, 0.25);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Benefits Card Content Typography */
+.benefits-title {
+  font-weight: 700;
+  color: #FFD700;
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.benefits-description {
+  font-weight: 400;
+  color: #EAEAEA;
+  line-height: 1.6;
+}
+
+/* Benefits Number Badge */
+.benefits-number-badge {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.15));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.benefits-number-text {
+  color: #FFD700;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Scroll Stack Enhancements */
+.scroll-stack-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Ensure no rotation is applied */
+.scroll-stack-card.no-rotation {
+  transform: translateZ(0) rotate(0deg) !important;
+}
