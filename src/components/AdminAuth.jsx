@@ -11,7 +11,9 @@ const AdminAuth = ({ onAuthenticated }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === 'mausi6264*#') {
+    const correctPassword = process.env.NEXT_PUBLIC_EDITOR_PASS || 'mausi05';
+    
+    if (password === correctPassword) {
       setError('');
       onAuthenticated(true);
     } else {

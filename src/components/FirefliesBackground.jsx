@@ -8,7 +8,8 @@ const FirefliesBackground = ({
   speed = 0.2, // Slower speed for more realistic motion
   size = 3.5, // Bigger size for better visibility
   glowColor = 'hsl(var(--gold-DEFAULT))',
-  opacity = 0.9 // Higher opacity for better visibility
+  opacity = 0.9, // Higher opacity for better visibility
+  excludeFooter = true // New prop to exclude footer area
 }) => {
   const containerRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
@@ -19,7 +20,7 @@ const FirefliesBackground = ({
     const generatedFireflies = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      y: Math.random() * 100,
+      y: Math.random() * (excludeFooter ? 90 : 100), // Limit to top 90% if excluding footer
       initialDelay: Math.random() * 10,
       duration: 12 + Math.random() * 8, // Slower: 12-20 seconds per cycle
       size: size + Math.random() * 1.5,
@@ -28,7 +29,7 @@ const FirefliesBackground = ({
     
     setFireflies(generatedFireflies);
     setIsMounted(true);
-  }, [count, size]);
+  }, [count, size, excludeFooter]);
 
   if (!isMounted) {
     return null; // Prevent SSR rendering
@@ -37,8 +38,12 @@ const FirefliesBackground = ({
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
-      style={{ background: 'transparent' }}
+      className="fixed inset-0 pointer-events-none z-10 overflow-hidden"
+      style={{ 
+        background: 'transparent',
+        // Exclude footer area (bottom 10% of screen)
+        clipPath: excludeFooter ? 'inset(0 0 10% 0)' : 'none'
+      }}
     >
       {fireflies.map((firefly) => (
         <motion.div
@@ -65,8 +70,8 @@ const FirefliesBackground = ({
             ],
             y: [
               `${firefly.y}vh`,
-              `${(firefly.y + 12 + Math.random() * 25) % 100}vh`, // Increased movement range
-              `${(firefly.y + 18 + Math.random() * 30) % 100}vh`,
+              `${Math.min((firefly.y + 12 + Math.random() * 25) % (excludeFooter ? 90 : 100), excludeFooter ? 90 : 100)}vh`, // Respect footer boundary
+              `${Math.min((firefly.y + 18 + Math.random() * 30) % (excludeFooter ? 90 : 100), excludeFooter ? 90 : 100)}vh`,
               `${firefly.y}vh`,
             ],
             opacity: [0, firefly.opacity * opacity, firefly.opacity * opacity, 0],
@@ -86,7 +91,7 @@ const FirefliesBackground = ({
         const firefly = {
           id: `large-${i}`,
           x: Math.random() * 100,
-          y: Math.random() * 100,
+          y: Math.random() * (excludeFooter ? 90 : 100), // Respect footer boundary
           initialDelay: Math.random() * 15,
           duration: 15 + Math.random() * 10, // Slower, larger fireflies
           size: size * 1.5 + Math.random() * 2,
@@ -118,8 +123,8 @@ const FirefliesBackground = ({
               ],
               y: [
                 `${firefly.y}vh`,
-                `${(firefly.y + 12 + Math.random() * 20) % 100}vh`,
-                `${(firefly.y + 18 + Math.random() * 25) % 100}vh`,
+                `${Math.min((firefly.y + 12 + Math.random() * 20) % (excludeFooter ? 90 : 100), excludeFooter ? 90 : 100)}vh`,
+                `${Math.min((firefly.y + 18 + Math.random() * 25) % (excludeFooter ? 90 : 100), excludeFooter ? 90 : 100)}vh`,
                 `${firefly.y}vh`,
               ],
               opacity: [0, firefly.opacity * opacity, firefly.opacity * opacity, 0],

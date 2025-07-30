@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Lottie from 'lottie-react';
-import { Lightbulb, Users, TrendingUp } from 'lucide-react';
+import { Lightbulb, Users, TrendingUp, Briefcase } from 'lucide-react';
+import SectionChip from '@/components/ui/section-chip';
 
 const serviceData = [
   {
     lottieAnimation: {
-      src: "https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674ee342eb71924c1a4d04a7_Bulb.json",
+      src: "/lottie/674ee342eb71924c1a4d04a7_Bulb.json",
       loop: true,
       autoplay: true
     },
@@ -35,7 +36,7 @@ const serviceData = [
   },
   {
     lottieAnimation: {
-      src: "https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674ee33f4c5314cf16e99ff2_Mobile%20(1)%20(1).json",
+      src: "/lottie/674ee33f4c5314cf16e99ff2_Mobile%20(1)%20(1).json",
       loop: true,
       autoplay: true
     },
@@ -62,7 +63,7 @@ const serviceData = [
   },
   {
     lottieAnimation: {
-      src: "https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674ee3462354569669929ac7_Brand.json",
+      src: "/lottie/674ee3462354569669929ac7_Brand.json",
       loop: true,
       autoplay: true
     },
@@ -171,9 +172,7 @@ const Services = () => {
           className="text-center mb-16 md:mb-24"
         >
           <div className="inline-block mb-6">
-            <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black">
-              What we do
-            </span>
+            <SectionChip title="What we do" icon={Briefcase} />
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             <span className="relative inline-block">

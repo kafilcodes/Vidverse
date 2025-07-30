@@ -2,18 +2,8 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.prod.website-files.com',
-        port: '',
-        pathname: '**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.prod.website-files.com',
-        port: '',
-        pathname: '**',
-      },
+      // Local images are served directly from public folder
+      // Add other external image domains here if needed
     ],
   },
 };

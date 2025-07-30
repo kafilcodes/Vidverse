@@ -128,31 +128,40 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="relative max-w-6xl mx-auto">
           {/* Decorative SVGs */}
-          <img 
-            src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674fe125968e67a82f575da8_hero_cursors-01.svg" 
-            alt="Decorative Cursor Top Left" 
+          <Image 
+            src="/logo/674fe125968e67a82f575da8_hero_cursors-01.svg" 
+            alt="Content Creator Cursor" 
+            width={60}
+            height={60}
             ref={svg1Ref}
             id="hero-svg-cursor-1" 
-            className="absolute w-28 h-28 top-32 left-4 -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:-translate-x-3/4" 
+            className="absolute w-32 h-32 top-32 left-4 -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:-translate-x-3/4" 
             style={{ zIndex: -1 }}
+            priority={true}
           />
           <div className="hidden md:block absolute top-4 right-4 -translate-y-1/2">
-            <img 
-              src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674fe125e96249102a19409d_hero_cursors-03.svg" 
-              alt="Decorative Cursor Top Right" 
+            <Image 
+              src="/logo/674fe125e96249102a19409d_hero_cursors-03.svg" 
+              alt="Podcast Host Cursor" 
+              width={60}
+              height={60}
               ref={svg2Ref}
               id="hero-svg-cursor-2" 
-              className="pointer-events-none lg:translate-x-3/4 lg:-translate-y-1/4" 
+              className="w-32 h-32 pointer-events-none lg:translate-x-3/4 lg:-translate-y-1/4" 
               style={{ zIndex: -1 }}
+              priority={true}
             />
           </div>
-          <img 
-            src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674fe12675d184828e638da2_hero_cursors-02.svg" 
-            alt="Decorative Cursor Bottom Right" 
+          <Image 
+            src="/logo/674fe12675d184828e638da2_hero_cursors-02.svg" 
+            alt="Entrepreneur Cursor" 
+            width={60}
+            height={60} 
             ref={svg3Ref}
             id="hero-svg-cursor-3" 
-            className="absolute w-28 h-28 bottom-16 right-4 translate-x-1/2 translate-y-1/2 pointer-events-none lg:translate-x-3/4" 
+            className="absolute w-32 h-32 bottom-16 right-4 translate-x-1/2 translate-y-1/2 pointer-events-none lg:translate-x-3/4" 
             style={{ zIndex: -1 }}
+            priority={true}
           />
           
           {/* Original Content Wrapper */}
@@ -164,7 +173,7 @@ const Hero = () => {
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground text-center leading-tight">
             We build organic content engines<br />for <span className="text-gold-shimmer">Entrepreneurs &amp; VCs</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-8">
+          <p className="text-lg font-bold text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-8 text-shimmer">
             We help you build organic distribution, which predictably bring
             more leads and builds trust in your market segment.
           </p>

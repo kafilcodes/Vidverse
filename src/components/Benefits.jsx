@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ShieldCheck } from 'lucide-react';
+import SectionChip from '@/components/ui/section-chip';
 import ScrollStack, { ScrollStackItem } from '../blocks/Components/ScrollStack/ScrollStack';
 import Image from 'next/image';
 
@@ -42,9 +44,7 @@ const Benefits = () => {
       {/* Header Section */}
       <div className="container mx-auto px-4 text-center py-24 md:py-32">
         <div className="flex justify-center mb-4">
-          <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black">
-            Benefits
-          </span>
+          <SectionChip title="Benefits" icon={ShieldCheck} />
         </div>
         <h2 className="text-4xl md:text-5xl font-bold">
           What do you{' '}

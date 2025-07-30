@@ -3,6 +3,8 @@
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { motion } from 'framer-motion';
+import { HelpCircle } from 'lucide-react';
+import SectionChip from '@/components/ui/section-chip';
 import { MessageCircle, ArrowRight, Plus, Minus } from 'lucide-react';
 
 const faqs = [
@@ -56,9 +58,7 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="flex justify-center mb-4">
-            <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black">
-              FAQ
-            </span>
+            <SectionChip title="FAQ" icon={HelpCircle} />
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             <span className="relative inline-block mr-2">
@@ -72,7 +72,7 @@ const FAQ = () => {
           </h2>
           <p className="text-xl text-muted-foreground">
             Get answers to common questions about our <span className="text-gold font-medium">content creation services</span> and approach.
-            <span className="block mt-2 text-sm opacity-80">Can't find what you're looking for? <span className="text-gold underline cursor-pointer">Contact us directly</span></span>
+            <span className="block mt-2 text-sm opacity-80">Can&apos;t find what you&apos;re looking for? <span className="text-gold underline cursor-pointer">Contact us directly</span></span>
           </p>
         </motion.div>
 

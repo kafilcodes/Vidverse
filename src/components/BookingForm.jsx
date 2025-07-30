@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { db } from '@/firebase/config';
 import { ref, set, push, get } from 'firebase/database';
 import PhoneInput from 'react-phone-number-input';
@@ -282,7 +283,7 @@ const BookingForm = () => {
         );      case 2:
         return (
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What's your name?</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What&apos;s your name?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-neutral-300 mb-3 font-grift">
@@ -419,7 +420,7 @@ const BookingForm = () => {
         );      case 6:
         return (
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What's your current monthly revenue?</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What&apos;s your current monthly revenue?</h2>
             <div className="space-y-4">
               {[
                 "Just starting out ($0)",
@@ -608,7 +609,7 @@ const BookingForm = () => {
             <div className="bg-gradient-to-r from-amber-400/20 to-yellow-500/20 border border-amber-400/40 rounded-xl p-6 mb-6 backdrop-blur-sm">
               <h3 className="text-amber-400 font-semibold mb-2 text-lg font-grift">🎉 Congratulations!</h3>
               <p className="text-neutral-300 font-grift">
-                You've qualified for our exclusive Discovery Call. Let's schedule a time that works best for you.
+                You&apos;ve qualified for our exclusive Discovery Call. Let&apos;s schedule a time that works best for you.
               </p>
             </div>
               <div>
@@ -634,7 +635,7 @@ const BookingForm = () => {
                 />
               </div>
               <p className="text-sm text-neutral-400 mt-3 font-grift text-center">
-                Please select a date and time in the next 2 weeks. We'll confirm availability and send you the meeting details.
+                Please select a date and time in the next 2 weeks. We&apos;ll confirm availability and send you the meeting details.
               </p>
             </div>
 
@@ -659,7 +660,7 @@ const BookingForm = () => {
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                  <span className="font-grift">Next steps for implementation (if it's a good fit)</span>
+                  <span className="font-grift">Next steps for implementation (if it&apos;s a good fit)</span>
                 </li>
               </ul>
             </div>
@@ -673,9 +674,11 @@ const BookingForm = () => {
               transition={{ duration: 0.5 }}
               className="mx-auto w-48 h-48 rounded-full overflow-hidden bg-gradient-to-r from-amber-400/20 to-yellow-500/20 p-4 backdrop-blur-sm border border-amber-400/30 shadow-2xl shadow-amber-400/20"
             >
-              <img 
+              <Image 
                 src="/images/success.gif" 
                 alt="Success Animation" 
+                width={192}
+                height={192}
                 className="w-full h-full object-contain"
               />
             </motion.div>
@@ -689,7 +692,7 @@ const BookingForm = () => {
                 Discovery Call Scheduled!
               </h2>
               <p className="text-lg text-neutral-300 max-w-md mx-auto leading-relaxed font-grift">
-                Your Discovery Call has been successfully scheduled! We'll be in touch within 24 hours to confirm your appointment and provide meeting details.
+                Your Discovery Call has been successfully scheduled! We&apos;ll be in touch within 24 hours to confirm your appointment and provide meeting details.
               </p>
             </motion.div>
             
@@ -710,7 +713,7 @@ const BookingForm = () => {
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                  <span className="font-grift">Prepare any questions you'd like to discuss</span>
+                  <span className="font-grift">Prepare any questions you&apos;d like to discuss</span>
                 </li>
               </ul>
             </motion.div>
@@ -750,7 +753,7 @@ const BookingForm = () => {
                 </svg>
               </div>              <h3 className="text-xl font-bold text-white font-grift">Call Already Registered</h3>
               <p className="text-neutral-300 font-grift">
-                You've already placed a discovery call with us. Would you like to update your information with the latest details?
+                You&apos;ve already placed a discovery call with us. Would you like to update your information with the latest details?
               </p>
               <div className="flex space-x-3">
                 <button

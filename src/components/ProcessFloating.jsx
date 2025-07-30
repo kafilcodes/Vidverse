@@ -3,9 +3,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Settings } from 'lucide-react';
 import CardSwap, { Card } from '../blocks/Components/CardSwap/CardSwap';
 import DecryptedText from '../blocks/TextAnimations/DecryptedText/DecryptedText';
 import ShinyText from '../blocks/TextAnimations/ShinyText/ShinyText';
+import SectionChip from '@/components/ui/section-chip';
+import GlareHover from '@/blocks/Animations/GlareHover/GlareHover';
 
 const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
@@ -125,9 +128,8 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-        >          <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black mb-3 inline-block">
-            Our Process
-          </span>
+        >
+          <SectionChip title="Our Process" icon={Settings} className="mb-3" />
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 font-grift">
             Simple{' '}
             <span className="relative inline-block">
@@ -255,35 +257,53 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
                   key={step.id}
                   className="bg-gradient-to-br from-neutral-900 to-black border-amber-400/30 backdrop-blur-xl cursor-pointer hover:border-amber-400/60 transition-all duration-500"
                   customClass="shadow-2xl shadow-amber-400/10"
-                >                  <div className="p-6 h-full flex flex-col justify-between">                    {/* Card Header */}
-                    <div className="text-center mb-6">
-                      <div className="relative w-32 h-32 mx-auto mb-5 flex items-center justify-center">
-                        <span className="text-8xl font-black font-grift relative z-10 bg-gradient-to-b from-amber-400 from-0% via-amber-400 via-45% via-amber-400/20 via-65% to-transparent to-100% bg-clip-text text-transparent">
-                          {step.step}
-                        </span>
+                >
+                  <GlareHover
+                    width="100%"
+                    height="100%"
+                    background="transparent"
+                    borderRadius="1rem"
+                    borderColor="transparent"
+                    glareColor="#ffffff"
+                    glareOpacity={0.25}
+                    glareAngle={-40}
+                    glareSize={320}
+                    transitionDuration={650}
+                    playOnce={false}
+                    className="w-full h-full border-0"
+                    style={{ border: 'none', background: 'transparent' }}
+                  >
+                    <div className="p-6 h-full flex flex-col justify-between">
+                      {/* Card Header */}
+                      <div className="text-center mb-6">
+                        <div className="relative w-32 h-32 mx-auto mb-5 flex items-center justify-center">
+                          <span className="text-8xl font-black font-grift relative z-10 bg-gradient-to-b from-amber-400 from-0% via-amber-400 via-45% via-amber-400/20 via-65% to-transparent to-100% bg-clip-text text-transparent">
+                            {step.step}
+                          </span>
+                        </div>
+                        <h4 className="text-3xl font-black text-white mb-4 font-grift tracking-tight leading-tight">
+                          {step.heading}
+                        </h4>
+                        <div className="w-24 h-px bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 mx-auto"></div>
                       </div>
-                      <h4 className="text-3xl font-black text-white mb-4 font-grift tracking-tight leading-tight">
-                        {step.heading}
-                      </h4>
-                      <div className="w-24 h-px bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 mx-auto"></div>
-                    </div>
 
-                    {/* Card Content - Image */}
-                    <div className="flex-1 flex flex-col justify-center items-center">
-                      <div className="relative w-48 h-48 flex items-center justify-center">
-                        <Image
-                          src={step.image}
-                          alt={step.heading}
-                          width={192}
-                          height={192}
-                          className="object-contain w-full h-full opacity-90"
-                          style={{
-                            filter: 'brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1200%) hue-rotate(25deg) brightness(130%) drop-shadow(0 0 20px rgba(251, 191, 36, 0.8))'
-                          }}
-                        />
+                      {/* Card Content - Image */}
+                      <div className="flex-1 flex flex-col justify-center items-center">
+                        <div className="relative w-48 h-48 flex items-center justify-center">
+                          <Image
+                            src={step.image}
+                            alt={step.heading}
+                            width={192}
+                            height={192}
+                            className="object-contain w-full h-full opacity-90"
+                            style={{
+                              filter: 'brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1200%) hue-rotate(25deg) brightness(130%) drop-shadow(0 0 20px rgba(251, 191, 36, 0.8))'
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </GlareHover>
                 </Card>
               ))}
             </CardSwap>

@@ -1,7 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+const { mtConfig } = require("@material-tailwind/react");
+
 module.exports = {
   darkMode: ["class"],
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@material-tailwind/react/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
     container: {
       center: true,
@@ -77,6 +82,14 @@ module.exports = {
           "0%": { "background-position": "100%" },
           "100%": { "background-position": "-100%" },
         },
+        'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        },
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+        },
       },
       backgroundImage: theme => ({
         'gradient-gold': 'var(--accent-gold-gradient)',
@@ -89,8 +102,10 @@ module.exports = {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "spin-slow": "spin 8s linear infinite",
         "shine": "shine 5s linear infinite",
+        'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+        'star-movement-top': 'star-movement-top linear infinite alternate',
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/line-clamp")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/line-clamp"), mtConfig],
 };

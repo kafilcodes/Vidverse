@@ -2,13 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { db } from '@/firebase/config';
 import { ref, set, push } from 'firebase/database';
 import PhoneInput from 'react-phone-number-input';
 import DatePicker from 'react-datepicker';
 import { Toaster, toast } from 'react-hot-toast';
-import { Check, ArrowRight, User, Mail, Link as LinkIcon, DollarSign, Zap, Briefcase, Building, BarChart2, AlertTriangle, Calendar as CalendarIcon } from 'lucide-react';
+import { Check, ArrowRight, User, Mail, Link as LinkIcon, DollarSign, Zap, Briefcase, Building, BarChart2, AlertTriangle, Calendar as CalendarIcon, Phone } from 'lucide-react';
 import Stepper, { Step } from '../blocks/Components/Stepper/Stepper';
+import SectionChip from '@/components/ui/section-chip';
 import 'react-phone-number-input/style.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../app/datepicker-custom.css';
@@ -195,9 +197,9 @@ const BookingForm = () => {
             className="text-center py-10"
           >
             <div className="text-center flex flex-col items-center justify-center h-full">
-              <img src="/images/success.gif" alt="Success" className="w-40 h-40 mb-4" />
+              <Image src="/images/success.gif" alt="Success" width={160} height={160} className="mb-4" />
               <h3 className="text-2xl font-bold text-white mt-4">Discovery Call Scheduled!</h3>
-              <p className="text-neutral-400 mt-2">We'll be in touch shortly to confirm the details.</p>
+              <p className="text-neutral-400 mt-2">We&apos;ll be in touch shortly to confirm the details.</p>
             </div>
           </motion.div>
         </div>
@@ -211,12 +213,10 @@ const BookingForm = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
-            <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black">
-              Discovery Call
-            </span>
+            <SectionChip title="Discovery Call" icon={Phone} />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-tight">
-            Let's Understand Your{' '}
+            Let&apos;s Understand Your{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
                 Growth Goals
@@ -294,7 +294,7 @@ const BookingForm = () => {
           <Step>
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <User className="mr-3 text-amber-400" size={28} />
-              What's your name?
+              What&apos;s your name?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -463,7 +463,7 @@ const BookingForm = () => {
           <Step>
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
               <BarChart2 className="mr-3 text-amber-400" size={28} />
-              What's your current average monthly revenue?
+              What&apos;s your current average monthly revenue?
             </h3>
             <div className="space-y-4">
               {['Under $10K', '$10K - $50K', '$50K - $100K', '$100K - $500K', '$500K+'].map(option => (
@@ -583,7 +583,7 @@ const BookingForm = () => {
               A quick heads-up...
             </h3>
             <div className="bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 p-6 rounded-xl space-y-4 text-neutral-300 backdrop-blur-sm mb-6">
-              <p className="leading-relaxed">This is a strategy call to see if we're a good fit. We'll explore your goals and see how our system can help you achieve them.</p>
+              <p className="leading-relaxed">This is a strategy call to see if we&apos;re a good fit. We&apos;ll explore your goals and see how our system can help you achieve them.</p>
               <p className="leading-relaxed">This is NOT a free coaching call. Please only book if you are serious about growing your brand with a dedicated partner.</p>
             </div>
             <div>
@@ -664,7 +664,7 @@ const BookingForm = () => {
               <CalendarIcon className="mr-3 text-amber-400" size={28} />
               Schedule Your Call
             </h3>
-            <p className="text-neutral-400 mb-6">Select a date and time that works for you. We'll send a calendar invite to confirm.</p>
+            <p className="text-neutral-400 mb-6">Select a date and time that works for you. We&apos;ll send a calendar invite to confirm.</p>
             <div className="bg-gradient-to-br from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 p-6 rounded-xl flex justify-center backdrop-blur-sm">
               <DatePicker
                 selected={formData.meetingTime}

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Twitter, Linkedin, Navigation, Mail, Phone, MapPin, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -26,9 +27,11 @@ const Footer = () => {
           {/* Logo and Tagline */}
           <div className="md:col-span-1">
             <div className="flex items-center space-x-3 mb-3">
-              <img 
+              <Image 
                 src="/logo/vidverse-icon.png" 
                 alt="VidVerse Logo" 
+                width={32}
+                height={32}
                 className="w-8 h-8"
               />
               <h2 className="text-2xl font-bold text-white">VidVerse</h2>

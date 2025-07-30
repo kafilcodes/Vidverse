@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Loader, VolumeX, Volume2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader, VolumeX, Volume2, Folder } from 'lucide-react';
+import SectionChip from '@/components/ui/section-chip';
 
 // Component to load Wistia external script
 const WistiaScriptLoader = () => {
@@ -411,9 +412,7 @@ const Portfolio = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="flex justify-center mb-4">
-            <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black">
-              Portfolio
-            </span>
+            <SectionChip title="Portfolio" icon={Folder} />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-tight">
             Videos that make your brand spread like{' '}

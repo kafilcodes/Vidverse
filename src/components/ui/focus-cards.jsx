@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export const Card = React.memo(
@@ -13,7 +14,7 @@ export const Card = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
-      <img src={card.src} alt={card.title} className="object-cover absolute inset-0 w-full h-full" />
+      <Image src={card.src} alt={card.title} fill className="object-cover" />
       <div
         className={cn(
           "absolute inset-0 bg-black/50 flex items-end py-8 px-4 transition-opacity duration-300",

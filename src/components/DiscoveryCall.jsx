@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Phone } from 'lucide-react';
 import BookingForm from './BookingForm';
+import SectionChip from '@/components/ui/section-chip';
 
 const DiscoveryCall = () => {
   return (
@@ -14,10 +16,9 @@ const DiscoveryCall = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-        >          <div className="inline-block mb-4">
-            <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black">
-              Discovery Call
-            </span>
+        >
+          <div className="inline-block mb-4">
+            <SectionChip title="Discovery Call" icon={Phone} />
           </div>
           
           {/* Main Title with Underline */}          <motion.h2 

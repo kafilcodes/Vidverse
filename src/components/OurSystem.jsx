@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Zap } from 'lucide-react';
+import SectionChip from '@/components/ui/section-chip';
 
 const OurSystem = () => {
   return (    <section className="relative py-24 md:py-40 overflow-hidden bg-black min-h-screen flex items-center justify-center">
@@ -23,14 +25,12 @@ const OurSystem = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-block mb-6">
-                <span className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black">
-                  Our System
-                </span>
+                <SectionChip title="Our System" icon={Zap} />
               </div>              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 Turn 1 Hour of Recording into a{' '}
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-extrabold">
-                    Month's Worth
+                    Month&apos;s Worth
                   </span>
                   <motion.div
                     className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
@@ -70,7 +70,7 @@ const OurSystem = () => {
             >
               <div className="relative w-[420px] h-[420px]">
                 <Image
-                  src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674ea9799973eeed9e76a540_system-circle-gradient.svg"
+                  src="/logo/674ea9799973eeed9e76a540_system-circle-gradient.svg"
                   alt="System gradient ring"
                   fill
                   className="object-contain opacity-80"
@@ -168,11 +168,12 @@ const OurSystem = () => {
                       }}
                     >
                       <Image 
-                        src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674d273e492320f3e4d835dd_instagram.svg" 
+                        src="/logo/674d273e492320f3e4d835dd_instagram.svg" 
                         alt="Instagram" 
                         width={40} 
                         height={40} 
                         className="object-contain" 
+                        priority={true}
                       />
                     </motion.div>
                   </motion.div>
@@ -213,11 +214,12 @@ const OurSystem = () => {
                       }}
                     >
                       <Image 
-                        src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674d273e7de957e87e677640_tiktok.svg" 
+                        src="/logo/674d273e7de957e87e677640_tiktok.svg" 
                         alt="TikTok" 
                         width={40} 
                         height={40} 
                         className="object-contain" 
+                        priority={true}
                       />
                     </motion.div>
                   </motion.div>
@@ -264,11 +266,12 @@ const OurSystem = () => {
                       }}
                     >
                       <Image 
-                        src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/6745db0a9aae899eee24e727_youtube.svg" 
+                        src="/logo/6745db0a9aae899eee24e727_youtube.svg" 
                         alt="YouTube" 
                         width={40} 
                         height={40} 
                         className="object-contain" 
+                        priority={true}
                       />
                     </motion.div>
                   </motion.div>
@@ -308,11 +311,12 @@ const OurSystem = () => {
                       }}
                     >
                       <Image 
-                        src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674d273e937227cf14ad3000_linkedin.svg" 
+                        src="/logo/674d273e937227cf14ad3000_linkedin.svg" 
                         alt="LinkedIn" 
                         width={40} 
                         height={40} 
                         className="object-contain" 
+                        priority={true}
                       />
                     </motion.div>
                   </motion.div>
@@ -358,11 +362,12 @@ const OurSystem = () => {
                       }}
                     >
                       <Image 
-                        src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674fe6b4e710d3afc18a4dc5_spotify.svg" 
+                        src="/logo/674fe6b4e710d3afc18a4dc5_spotify.svg" 
                         alt="Spotify" 
                         width={40} 
                         height={40} 
                         className="object-contain" 
+                        priority={true}
                       />
                     </motion.div>
                   </motion.div>
@@ -399,11 +404,12 @@ const OurSystem = () => {
                       }}
                     >
                       <Image 
-                        src="https://cdn.prod.website-files.com/67416bf9ad9706da53302213/674fe6b4e5f27258b7e169d3_apple-podcasts.png" 
+                        src="/logo/674fe6b4e5f27258b7e169d3_apple-podcasts.png" 
                         alt="Apple Podcasts" 
                         width={40} 
                         height={40} 
                         className="object-contain" 
+                        priority={true}
                       />
                     </motion.div>
                   </motion.div>                </motion.div>
