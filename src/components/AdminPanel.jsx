@@ -108,7 +108,7 @@ const Sidebar = ({ activeTab, setActiveTab, isOpen, setOpen }) => (
     <div>
       <div className="flex items-center justify-between mb-10 px-2">
         <div className="flex items-center gap-3">
-          <Image src="/logo/vidverse-icon.png" alt="VidVerse Logo" width={32} height={32} />
+          <Image src="/logo/vidverse.svg"  alt="VidVerse Logo" width={32} height={32} />
           <span className="text-xl font-bold text-white">Admin</span>
         </div>
         <button onClick={() => setOpen(false)} className="md:hidden text-neutral-400 hover:text-gold-DEFAULT transition-colors">

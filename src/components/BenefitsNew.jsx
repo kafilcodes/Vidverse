@@ -20,7 +20,7 @@ const benefitsData = [
   {
     id: 'card-2',
     title: 'Lifetime asset',
-    subtitle: 'Build a lifetime asset of organic distribution in just 1 hour a week',
+    subtitle: 'Build a lifetime organic distribution system that keeps working for you',
     outcome: 'Perpetual Growth Engine',
     number: '2',
     icon: '/logo/lifetime asset.svg'
@@ -39,7 +39,7 @@ const benefitsData = [
     subtitle: 'Our backend systems not only get you views but consistent organic leads',
     outcome: 'Predictable Revenue Stream',
     number: '4',
-    icon: '/logo/growth-svgrepo-com.svg'
+    icon: '/logo/Consistent leads & sales.svg'
   }
 ];
 
@@ -47,21 +47,55 @@ const Benefits = () => {
   const benefitsSectionRef = useRef(null);
 
   return (
-    <section id="benefits" className="relative" ref={benefitsSectionRef}>
-      {/* Header Section - Normal Page Flow */}
-      <div className="relative bg-black text-white py-12 md:py-16 pb-4 md:pb-6">
-        <div className="absolute inset-0 bg-[url('/images/grain.png')] opacity-5"></div>
+    <section id="benefits" className="relative overflow-hidden" ref={benefitsSectionRef}>
+
+       <div className="absolute inset-0 pointer-events-none z-[-1]">
+      
+              {/* BG ICONS BENEFITS SECTION - Large SVG */}
+              <Image
+                src="/bg-icons/6745d59d7487a3832bc141de_element-on-benefits.svg"
+                width={700}
+                height={700}
+                className="absolute -bottom-50  -left-50 opacity-70 scale-130 hidden md:block"
+                alt=""
+                priority={false}
+              />
+                 {/* BG ICONS BENEFITS SECTION - Large SVG */}
+              <Image
+                src="/bg-icons/6745d59d7487a3832bc141de_element-on-benefits.svg"
+                width={700}
+                height={700}
+                className="absolute -top-50  -right-50 opacity-70 scale-130 hidden md:block"
+                alt=""
+                priority={false}
+              />
+
+              </div>
+      
+   
+      
+      
+      <div className="relative bg-transparent text-white py-12 md:py-16 pb-4 md:pb-6">
+        
+        
+        
+       
         
         <div className="container mx-auto px-4 text-center">
+          
+          
           <div className="flex justify-center mb-4">
+            
             <SectionChip title="Benefits" icon={Award} />
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-relaxed">
+            
             What do you{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
                 get?
               </span>
+              
               <motion.div
                 className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
                 initial={{ width: 0 }}
@@ -74,13 +108,14 @@ const Benefits = () => {
           <p className="text-neutral-300 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-0">
             Discover the powerful benefits that come with our comprehensive video content system
           </p>
+          
         </div>
       </div>
 
       {/* ScrollStack Section - Normal flow, no hijacking */}
-      <div className="relative w-full bg-black pt-4 pb-8">
+      <div className="relative w-full bg-transparent pt-4 pb-8">
         <ScrollStack
-          className="w-full bg-black"
+          className="w-full bg-transparent"
           itemDistance={40}
           itemScale={0.05}
           itemStackDistance={30}

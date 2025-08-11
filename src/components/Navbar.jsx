@@ -97,7 +97,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between bg-black/20 backdrop-blur-lg border border-white/10 hover:border-gold rounded-2xl shadow-lg px-3 py-1.5 max-w-xl mx-auto transition-all duration-300">
           <div className="text-2xl font-bold">
             <Link href="/" className="flex items-center">
-              <Image src="/logo/vidverse-icon.png" alt="VidVerse Logo" width={32} height={32} className="h-8 w-8 mr-2" />
+              <Image src="/logo/vidverse.svg" alt="VidVerse Logo" width={32} height={32} className="h-8 w-8 mr-2" />
               <span className="text-xl font-semibold text-shimmer">VidVerse</span>
             </Link>
           </div>

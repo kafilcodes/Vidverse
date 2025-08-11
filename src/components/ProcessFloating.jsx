@@ -10,7 +10,8 @@ import ShinyText from '../blocks/TextAnimations/ShinyText/ShinyText';
 import SectionChip from '@/components/ui/section-chip';
 import GlareHover from '@/blocks/Animations/GlareHover/GlareHover';
 
-const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = useState(0);
+const ProcessFloating = () => {
+  const [frontCardIndex, setFrontCardIndex] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
   const sectionRef = useRef(null);
@@ -28,7 +29,7 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
     },
     {
       id: 2,
-      step: "02", 
+      step: "02",
       heading: "Content Design",
       description: "Consistency means trust and with a solid foundation we will design the visual guidelines for editing your content. This builds authority and trust already warranted by your expertise. Already have a brand? We will build a complimentary visual identity specific to videos.",
       output: "Visual identity",
@@ -37,8 +38,8 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
     {
       id: 3,
       step: "03",
-      heading: "Pre-Production", 
-      description: "This is where you invest 1 hour a week and record a podcast with an industry expert, interview with our team, or record long-form videos from the scripts we send. No overthinking, no confusion - Always create with confidence.",
+      heading: "Pre-Production",
+      description: "This is where you invest 1 hour a week and record a content with an industry expert, interview with our team, or record long-form videos from the scripts we send. No overthinking, no confusion - Always create with confidence.",
       output: "Systematic scheduling process",
       image: "/images/3.png"
     },
@@ -68,32 +69,32 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
     }
   };  // Simple viewport detection - only start when in view, let it run normally
   useEffect(() => {
-    const observer = new IntersectionObserver(      (entries) => {
-        entries.forEach((entry) => {
-          const isVisible = entry.isIntersecting;
-          
-          console.log('Viewport status:', isVisible ? 'visible' : 'hidden');
-          
-          // Only start once when first coming into view
-          if (isVisible && !hasStarted) {
-            console.log('Section in view - starting animation');
-            setHasStarted(true);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const isVisible = entry.isIntersecting;
+
+        console.log('Viewport status:', isVisible ? 'visible' : 'hidden');
+
+        // Only start once when first coming into view
+        if (isVisible && !hasStarted) {
+          console.log('Section in view - starting animation');
+          setHasStarted(true);
+        }
+
+        // Simple pause/resume - don't reset, just pause/resume
+        if (!isVisible && hasStarted) {
+          console.log('Section out of view - pausing');
+          if (cardSwapRef.current && cardSwapRef.current.stopSwapping) {
+            cardSwapRef.current.stopSwapping();
           }
-          
-          // Simple pause/resume - don't reset, just pause/resume
-          if (!isVisible && hasStarted) {
-            console.log('Section out of view - pausing');
-            if (cardSwapRef.current && cardSwapRef.current.stopSwapping) {
-              cardSwapRef.current.stopSwapping();
-            }
-          } else if (isVisible && hasStarted) {
-            console.log('Section back in view - resuming');
-            if (cardSwapRef.current && cardSwapRef.current.startSwapping) {
-              cardSwapRef.current.startSwapping();
-            }
+        } else if (isVisible && hasStarted) {
+          console.log('Section back in view - resuming');
+          if (cardSwapRef.current && cardSwapRef.current.startSwapping) {
+            cardSwapRef.current.startSwapping();
           }
-        });
-      },
+        }
+      });
+    },
       {
         threshold: 0.3, // 30% visibility to trigger
         rootMargin: '50px' // Give some margin
@@ -102,7 +103,7 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
-    }    return () => {
+    } return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
@@ -114,15 +115,37 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
     console.log('ProcessFloating state - frontCardIndex:', frontCardIndex, 'hasStarted:', hasStarted);
   }, [frontCardIndex, hasStarted]);
 
-  return (    <section 
-      ref={sectionRef}
-      id="process" 
-      className="relative py-6 md:py-10 overflow-visible bg-black min-h-screen"
-    >
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <motion.div 
+  return (<section
+    ref={sectionRef}
+    id="process"
+    className="relative py-6 md:py-10 overflow-visible bg-black min-h-screen"
+  >
+    {/* Background Icons Layer - Lowest z-index */}
+    <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
+      {/* BG ICONS WHAT IT TAKES SECTION - Bottom Left */}
+       <Image
+        src="/bg-icons/6745d75956c46a6d91974d81_card-bg-element-top.svg"
+        width={900}
+        height={900}
+        className="absolute -bottom-20 -right-1 opacity-50 rotate-90 "
+        alt=""
+        priority={false}
+      />
+      <Image
+        src="/bg-icons/6745d75956c46a6d91974d81_card-bg-element-top.svg"
+        width={900}
+        height={900}
+        className="absolute top-10 -left-10 opacity-50 rotate-270 "
+        alt=""
+        priority={false}
+      />
+
+
+    </div>
+    <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+        <motion.div
           className="text-center mb-1"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,187 +153,188 @@ const ProcessFloating = () => {  const [frontCardIndex, setFrontCardIndex] = use
           transition={{ duration: 0.8 }}
         >
           <SectionChip title="Our Process" icon={Settings} className="mb-3" />
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 font-grift">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 font-grift leading-relaxed">
             Simple{' '}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
-                5-step process
-              </span>
-              <motion.div
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
-                initial={{ width: 0 }}
-                whileInView={{ width: '100%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
+          <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
+            5-step process
+          </span>
+          <motion.div
+            className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: '100%' }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
             </span>{' '}
-            to make your brand{' '}
+            to make <br />
+            your brand{' '}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
-                Go Big!
-              </span>
-              <motion.div
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
-                initial={{ width: 0 }}
-                whileInView={{ width: '100%' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.8 }}
-              />
+          <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
+            Go Big!
+          </span>
+          <motion.div
+            className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: '100%' }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.8 }}
+          />
             </span>
           </h2>        </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-7 items-center min-h-[76vh]">
-          
-          {/* Left Side - Dynamic Text Content */}
-          <motion.div 
-            className="space-y-8 font-grift max-w-2xl"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >            {/* Step Number and Progress Bar */}
-            <div className="flex items-center space-x-6 mb-8">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 flex items-center justify-center flex-shrink-0">
-                <span className="text-3xl font-bold text-black font-grift">
-                  {processSteps[frontCardIndex]?.step || processSteps[0]?.step || "01"}
-                </span>
-              </div>
-              
-              <div className="flex-1 relative">
-                <div className="h-0.5 bg-gradient-to-r from-amber-400/30 via-amber-300/30 to-yellow-400/30 rounded-full"></div>                <motion.div 
-                  key={`progress-${progressKey}-${frontCardIndex}`}
-                  className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: hasStarted ? '100%' : 0 }}
-                  transition={{ 
-                    duration: hasStarted ? (frontCardIndex === 0 ? 8 : 7) : 0, // 8s for first step, 7s for others
-                    ease: "linear",
-                    delay: 0
-                  }}
-                />
-              </div>
-            </div>            {/* Heading with Decrypted Text Animation */}
-            <div className="mb-8">
-              <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-wide font-grift">
-                <DecryptedText
-                  key={`heading-${frontCardIndex}`}
-                  text={processSteps[frontCardIndex]?.heading || processSteps[0]?.heading || "Loading..."}
-                  animateOn="view"
-                  speed={80}
-                  maxIterations={1}
-                  sequential={true}
-                  useOriginalCharsOnly={true}
-                  revealDirection="start"
-                  className="text-white"
-                  encryptedClassName="text-amber-400/30"
-                />
-              </h3>
-            </div>            {/* Description with ShinyText */}
-            <div className="mb-8">
-              <div className="text-lg md:text-xl text-neutral-300 leading-loose tracking-wide font-grift max-w-none">
-                <ShinyText
-                  key={`description-${frontCardIndex}`}
-                  text={processSteps[frontCardIndex]?.description || processSteps[0]?.description || "Loading..."}
-                  disabled={false}
-                  speed={3}
-                  className="text-neutral-300"
-                />
-              </div>
-            </div>            {/* Output Badge */}
-            <div className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-black/80 to-neutral-900/80 border border-amber-400/50 backdrop-blur-sm shadow-lg shadow-amber-400/10">
-              <span className="text-amber-400 font-medium font-grift text-base tracking-wide">Output: </span>
-              <span className="text-amber-400 font-bold ml-3 font-grift text-base tracking-wide">
-                <ShinyText
-                  key={`output-${frontCardIndex}`}
-                  text={processSteps[frontCardIndex]?.output || processSteps[0]?.output || "Loading..."}
-                  disabled={false}
-                  speed={3}
-                  className="text-amber-400 font-bold"
-                />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-7 items-center min-h-[76vh]">
+
+        {/* Left Side - Dynamic Text Content */}
+        <motion.div
+          className="space-y-8 font-grift max-w-2xl"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >            {/* Step Number and Progress Bar */}
+          <div className="flex items-center space-x-6 mb-8">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 flex items-center justify-center flex-shrink-0">
+              <span className="text-3xl font-bold text-black font-grift">
+                {processSteps[frontCardIndex]?.step || processSteps[0]?.step || "01"}
               </span>
             </div>
-          </motion.div>          {/* Right Side - CardSwap Component */}
-          <motion.div 
-            className="relative h-[79vh] flex items-center justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <CardSwap
-              ref={cardSwapRef}
-              width={460}
-              height={560}
-              cardDistance={50}
-              verticalDistance={60}
-              delay={7000}
-              firstSwapDelay={8000} // Give Step 1 full 8 seconds
-              autoStart={hasStarted}
-              onSwap={handleCardSwap}
-              pauseOnHover={false}
-              skewAmount={4}
-              easing="power1.inOut"
-            >
-              {processSteps.map((step, index) => (
-                <Card
-                  key={step.id}
-                  className="bg-gradient-to-br from-neutral-900 to-black border-amber-400/30 backdrop-blur-xl cursor-pointer hover:border-amber-400/60 transition-all duration-500"
-                  customClass="shadow-2xl shadow-amber-400/10"
-                >
-                  <GlareHover
-                    width="100%"
-                    height="100%"
-                    background="transparent"
-                    borderRadius="1rem"
-                    borderColor="transparent"
-                    glareColor="#ffffff"
-                    glareOpacity={0.25}
-                    glareAngle={-40}
-                    glareSize={320}
-                    transitionDuration={650}
-                    playOnce={false}
-                    className="w-full h-full border-0"
-                    style={{ border: 'none', background: 'transparent' }}
-                  >
-                    <div className="p-6 h-full flex flex-col justify-between">
-                      {/* Card Header */}
-                      <div className="text-center mb-6">
-                        <div className="relative w-32 h-32 mx-auto mb-5 flex items-center justify-center">
-                          <span className="text-8xl font-black font-grift relative z-10 bg-gradient-to-b from-amber-400 from-0% via-amber-400 via-45% via-amber-400/20 via-65% to-transparent to-100% bg-clip-text text-transparent">
-                            {step.step}
-                          </span>
-                        </div>
-                        <h4 className="text-3xl font-black text-white mb-4 font-grift tracking-tight leading-tight">
-                          {step.heading}
-                        </h4>
-                        <div className="w-24 h-px bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 mx-auto"></div>
-                      </div>
 
-                      {/* Card Content - Image */}
-                      <div className="flex-1 flex flex-col justify-center items-center">
-                        <div className="relative w-48 h-48 flex items-center justify-center">
-                          <Image
-                            src={step.image}
-                            alt={step.heading}
-                            width={192}
-                            height={192}
-                            className="object-contain w-full h-full opacity-90"
-                            style={{
-                              filter: 'brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1200%) hue-rotate(25deg) brightness(130%) drop-shadow(0 0 20px rgba(251, 191, 36, 0.8))'
-                            }}
-                          />
-                        </div>
+            <div className="flex-1 relative">
+              <div className="h-0.5 bg-gradient-to-r from-amber-400/30 via-amber-300/30 to-yellow-400/30 rounded-full"></div>                <motion.div
+                key={`progress-${progressKey}-${frontCardIndex}`}
+                className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: hasStarted ? '100%' : 0 }}
+                transition={{
+                  duration: hasStarted ? (frontCardIndex === 0 ? 8 : 7) : 0, // 8s for first step, 7s for others
+                  ease: "linear",
+                  delay: 0
+                }}
+              />
+            </div>
+          </div>            {/* Heading with Decrypted Text Animation */}
+          <div className="mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-wide font-grift">
+              <DecryptedText
+                key={`heading-${frontCardIndex}`}
+                text={processSteps[frontCardIndex]?.heading || processSteps[0]?.heading || "Loading..."}
+                animateOn="view"
+                speed={80}
+                maxIterations={1}
+                sequential={true}
+                useOriginalCharsOnly={true}
+                revealDirection="start"
+                className="text-white"
+                encryptedClassName="text-amber-400/30"
+              />
+            </h3>
+          </div>            {/* Description with ShinyText */}
+          <div className="mb-8">
+            <div className="text-lg md:text-xl text-neutral-300 leading-loose tracking-wide font-grift max-w-none">
+              <ShinyText
+                key={`description-${frontCardIndex}`}
+                text={processSteps[frontCardIndex]?.description || processSteps[0]?.description || "Loading..."}
+                disabled={false}
+                speed={3}
+                className="text-neutral-300"
+              />
+            </div>
+          </div>            {/* Output Badge */}
+          <div className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-black/80 to-neutral-900/80 border border-amber-400/50 backdrop-blur-sm shadow-lg shadow-amber-400/10">
+            <span className="text-amber-400 font-medium font-grift text-base tracking-wide">Output: </span>
+            <span className="text-amber-400 font-bold ml-3 font-grift text-base tracking-wide">
+              <ShinyText
+                key={`output-${frontCardIndex}`}
+                text={processSteps[frontCardIndex]?.output || processSteps[0]?.output || "Loading..."}
+                disabled={false}
+                speed={3}
+                className="text-amber-400 font-bold"
+              />
+            </span>
+          </div>
+        </motion.div>          {/* Right Side - CardSwap Component */}
+        <motion.div
+          className="relative h-[79vh] flex items-center justify-center"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <CardSwap
+            ref={cardSwapRef}
+            width={460}
+            height={560}
+            cardDistance={50}
+            verticalDistance={60}
+            delay={7000}
+            firstSwapDelay={8000} // Give Step 1 full 8 seconds
+            autoStart={hasStarted}
+            onSwap={handleCardSwap}
+            pauseOnHover={false}
+            skewAmount={4}
+            easing="power1.inOut"
+          >
+            {processSteps.map((step, index) => (
+              <Card
+                key={step.id}
+                className="bg-gradient-to-br from-neutral-900 to-black border-amber-400/30 backdrop-blur-xl cursor-pointer hover:border-amber-400/60 transition-all duration-500"
+                customClass="shadow-2xl shadow-amber-400/10"
+              >
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  background="transparent"
+                  borderRadius="1rem"
+                  borderColor="transparent"
+                  glareColor="#ffffff"
+                  glareOpacity={0.25}
+                  glareAngle={-40}
+                  glareSize={320}
+                  transitionDuration={650}
+                  playOnce={false}
+                  className="w-full h-full border-0"
+                  style={{ border: 'none', background: 'transparent' }}
+                >
+                  <div className="p-6 h-full flex flex-col justify-between">
+                    {/* Card Header */}
+                    <div className="text-center mb-6">
+                      <div className="relative w-32 h-32 mx-auto mb-5 flex items-center justify-center">
+                        <span className="text-8xl font-black font-grift relative z-10 bg-gradient-to-b from-amber-400 from-0% via-amber-400 via-45% via-amber-400/20 via-65% to-transparent to-100% bg-clip-text text-transparent">
+                          {step.step}
+                        </span>
+                      </div>
+                      <h4 className="text-3xl font-black text-white mb-4 font-grift tracking-tight leading-tight">
+                        {step.heading}
+                      </h4>
+                      <div className="w-24 h-px bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 mx-auto"></div>
+                    </div>
+
+                    {/* Card Content - Image */}
+                    <div className="flex-1 flex flex-col justify-center items-center">
+                      <div className="relative w-48 h-48 flex items-center justify-center">
+                        <Image
+                          src={step.image}
+                          alt={step.heading}
+                          width={192}
+                          height={192}
+                          className="object-contain w-full h-full opacity-90"
+                          style={{
+                            filter: 'brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1200%) hue-rotate(25deg) brightness(130%) drop-shadow(0 0 20px rgba(251, 191, 36, 0.8))'
+                          }}
+                        />
                       </div>
                     </div>
-                  </GlareHover>
-                </Card>
-              ))}
-            </CardSwap>
-          </motion.div>
-        </div>
+                  </div>
+                </GlareHover>
+              </Card>
+            ))}
+          </CardSwap>
+        </motion.div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 

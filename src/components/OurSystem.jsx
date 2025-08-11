@@ -8,6 +8,28 @@ import SectionChip from '@/components/ui/section-chip';
 
 const OurSystem = () => {
   return (    <section className="relative py-24 md:py-40 overflow-hidden bg-black min-h-screen flex items-center justify-center">
+    {/* Background Icons Layer - Lowest z-index */}
+        <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
+          {/* BG ICONS WHAT IT TAKES SECTION - Bottom Left */}
+           <Image
+            src="/bg-icons/675290c78101ac77f602fa40_system-shapes-01.svg"
+            width={800}
+            height={800}
+            className="absolute -bottom-50 -right-90 opacity-50 "
+            alt=""
+            priority={false}
+          />
+          <Image
+            src="/bg-icons/675290c850a93f05b4716e44_system-shapes-02.svg"
+            width={800}
+            height={800}
+            className="absolute -top-60 -left-60 opacity-50  "
+            alt=""
+            priority={false}
+          />
+    
+    
+        </div>
       {/* AMOLED Black background with subtle golden glow effects */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-gold-light/5 to-gold-dark/5 rounded-full blur-3xl animate-pulse-slow" />
@@ -26,7 +48,7 @@ const OurSystem = () => {
             >
               <div className="inline-block mb-6">
                 <SectionChip title="Our System" icon={Zap} />
-              </div>              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              </div>              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-relaxed mb-6">
                 Turn 1 Hour of Recording into a{' '}
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-extrabold">
@@ -59,7 +81,7 @@ const OurSystem = () => {
           </div>
 
           {/* Right Visual - Orbital Solar System */}
-          <div className="relative flex items-center justify-center h-[600px] md:h-[700px] order-1 md:order-2">
+          <div className="relative flex items-center justify-center h-[00px] md:h-[700px] order-1 md:order-2">
             {/* Background gradient circle */}
             <motion.div 
               className="absolute inset-0 flex items-center justify-center pointer-events-none"

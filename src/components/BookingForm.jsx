@@ -36,8 +36,18 @@ const BookingForm = () => {
 
   useEffect(() => {
     fetch('/lottie/success.json')
-      .then((response) => response.json())
-      .then((data) => setAnimationData(data));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => setAnimationData(data))
+      .catch((error) => {
+        console.warn('Failed to load lottie animation:', error);
+        // Set a fallback or continue without animation
+        setAnimationData(null);
+      });
   }, []);
 
   useEffect(() => {

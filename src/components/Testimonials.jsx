@@ -13,27 +13,27 @@ const testimonialsData = [
   {
     name: 'Insane Curiosity',
     image: '/images/Insane Curiosity.jpg',
-    quote: 'Working with VidVerse was a game-changer. Their strategic approach to content not only boosted our views by 300% but also built a stronger, more engaged community around our channel.',
+    quote: 'Fast Delivery & Good editing!',
   },
   {
     name: 'PBS Space Time',
     image: '/images/PBS Space Time.jpg',
-    quote: 'The level of detail and creativity VidVerse brought to our content engine was phenomenal. They understood our niche and delivered a system that consistently produces high-quality, engaging videos.',
+    quote: 'The level of detail and creativity VidVerse brought to our content was phenomenal. They understood our niche and delivered high-quality and engaging videos',
   },
   {
     name: 'Finance With Sharan',
     image: '/images/Finance With Sharan.jpg',
-    quote: 'As a creator in the finance space, trust is everything. VidVerse helped us build a content machine that not only educates but also builds deep trust with our audience, leading to a significant increase in leads.',
+    quote: 'As a creator in the finance space, trust is everything. My decision to use Vidverse, and Iwas thoroughly impressed with the results. Not only did it live up to its promises, but it exceeded my expectations.',
   },
   {
     name: 'Philipp Humm',
     image: '/images/Philipp Humm.jpg',
-    quote: 'VidVerse transformed our content strategy completely. Their innovative approach helped us reach audiences we never thought possible, resulting in exponential growth across all our platforms.',
+    quote: "Their editing team is excellent. It's great when you have a team that always looks to turn it right back around no questions asked.",
   },
   {
     name: 'Kallaway',
     image: '/images/Kallaway.jpg',
-    quote: 'The strategic content framework VidVerse created for us was a masterpiece. They didn\'t just create content—they built a sustainable system that continues to drive engagement and conversions.',
+    quote: 'Vidverse is amazing! They totally nailed our brand story with their videos. Super creative, easy to work with, and the results were awesome—our traffic and sales went way up. Highly recommend them!',
   },
 ];
 
@@ -51,7 +51,32 @@ const Testimonials = () => {
   ]);
 
   return (
-    <section id="testimonials" className="relative py-20 md:pt-28 md:pb-16 bg-black text-white overflow-hidden">
+    <section id="testimonials" className="relative py-20 md:pt-28 md:pb-16 bg-transparent text-white overflow-hidden">
+      {/* Background Icons Layer - Lowest z-index */}
+      <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
+        {/* BG ICONS TESTIMONIALS SECTION - Bottom Right */}
+        <Image
+          src="/bg-icons/675290c850a93f05b4716e44_system-shapes-02.svg"
+          width={600}
+          height={600}
+          className="absolute -top-50 -left-50 opacity-30 "
+          alt=""
+          priority={false}
+        />
+
+        {/* BG ICONS TESTIMONIALS SECTION - Top Left */}
+        <Image
+          src="/bg-icons/675290c78101ac77f602fa40_system-shapes-01.svg"
+          width={600}
+          height={600}
+          className="absolute -top-50 -right-50 opacity-30 "
+          alt=""
+          priority={false}
+        />
+      </div>
+      
+      {/* Black Background Layer - Middle z-index, allows icons to show through */}
+      <div className="absolute inset-0 bg-black/90 z-[-1]"></div>
       <div className="absolute inset-0 z-0 opacity-20">
         <div className="absolute -top-1/4 left-1/4 w-[1000px] h-[1000px] bg-golden/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute top-3/4 right-0 w-[800px] h-[800px] bg-blue-500/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
@@ -62,8 +87,8 @@ const Testimonials = () => {
           <div className="flex justify-center mb-4">
             <SectionChip title="Testimonials" icon={MessageSquare} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-tight">
-            Hear From Creators Who&apos;ve <br /> 
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-relaxed">
+            Hear From Creators Who&apos;ve <br />
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
                 Transformed Their Brands
@@ -109,7 +134,7 @@ const Testimonials = () => {
                           {[...Array(5)].map((_, i) => (
                             <div key={i} className="relative">
                               <Star className="w-5 h-5 text-golden fill-current" />
-                              <Star className="w-5 h-5 absolute top-0 left-0 text-golden fill-current star-shimmer" style={{ animationDelay: `${i * 0.1}s` }}/>
+                              <Star className="w-5 h-5 absolute top-0 left-0 text-golden fill-current star-shimmer" style={{ animationDelay: `${i * 0.1}s` }} />
                             </div>
                           ))}
                         </div>

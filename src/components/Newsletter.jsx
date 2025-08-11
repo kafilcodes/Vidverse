@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, CheckCircle, AlertCircle, Loader, AlertTriangle } from 'lucide-react';
 import { db } from '@/firebase/config';
@@ -13,7 +14,7 @@ const Newsletter = () => {
   const [status, setStatus] = useState('idle'); // idle, loading, success, error, info
   const [message, setMessage] = useState('');
 
-    const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
       setStatus('error');
@@ -69,7 +70,43 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="newsletter" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+    <section id="newsletter" className="relative py-16 md:py-24 bg-transparent overflow-hidden">
+
+      {/* Background Image */}
+      <div className="absolute inset-0 z-[-3]">
+        <Image
+          src="/bg-icons/image.png"
+          fill
+          className="object-cover w-full h-full"
+          alt=""
+          priority={false}
+        />
+      </div>
+
+      {/* Clean section - you can add bg icons manually here later */}
+
+      <div className="absolute inset-0 pointer-events-none z-[-1]">
+
+        {/* BG ICONS HERO SECTION - Large SVG */}
+        <Image
+          src="/bg-icons/674182bc8e24b82a86a39cf5_elipse-on-white.svg"
+          width={700}
+          height={700}
+
+          className="absolute center-50 -left-95 opacity-50 scale-130 hidden md:block"
+          alt=""
+          priority={false}
+        />
+        <Image
+          src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
+          width={700}
+          height={700}
+
+          className="absolute center-50 -right-95 opacity-50 scale-130 hidden md:block"
+          alt=""
+          priority={false}
+        />
+      </div>
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -96,7 +133,7 @@ const Newsletter = () => {
               className="w-full h-full"
             />
           </div>
-          
+
           {/* Content */}
           <div className="relative z-10">
             <div className="inline-block mb-4">
@@ -148,7 +185,7 @@ const Newsletter = () => {
 
             {status !== 'idle' && message && (
               <motion.div
-                key={status} 
+                key={status}
                 initial={{ opacity: 0, y: 20, scale: 0.8 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 10, scale: 0.9 }}

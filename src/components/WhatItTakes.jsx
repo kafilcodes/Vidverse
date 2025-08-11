@@ -3,12 +3,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Target, Palette, RefreshCw, Clock, Phone, Zap, Sparkles, Rocket } from 'lucide-react';
+import Image from 'next/image'; // 🎯 ADD THIS IMPORT FOR BACKGROUND ICONS
 import SectionChip from '@/components/ui/section-chip';
 
 // Custom Glass Icon Component for Timeline
 const TimelineGlassIcon = ({ icon: Icon, index, activeStep }) => {
   const getBackgroundStyle = () => {
-    return { 
+    return {
       background: "linear-gradient(hsl(43, 80%, 45%), hsl(28, 80%, 45%))", // Golden gradient with reduced brightness
       opacity: 0.6 // Reduced opacity
     };
@@ -25,14 +26,14 @@ const TimelineGlassIcon = ({ icon: Icon, index, activeStep }) => {
           boxShadow: "0.5em -0.5em 0.75em hsla(223, 10%, 10%, 0.15)",
         }}
         animate={{
-          transform: activeStep > index 
-            ? "rotate(25deg) translate3d(-0.5em, -0.5em, 0.5em)" 
+          transform: activeStep > index
+            ? "rotate(25deg) translate3d(-0.5em, -0.5em, 0.5em)"
             : "rotate(15deg) translate3d(0, 0, 0)"
         }}
-        transition={{ 
-          delay: index * 1 + 0.8, 
-          duration: 0.4, 
-          ease: "easeOut" 
+        transition={{
+          delay: index * 1 + 0.8,
+          duration: 0.4,
+          ease: "easeOut"
         }}
       />
 
@@ -42,17 +43,17 @@ const TimelineGlassIcon = ({ icon: Icon, index, activeStep }) => {
           boxShadow: "0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset",
         }}
         animate={{
-          transform: activeStep > index 
-            ? "translateZ(2em) scale(1.1)" 
+          transform: activeStep > index
+            ? "translateZ(2em) scale(1.1)"
             : "translateZ(0) scale(1)",
-          boxShadow: activeStep > index 
-            ? "0 25px 50px -12px rgba(251, 191, 36, 0.4), 0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset" 
+          boxShadow: activeStep > index
+            ? "0 25px 50px -12px rgba(251, 191, 36, 0.4), 0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset"
             : "0 25px 50px -12px rgba(251, 191, 36, 0.15), 0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset"
         }}
-        transition={{ 
-          delay: index * 1 + 0.8, 
-          duration: 0.4, 
-          ease: "easeOut" 
+        transition={{
+          delay: index * 1 + 0.8,
+          duration: 0.4,
+          ease: "easeOut"
         }}
       >
         <span className="m-auto w-9 h-9 flex items-center justify-center" aria-hidden="true">
@@ -80,11 +81,11 @@ const WhatItTakes = () => {
       const timer = setTimeout(() => {
         setActiveStep(1);
       }, 1000);
-      
+
       const timer2 = setTimeout(() => {
         setActiveStep(2);
       }, 2000);
-      
+
       const timer3 = setTimeout(() => {
         setActiveStep(3);
       }, 3000);
@@ -107,7 +108,7 @@ const WhatItTakes = () => {
     },
     {
       icon: Sparkles,
-      title: "Research & Design", 
+      title: "Research & Design",
       content: "Custom visual identity and content framework"
     },
     {
@@ -115,11 +116,37 @@ const WhatItTakes = () => {
       title: "Weekly Maintenance",
       content: "Ongoing content creation and optimization"
     }
-  ];  return (
-    <section ref={sectionRef} className="relative bg-black py-20 md:py-24 min-h-screen overflow-hidden" style={{ fontFamily: 'Manrope, sans-serif' }}>
+  ]; return (
+    <section ref={sectionRef} className="relative bg-transparent py-20 md:py-24 min-h-screen overflow-hidden" style={{ fontFamily: 'Manrope, sans-serif' }}>
+      {/* Background Icons Layer - Lowest z-index */}
+      <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
+        {/* BG ICONS WHAT IT TAKES SECTION - Bottom Left */}
+        <Image
+          src="/bg-icons/6745d59d7487a3832bc141de_element-on-benefits.svg"
+          width={900}
+          height={900}
+          className="absolute -top-75 -left-74 opacity-50 "
+          alt=""
+          priority={false}
+        />
+        <Image
+          src="/bg-icons/6745e8d5ab5bc1d0e39a1a97_cta-banner-bottom.svg"
+          width={900}
+          height={900}
+          className="absolute -bottom-75 -right-74 opacity-50 "
+          alt=""
+          priority={false}
+        />
+      
+        
+      </div>
+      
+      {/* Black Background Layer - Middle z-index, allows icons to show through with reduced opacity */}
+      <div className="absolute inset-0 bg-black/95 z-[-1]"></div>
+
       <div className="container mx-auto px-4 relative z-10 max-w-5xl">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -129,10 +156,10 @@ const WhatItTakes = () => {
           <div className="inline-block mb-4">
             <SectionChip title="What it Takes" icon={Clock} />
           </div>
-          
+
           {/* Main Title with Underline */}
-          <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-8 text-white"
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-medium leading-relaxed mb-8 text-white"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -155,7 +182,7 @@ const WhatItTakes = () => {
         </motion.div>
 
         {/* Timeline Section */}
-        <motion.div 
+        <motion.div
           className="max-w-6xl mx-auto mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -180,36 +207,36 @@ const WhatItTakes = () => {
           <div className="relative">
             {/* Main Timeline Container */}
             <div className="relative flex justify-between items-center px-8">
-              
+
               {/* Background Connection Line - Full Width */}
               <div className="hidden md:block absolute top-1/2 transform -translate-y-1/2 left-8 right-2 h-0.5 bg-gradient-to-r from-transparent via-neutral-700 via-neutral-700 to-transparent z-0"></div>
-              
+
               {/* Animated Progress Line Segments */}
-              <motion.div 
+              <motion.div
                 className="hidden md:block absolute top-1/2 transform -translate-y-1/2 h-0.5 bg-gradient-to-r from-amber-400 to-amber-300 z-0"
                 style={{ left: '8rem', width: '0%' }}
                 initial={{ width: 0 }}
-                animate={{ 
+                animate={{
                   width: activeStep >= 1 ? 'calc(50% - 8rem)' : '0%'
                 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
               />
-              
-              <motion.div 
+
+              <motion.div
                 className="hidden md:block absolute top-1/2 transform -translate-y-1/2 h-0.5 bg-gradient-to-r from-amber-300 to-amber-400 z-0"
                 style={{ left: '50%', width: '0%' }}
                 initial={{ width: 0 }}
-                animate={{ 
+                animate={{
                   width: activeStep >= 2 ? 'calc(50% - 4rem)' : '0%'
                 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 2 }}
               />
-              
-              <motion.div 
+
+              <motion.div
                 className="hidden md:block absolute top-1/2 transform -translate-y-1/2 h-0.5 bg-gradient-to-r from-amber-400 to-amber-300 z-0"
                 style={{ right: '4rem', width: '0%' }}
                 initial={{ width: 0 }}
-                animate={{ 
+                animate={{
                   width: activeStep >= 3 ? 'calc(50% - 4rem)' : '0%'
                 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 3 }}
@@ -220,12 +247,12 @@ const WhatItTakes = () => {
                   key={index}
                   className="relative flex flex-col items-center"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ 
+                  animate={{
                     opacity: activeStep > index ? 1 : 0.5,
                     y: 0
                   }}
-                  transition={{ 
-                    duration: 0.6, 
+                  transition={{
+                    duration: 0.6,
                     delay: index * 1,
                     ease: "easeOut"
                   }}
@@ -233,31 +260,31 @@ const WhatItTakes = () => {
                   {/* Icon Container - Centered on Timeline Beam */}
                   <div className="relative group flex items-center justify-center">
                     {/* Glass Icon positioned to align with the beam center */}
-                    <TimelineGlassIcon 
-                      icon={milestone.icon} 
-                      index={index} 
+                    <TimelineGlassIcon
+                      icon={milestone.icon}
+                      index={index}
                       activeStep={activeStep}
                     />
                   </div>
 
                   {/* Content Below Icon */}
                   <div className="text-center mt-16">
-                    <motion.h3 
+                    <motion.h3
                       className="text-xl font-semibold mb-4 transition-colors duration-300"
                       initial={{ opacity: 0 }}
-                      animate={{ 
+                      animate={{
                         opacity: activeStep > index ? 1 : 0.6,
                         color: activeStep > index ? '#fbbf24' : '#ffffff'
                       }}
-                      transition={{ 
+                      transition={{
                         opacity: { delay: index * 1 + 0.4 },
                         color: { delay: index * 1 + 0.8, duration: 0.4, ease: "easeOut" }
                       }}
                     >
                       {milestone.title}
                     </motion.h3>
-                    
-                    <motion.p 
+
+                    <motion.p
                       className="text-neutral-400 text-base leading-relaxed group-hover:text-neutral-300 transition-colors duration-300 max-w-sm mx-auto"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: activeStep > index ? 1 : 0.5 }}
@@ -270,20 +297,20 @@ const WhatItTakes = () => {
               ))}
             </div>
           </div>
-          
+
           {/* Add proper spacing for the content below to prevent CTA overlap */}
           <div className="h-16 md:h-20"></div>
         </motion.div>
 
         {/* CTA Section - Smaller Design */}
-        <motion.div 
+        <motion.div
           className="text-center max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <motion.h3 
+          <motion.h3
             className="text-xl md:text-2xl font-medium text-white mb-3"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -292,8 +319,8 @@ const WhatItTakes = () => {
           >
             Ready to get started?
           </motion.h3>
-          
-          <motion.p 
+
+          <motion.p
             className="text-sm md:text-base text-neutral-400 mb-6"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -315,11 +342,11 @@ const WhatItTakes = () => {
                 console.log('Book Discovery Call button clicked');
                 const discoverySection = document.getElementById('booking-form');
                 console.log('Found booking form element:', discoverySection);
-                
+
                 if (discoverySection) {
-                  discoverySection.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
+                  discoverySection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                   });
                   // Focus on the first form input after scroll
                   setTimeout(() => {
@@ -335,9 +362,9 @@ const WhatItTakes = () => {
                   const alternativeBooking = document.querySelector('[id*="booking"], [class*="booking"], section:has([class*="form"])')
                   console.log('Alternative booking element:', alternativeBooking);
                   if (alternativeBooking) {
-                    alternativeBooking.scrollIntoView({ 
-                      behavior: 'smooth', 
-                      block: 'start' 
+                    alternativeBooking.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start'
                     });
                   }
                 }
@@ -346,7 +373,7 @@ const WhatItTakes = () => {
                 borderRadius: '12px',
                 padding: '12px 24px',
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.2 }
               }}
@@ -364,21 +391,21 @@ const WhatItTakes = () => {
                 <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
                   Book Discovery Call
                 </span>
-                
+
                 <motion.div
                   className="ml-2 w-4 h-4"
                   animate={{ x: [0, 3, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <svg 
-                    viewBox="0 0 20 20" 
-                    fill="currentColor" 
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
                     className="w-4 h-4 text-amber-400"
                   >
-                    <path 
-                      fillRule="evenodd" 
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
-                      clipRule="evenodd" 
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
                     />
                   </svg>
                 </motion.div>

@@ -461,6 +461,23 @@ html, body {
   scroll-behavior: smooth;
 }
 
+/* Container padding variables for responsive design */
+:root {
+  --container-padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 3rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity; /* Hybrid approach - gentle section attraction with free scrolling */
@@ -1179,4 +1196,20 @@ body {
 /* Ensure no rotation is applied */
 .scroll-stack-card.no-rotation {
   transform: translateZ(0) rotate(0deg) !important;
+}
+
+/* Hero Shape Icons Fade Animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
 }

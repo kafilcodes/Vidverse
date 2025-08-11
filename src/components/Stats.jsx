@@ -70,7 +70,33 @@ const Stats = () => {
   };
 
   return (
-    <section className="relative bg-black py-16 md:py-20 overflow-hidden">
+    <section className="relative bg-transparent py-16 md:py-20 overflow-hidden">
+      {/* Background Icons Layer - Lowest z-index */}
+            <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
+              {/* BG ICONS PORTFOLIO SECTION - Bottom Right - Using working icon from Benefits */}
+              <Image
+                src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
+                width={600}
+                height={600}
+                className="absolute bottom-30 -right-70 opacity-50 "
+                alt=""
+                priority={false}
+              />
+              
+              {/* BG ICONS PORTFOLIO SECTION - Top Left - Using working icon from Benefits */}
+              <Image
+                src="/bg-icons/674183bd7eb1543409d0f095_polygon-dark.svg"
+                width={600}
+                height={600}
+                className="absolute top-30 -left-70 opacity-50 "
+                alt=""
+                priority={false}
+              />
+            </div>
+      
+      
+      {/* Black Background Layer - Middle z-index, allows icons to show through */}
+      <div className="absolute inset-0 bg-black/85 z-[-1]"></div>
       {/* Fireflies background effect */}
       <div className="absolute inset-0 z-0">
         {[...Array(25)].map((_, i) => (
@@ -115,7 +141,7 @@ const Stats = () => {
             </motion.div>
           </div>
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white"
+            className="text-4xl md:text-5xl font-bold text-white leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

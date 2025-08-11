@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Loader, VolumeX, Volume2, Folder } from 'lucide-react';
+import Image from 'next/image'; // 🎯 ADD THIS IMPORT FOR BACKGROUND ICONS
 import SectionChip from '@/components/ui/section-chip';
 
 // Component to load Wistia external script
@@ -407,14 +408,40 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="portfolio" className="bg-black text-white py-24 md:py-32">
+    <section id="portfolio" className="relative bg-transparent text-white py-24 md:py-32">
+      {/* Background Icons Layer - Lowest z-index */}
+      <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
+        {/* BG ICONS PORTFOLIO SECTION - Bottom Right - Using working icon from Benefits */}
+        <Image
+          src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
+          width={600}
+          height={600}
+          className="absolute bottom-30 -right-70 opacity-50 "
+          alt=""
+          priority={false}
+        />
+        
+        {/* BG ICONS PORTFOLIO SECTION - Top Left - Using working icon from Benefits */}
+        <Image
+          src="/bg-icons/674182bc8e24b82a86a39cf5_elipse-on-white.svg"
+          width={600}
+          height={600}
+          className="absolute top-30 -left-70 opacity-50 "
+          alt=""
+          priority={false}
+        />
+      </div>
+      
+      {/* Black Background Layer - Middle z-index, allows icons to show through with reduced opacity */}
+      <div className="absolute inset-0 bg-black/80 z-[-1]"></div>
+      
       <WistiaScriptLoader />
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="flex justify-center mb-4">
             <SectionChip title="Portfolio" icon={Folder} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-relaxed">
             Videos that make your brand spread like{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">

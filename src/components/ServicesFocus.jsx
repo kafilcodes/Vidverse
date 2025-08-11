@@ -33,7 +33,7 @@ const serviceData = [
     ),
     imgSrc: '/images/ideation&strategy.gif',
     title: 'Ideation & Strategy',
-    description: 'We help you find your unique angle and build a content strategy that resonates with your target audience.',
+    description: 'You can spend less time marketing and more time innovating.',
   },
   {
     lottieAnimation: {
@@ -60,7 +60,7 @@ const serviceData = [
     ),
     imgSrc: '/images/audiencegrowth.gif',
     title: 'Audience Growth',
-    description: 'Get your content in front of more people in ways they like to consume it, turning viewers into community.',
+    description: 'Get your content in front of more people in ways they like to consume it.',
   },
   {
     lottieAnimation: {
@@ -87,7 +87,7 @@ const serviceData = [
     ),
     imgSrc: '/images/brand&revenue.gif',
     title: 'Brand & Revenue',
-    description: 'Strengthen your brand and build organic, predictable growth that translates to real business results.',
+    description: 'Strengthen your brand, and grab bigger opportunities.',
   },
 ];
 
@@ -199,7 +199,34 @@ const Services = () => {
 
   return (
     <section id="services" className="relative bg-black py-20 md:py-24" style={{ fontFamily: 'Manrope, sans-serif' }}>
+      {/* Background Graphics */}
+      
+      
+      
+
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="absolute inset-0 pointer-events-none z-[-1]">
+        
+                {/* BG ICONS HERO SECTION - Large SVG */}
+                <Image
+                  src="/bg-icons/674183bd7a9afd8a5f4419f7_elipse-dark.svg"
+                  width={500}
+                  height={500}
+        
+                  className="absolute top-70 -left-145 opacity-50 scale-130 hidden md:block"
+                  alt=""
+                  priority={false}
+                />
+                <Image
+                  src="/bg-icons/674183bd7eb1543409d0f095_polygon-dark.svg"
+                  width={500}
+                  height={500}
+        
+                  className="absolute top-10 -right-125 opacity-50 scale-130 hidden md:block"
+                  alt=""
+                  priority={false}
+                />
+              </div>
         <motion.div 
           className="text-center mb-16 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
@@ -209,9 +236,11 @@ const Services = () => {
         >
           <div className="inline-block mb-6">
             <SectionChip title="What we do" icon={Video} />
-          </div>          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
-            Influence your audience, on{' '}
+          </div>          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-relaxed mb-6 text-white">
+          Engage your audience, on<br />
+
             <span className="relative inline-block">
+    
               <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
                 every platform
               </span>

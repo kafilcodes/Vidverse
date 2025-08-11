@@ -2,9 +2,6 @@ import "./globals.css";
 import ParticleBackground from "@/components/ParticleBackground";
 import FirefliesBackground from "@/components/FirefliesBackground";
 import AppInitializer from '@/components/AppInitializer';
-import EditorProvider from '@/editor/EditorProvider';
-import { StagewiseToolbar } from '@stagewise/toolbar-next';
-import ReactPlugin from '@stagewise-plugins/react';
 
 export const metadata = {
   title: 'VidVerse | Organic Content Engine for Entrepreneurs & VCs',
@@ -25,20 +22,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body className="font-grift bg-background text-foreground">
         <ParticleBackground />
-        <EditorProvider>
-          <AppInitializer>
-            <div className="relative z-10">
-              {children}
-            </div>
-          </AppInitializer>
-        </EditorProvider>
-        
-        {/* Stagewise Toolbar - Only loads in development mode */}
-        <StagewiseToolbar 
-          config={{
-            plugins: [ReactPlugin]
-          }}
-        />
+        <AppInitializer>
+          <div className="relative z-10">
+            {children}
+          </div>
+        </AppInitializer>
       </body>
     </html>
   );

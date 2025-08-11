@@ -29,7 +29,7 @@ const ClientImage = ({ src, alt, fallback }) => {
       height={48}
       className="w-full h-full object-cover"
       // If next/image fails to load the image (e.g., 404), set error to true.
-      onError={() => setError(true)} 
+      onError={() => setError(true)}
     />
   );
 };
@@ -124,89 +124,164 @@ const Hero = () => {
     };
   }, []);
   return (
-    <section id="hero-section" className="min-h-screen flex flex-col items-center justify-center bg-transparent text-foreground">
+    <section id="hero-section" className="relative min-h-screen flex flex-col items-center justify-center bg-transparent text-foreground overflow-hidden">
+
+      <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
+
+        {/* BG ICONS HERO SECTION - Large SVG */}
+        <Image
+          src="/bg-icons/6741920c46039eebb45b5b76_elipse-hero-left.svg"
+          width={700}
+          height={700}
+
+          className="absolute -top-50 -left-60 opacity-100 scale-110 hidden md:block"
+          alt=""
+          priority={false}
+        />
+        <Image
+          src="/bg-icons/6741920c019ec243876fef54_elipse-hero-right.svg"
+          width={700}
+          height={700}
+
+          className="absolute -bottom-50 -right-60 opacity-100 scale-110 hidden md:block"
+          alt=""
+          priority={false}
+        />
+        <Image
+          src="/bg-icons/674fe125b28eb4eb17b40d25_hero-shapes-01.svg"
+          width={32}
+          height={32}
+          className="absolute top-30 left-90 scale-110 hidden md:block"
+          alt=""
+          priority={false}
+          style={{
+            animation: 'fadeInOut 3s ease-in-out infinite',
+            animationDelay: '0s'
+          }}
+        />
+        <Image
+          src="/bg-icons/674fe125c81340ba38928817_hero-shapes-02.svg"
+          width={32}
+          height={32}
+          className="absolute top-55 right-45 scale-110 hidden md:block"
+          alt=""
+          priority={false}
+          style={{
+            animation: 'fadeInOut 3.5s ease-in-out infinite',
+            animationDelay: '0.8s'
+          }}
+        />
+
+        <Image
+          src="/bg-icons/674fe126c81340ba3892882b_hero-shapes-03.svg"
+          width={32}
+          height={32}
+          className="absolute bottom-58 right-115 scale-110 hidden md:block"
+          alt=""
+          priority={false}
+          style={{
+            animation: 'fadeInOut 4s ease-in-out infinite',
+          }}
+        />
+
+        <Image
+          src="/bg-icons/674fe126e96249102a1940a1_hero-shapes-04.svg"
+          width={32}
+          height={32}
+          className="absolute bottom-69 left-135 scale-110 hidden md:block"
+          alt=""
+          priority={false}
+          style={{
+            animation: 'fadeInOut 3.2s ease-in-out infinite',
+            animationDelay: '2.4s'
+          }}
+        />
+
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="relative max-w-6xl mx-auto">
           {/* Decorative SVGs */}
-          <Image 
-            src="/logo/674fe125968e67a82f575da8_hero_cursors-01.svg" 
-            alt="Content Creator Cursor" 
+          <Image
+            src="/logo/674fe125968e67a82f575da8_hero_cursors-01.svg"
+            alt="Content Creator Cursor"
             width={60}
             height={60}
             ref={svg1Ref}
-            id="hero-svg-cursor-1" 
-            className="absolute w-32 h-32 top-32 left-4 -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:-translate-x-3/4" 
+            id="hero-svg-cursor-1"
+            className="absolute w-32 h-32 top-62 -left-15 -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:-translate-x-3/4"
             style={{ zIndex: -1 }}
             priority={true}
           />
           <div className="hidden md:block absolute top-4 right-4 -translate-y-1/2">
-            <Image 
-              src="/logo/674fe125e96249102a19409d_hero_cursors-03.svg" 
-              alt="Podcast Host Cursor" 
+            <Image
+              src="/logo/674fe125e96249102a19409d_hero_cursors-03.svg"
+              alt="Podcast Host Cursor"
               width={60}
               height={60}
               ref={svg2Ref}
-              id="hero-svg-cursor-2" 
-              className="w-32 h-32 pointer-events-none lg:translate-x-3/4 lg:-translate-y-1/4" 
+              id="hero-svg-cursor-2"
+              className="w-32 h-32 pointer-events-none lg:translate-x-3/4 lg:-translate-y-1/4"
               style={{ zIndex: -1 }}
               priority={true}
             />
           </div>
-          <Image 
-            src="/logo/674fe12675d184828e638da2_hero_cursors-02.svg" 
-            alt="Entrepreneur Cursor" 
+          <Image
+            src="/logo/674fe12675d184828e638da2_hero_cursors-02.svg"
+            alt="Entrepreneur Cursor"
             width={60}
-            height={60} 
+            height={60}
             ref={svg3Ref}
-            id="hero-svg-cursor-3" 
-            className="absolute w-32 h-32 bottom-16 right-4 translate-x-1/2 translate-y-1/2 pointer-events-none lg:translate-x-3/4" 
+            id="hero-svg-cursor-3"
+            className="absolute w-32 h-32 bottom-16 right-4 translate-x-1/2 translate-y-1/2 pointer-events-none lg:translate-x-3/4"
             style={{ zIndex: -1 }}
             priority={true}
           />
-          
-          {/* Original Content Wrapper */}
-          <div className="flex flex-col items-center text-center space-y-8">
-          <div className="inline-flex items-center gap-x-2 bg-gold/20 text-gold text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide border border-gold/50 shadow-sm">
-            <div className="w-4 h-4 icon-gold" />
-            <span>SCALE ORGANICALLY</span>
-          </div>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground text-center leading-tight">
-            We build organic content engines<br />for <span className="text-gold-shimmer">Entrepreneurs &amp; VCs</span>
-          </h1>
-          <p className="text-lg font-bold text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-8 text-shimmer">
-            We help you build organic distribution, which predictably bring
-            more leads and builds trust in your market segment.
-          </p>
-          <div>
-            <Button 
-              className="btn-hero-cta px-10 py-7 text-xl bg-transparent text-gold hover:text-text-on-accent border border-gold rounded-full font-bold tracking-wide relative overflow-hidden transition-all duration-300 ease-in-out group"
-              onClick={() => {
-                const section = document.getElementById('booking-form');
-                if (section) {
-                  section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-              }}
-            >
-              Book a Call
-            </Button>
-          </div>
-        </div>
 
-          </div> {/* Closing tag for inner text content wrapper */}
+          {/* Original Content Wrapper */}
+          <div className="flex flex-col items-center text-center space-y-12">
+            <div className="inline-flex items-center gap-x-2 bg-gold/20 text-gold text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide border border-gold/50 shadow-sm">
+              <div className="w-4 h-4 icon-gold" />
+              <span>SCALE ORGANICALLY</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-foreground text-center leading-relaxed max-w-7xl mx-auto">
+              We build organic content engines for<br />
+              <span className="text-6xl md:text-7xl lg:text-8xl text-gold-shimmer block mt-4">Entrepreneurs &amp; VCs</span>
+            </h1>
+            <p className="text-lg font-bold text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-6 text-shimmer">
+              We help you build organic distribution that predictably brings 
+              more engagement and leads, and builds trust in your market segment.
+            </p>
+            <div className="mt-8">
+              <Button
+                className="btn-hero-cta px-10 py-7 text-xl bg-transparent text-gold hover:text-text-on-accent border border-gold rounded-full font-bold tracking-wide relative overflow-hidden transition-all duration-300 ease-in-out group"
+                onClick={() => {
+                  const section = document.getElementById('booking-form');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }}
+              >
+                Book a Call
+              </Button>
+            </div>
+          </div>
+
+        </div> {/* Closing tag for inner text content wrapper */}
         {/* Social Proof Section */}
-        <div className="mt-12 md:mt-16">
+        <div className="mt-20 md:mt-24">
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 md:gap-x-12">
             {socialProofData.map((client) => (
-              <Link 
-                href={client.href} 
-                key={client.name} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group bg-black/20 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-center space-x-4 hover:border-gold transition-all duration-300 ease-in-out w-full sm:w-auto max-w-[260px] sm:max-w-none hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-gold/30"
+              <Link
+                href={client.href}
+                key={client.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl p-4 flex items-center space-x-4 hover:border-gold transition-all duration-300 ease-in-out w-full sm:w-auto max-w-[260px] sm:max-w-none hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-gold/30 hover:bg-white/10"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-black/30 backdrop-blur-sm flex items-center justify-center text-foreground font-semibold text-base group-hover:bg-gold/25 transition-colors duration-150 overflow-hidden">
-                  <ClientImage 
-                    src={client.channelImage} 
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center text-foreground font-semibold text-base group-hover:bg-gold/25 transition-colors duration-150 overflow-hidden">
+                  <ClientImage
+                    src={client.channelImage}
                     alt={client.name}
                     fallback={<Youtube className="w-6 h-6 text-muted-foreground group-hover:text-gold/80 transition-colors duration-150" />}
                   />
@@ -224,7 +299,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
+
 
     </section>
   );

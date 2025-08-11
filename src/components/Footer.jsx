@@ -28,7 +28,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <div className="flex items-center space-x-3 mb-3">
               <Image 
-                src="/logo/vidverse-icon.png" 
+                src="/logo/vidverse.svg" 
                 alt="VidVerse Logo" 
                 width={32}
                 height={32}
@@ -98,14 +98,14 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <Phone className="w-3 h-3" style={{ color: '#ffcc33' }} />
                 <a href="tel:+1234567890" className="hover:text-golden transition-colors duration-300">
-                  +1 (234) 567-890
+                  +91 6264555051
                 </a>
               </li>
               <li className="pt-2 flex items-start gap-2">
                 <MapPin className="w-3 h-3 mt-1" style={{ color: '#ffcc33' }} />
                 <span>
-                  123 Visionary Lane, <br />
-                  Creative City, 10001
+                  Raipur, <br />
+                  Chhattisgarh, 493773
                 </span>
               </li>
             </ul>
