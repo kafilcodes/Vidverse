@@ -441,7 +441,7 @@ const Portfolio = () => {
           <div className="flex justify-center mb-4">
             <SectionChip title="Portfolio" icon={Folder} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-tight">
             Videos that make your brand spread like{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">

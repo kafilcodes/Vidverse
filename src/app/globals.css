@@ -640,6 +640,13 @@ input[type="checkbox"]:checked + .form-checkbox-label {
   box-shadow: none !important;
   width: 100%;
   padding-left: 0.5rem;
+  font-size: 0.875rem; /* 14px on mobile */
+}
+
+@media (min-width: 640px) {
+  .PhoneInputInput {
+    font-size: 1rem; /* 16px on desktop */
+  }
 }
 
 .PhoneInputCountry {
@@ -848,8 +855,8 @@ input[type="checkbox"]:checked + .form-checkbox-label {
 .icon-gold {
   display: inline-block;
   background-color: hsl(var(--gold-DEFAULT));
-  -webkit-mask-image: url(/images/organic-search.png);
-  mask-image: url(/images/organic-search.png);
+  -webkit-mask-image: url(/logo/organic-search.svg);
+  mask-image: url(/logo/organic-search.svg);
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;

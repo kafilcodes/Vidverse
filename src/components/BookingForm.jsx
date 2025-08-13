@@ -259,15 +259,15 @@ const BookingForm = () => {
   const renderStep = () => {
     switch (step) {      case 1:
         return (
-          <div className="space-y-6">            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What best describes you?</h2>
-            <div className="space-y-4">
+          <div className="space-y-4 sm:space-y-6">            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">What best describes you?</h2>
+            <div className="space-y-3 sm:space-y-4">
               {[
                 "I'm a business owner looking to grow online",
                 "I run an agency and need better tools",
                 "I'm exploring content marketing options",
                 "I represent a larger organization"
               ].map((option) => (
-                <label key={option} className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <label key={option} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="radio"
                     name="description"
@@ -276,52 +276,52 @@ const BookingForm = () => {
                     onChange={handleChange}
                     className="hidden"
                   />
-                  <div className="w-5 h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
                     {formData.description === option && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="w-2.5 h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
+                        className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
                       />
                     )}
                   </div>
-                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift">{option}</span>
+                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift text-sm sm:text-base">{option}</span>
                 </label>
               ))}
             </div>
           </div>
         );      case 2:
         return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What&apos;s your name?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">What&apos;s your name?</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-sm font-medium text-neutral-300 mb-3 font-grift">
+                <label className="block text-xs sm:text-sm font-medium text-neutral-300 mb-2 sm:mb-3 font-grift">
                   First Name *
                 </label>
-                <div className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="text"
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1"
+                    className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1 text-sm sm:text-base"
                     placeholder="Enter your first name"
                     required
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-neutral-300 mb-3 font-grift">
+                <label className="block text-xs sm:text-sm font-medium text-neutral-300 mb-2 sm:mb-3 font-grift">
                   Last Name *
                 </label>
-                <div className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="text"
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1"
+                    className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1 text-sm sm:text-base"
                     placeholder="Enter your last name"
                     required
                   />
@@ -331,29 +331,29 @@ const BookingForm = () => {
           </div>
         );case 3:
         return (
-          <div className="space-y-6">            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">Contact Information</h2>
-            <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">Contact Information</h2>
+            <div className="space-y-4 sm:space-y-6">
               <div>
-                <label className="block text-sm font-medium text-neutral-300 mb-3 font-grift">
+                <label className="block text-xs sm:text-sm font-medium text-neutral-300 mb-2 sm:mb-3 font-grift">
                   Email Address *
                 </label>
-                <div className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1"
+                    className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1 text-sm sm:text-base"
                     placeholder="your@email.com"
                     required
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-neutral-300 mb-3 font-grift">
+                <label className="block text-xs sm:text-sm font-medium text-neutral-300 mb-2 sm:mb-3 font-grift">
                   Phone Number *
                 </label>
-                <div className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <PhoneInput
                     international
                     countryCallingCodeEditable={false}
@@ -373,39 +373,39 @@ const BookingForm = () => {
           </div>
         );      case 4:
         return (
-          <div className="space-y-6">            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">Share your social presence</h2>
+          <div className="space-y-4 sm:space-y-6">            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">Share your social presence</h2>
             <div>
-              <label className="block text-sm font-medium text-neutral-300 mb-3 font-grift">
+              <label className="block text-xs sm:text-sm font-medium text-neutral-300 mb-2 sm:mb-3 font-grift">
                 Website or Social Media Link *
               </label>
-              <div className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+              <div className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                 <input
                   type="url"
                   name="socialLink"
                   value={formData.socialLink}
                   onChange={handleChange}
-                  className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1"
+                  className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1 text-sm sm:text-base"
                   placeholder="https://your-website.com or https://instagram.com/yourusername"
                   required
                 />
               </div>
-              <p className="text-sm text-neutral-400 mt-3 font-grift">
+              <p className="text-xs sm:text-sm text-neutral-400 mt-2 sm:mt-3 font-grift">
                 Share your website, Instagram, LinkedIn, or any other social media profile
               </p>
             </div>
           </div>
         );case 5:
         return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">Do you currently sell products or services online?</h2>
-            <div className="space-y-4">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">Do you currently sell products or services online?</h2>
+            <div className="space-y-3 sm:space-y-4">
               {[
                 "Yes, I have an established online business",
                 "Yes, but I'm just getting started",
                 "No, but I'm planning to start soon",
                 "No, I'm still exploring options"
               ].map((option) => (
-                <label key={option} className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <label key={option} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="radio"
                     name="sellsOnline"
@@ -414,24 +414,26 @@ const BookingForm = () => {
                     onChange={handleChange}
                     className="hidden"
                   />
-                  <div className="w-5 h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
                     {formData.sellsOnline === option && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="w-2.5 h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
+                        className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
                       />
                     )}
-                  </div>                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift">{option}</span>
+                  </div>                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift text-sm sm:text-base">{option}</span>
                 </label>
               ))}
             </div>
           </div>
-        );      case 6:
+        );
+        
+      case 6:
         return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What&apos;s your current monthly revenue?</h2>
-            <div className="space-y-4">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">What&apos;s your current monthly revenue?</h2>
+            <div className="space-y-3 sm:space-y-4">
               {[
                 "Just starting out ($0)",
                 "$1 - $1,000",
@@ -441,7 +443,7 @@ const BookingForm = () => {
                 "$25,000 - $50,000",
                 "$50,000+"
               ].map((option) => (
-                <label key={option} className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <label key={option} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="radio"
                     name="monthlyRevenue"
@@ -450,23 +452,27 @@ const BookingForm = () => {
                     onChange={handleChange}
                     className="hidden"
                   />
-                  <div className="w-5 h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
                     {formData.monthlyRevenue === option && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="w-2.5 h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
+                        className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
                       />
                     )}
-                  </div>                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift">{option}</span>
+                  </div>                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift text-sm sm:text-base">{option}</span>
                 </label>
               ))}
             </div>
           </div>
-        );      case 7:
+        );
+        
+      case 7:
         return (
-          <div className="space-y-6">            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">What are your biggest bottlenecks right now?</h2>
-            <div className="space-y-4">              {[
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">What are your biggest bottlenecks right now?</h2>
+            <div className="space-y-3 sm:space-y-4">
+              {[
                 "Generating consistent leads",
                 "Converting leads to customers",
                 "Creating engaging content",
@@ -476,7 +482,7 @@ const BookingForm = () => {
                 "Scaling my business operations",
                 "Time management and productivity"
               ].map((option) => (
-                <label key={option} className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <label key={option} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="checkbox"
                     name="bottlenecks"
@@ -485,7 +491,7 @@ const BookingForm = () => {
                     onChange={handleChange}
                     className="hidden"
                   />
-                  <div className="w-5 h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded flex items-center justify-center transition-all duration-300">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded flex items-center justify-center transition-all duration-300">
                     {formData.bottlenecks.includes(option) && (
                       <motion.div
                         initial={{ scale: 0, rotate: 0 }}
@@ -499,51 +505,56 @@ const BookingForm = () => {
                       </motion.div>
                     )}
                   </div>
-                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift">{option}</span>
+                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift text-sm sm:text-base">{option}</span>
                 </label>
               ))}
-            </div>            <div>
+            </div>
+            <div>
               <label className="block text-sm font-medium text-neutral-300 mb-3 font-grift">
                 Other (please specify)
               </label>
-              <div className="flex items-start space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+              <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                 <textarea
                   name="customBottleneck"
                   value={formData.customBottleneck}
                   onChange={handleChange}
-                  className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1 resize-none"
+                  className="bg-transparent border-none outline-none text-white placeholder-neutral-500 font-grift flex-1 resize-none text-sm sm:text-base"
                   rows={3}
                   placeholder="Describe any other challenges you're facing..."
                 />
               </div>
             </div>
           </div>
-        );      case 8:
+        );
+        
+      case 8:
         return (
-          <div className="space-y-6">            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">Important Notice</h2>
-            <div className="bg-gradient-to-r from-amber-400/20 to-yellow-500/20 border border-amber-400/40 rounded-xl p-6 backdrop-blur-sm">
-              <div className="flex items-start space-x-4">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">Important Notice</h2>
+            <div className="bg-gradient-to-r from-amber-400/20 to-yellow-500/20 border border-amber-400/40 rounded-lg sm:rounded-xl p-4 sm:p-6 backdrop-blur-sm">
+              <div className="flex items-start space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 bg-amber-400/30 rounded-full flex items-center justify-center">
-                    <svg className="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-amber-400/30 rounded-full flex items-center justify-center">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                     </svg>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-amber-400 mb-3 font-grift">
+                  <h3 className="text-base sm:text-lg font-semibold text-amber-400 mb-2 sm:mb-3 font-grift">
                     Qualification Required
                   </h3>
-                  <p className="text-neutral-300 mb-4 leading-relaxed font-grift">
+                  <p className="text-neutral-300 mb-3 sm:mb-4 leading-relaxed font-grift text-sm sm:text-base">
                     Our Discovery Call is designed for serious business owners and entrepreneurs who are committed to growing their online presence. 
                     This consultation is valued at $500 and is provided completely free to qualified applicants.
                   </p>
-                  <p className="text-neutral-300 leading-relaxed font-grift">
+                  <p className="text-neutral-300 leading-relaxed font-grift text-sm sm:text-base">
                     By proceeding, you confirm that you are genuinely interested in exploring how our content marketing and online growth strategies can help scale your business.
                   </p>
                 </div>
               </div>
-            </div>            <label className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+            </div>
+            <label className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
               <input
                 type="checkbox"
                 name="agreement"
@@ -552,7 +563,7 @@ const BookingForm = () => {
                 className="hidden"
                 required
               />
-              <div className="w-5 h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded flex items-center justify-center transition-all duration-300">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded flex items-center justify-center transition-all duration-300">
                 {formData.agreement && (
                   <motion.div
                     initial={{ scale: 0, rotate: 0 }}
@@ -560,29 +571,32 @@ const BookingForm = () => {
                     transition={{ duration: 0.3 }}
                     className="text-amber-400"
                   >
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </motion.div>
                 )}
               </div>
-              <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift">
+              <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 font-grift text-sm sm:text-base">
                 I understand this is a professional consultation for serious business owners, and I confirm my genuine interest in learning about growth strategies for my business.
               </span>
             </label>
           </div>
-        );      case 9:
+        );
+        
+      case 9:
         return (
-          <div className="space-y-6">            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">Investment Readiness</h2>
-            <div className="bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 rounded-xl p-6 mb-6 backdrop-blur-sm">
-              <p className="text-neutral-300 leading-relaxed font-grift">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">Investment Readiness</h2>
+            <div className="bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 backdrop-blur-sm">
+              <p className="text-neutral-300 leading-relaxed font-grift text-sm sm:text-base">
                 To ensure this call is valuable for both of us, we want to understand your readiness to invest in growing your business.
               </p>
             </div>
-            <h3 className="text-xl font-semibold mb-6 text-white font-grift">
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-white font-grift">
               If our strategies align with your goals, would you be prepared to invest in your business growth?
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {[
                 "Yes, I'm ready to invest $1,000 - $5,000 to grow my business",
                 "Yes, I'm ready to invest $5,000 - $15,000 for significant growth",
@@ -590,7 +604,7 @@ const BookingForm = () => {
                 "I'm interested but need to understand the value first",
                 "I'm primarily looking for free advice and resources"
               ].map((option) => (
-                <label key={option} className="flex items-center space-x-4 p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
+                <label key={option} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-neutral-700/60 hover:border-amber-400/60 rounded-lg sm:rounded-xl cursor-pointer hover:bg-neutral-800/40 transition-all duration-300 group bg-gradient-to-r from-neutral-900/40 to-neutral-800/20 backdrop-blur-sm">
                   <input
                     type="radio"
                     name="canInvest"
@@ -599,26 +613,29 @@ const BookingForm = () => {
                     onChange={handleChange}
                     className="hidden"
                   />
-                  <div className="w-5 h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-neutral-600 group-hover:border-amber-400 rounded-full flex items-center justify-center transition-all duration-300">
                     {formData.canInvest === option && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="w-2.5 h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
+                        className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-amber-400 rounded-full shadow-lg shadow-amber-400/50"
                       />
                     )}
                   </div>
-                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300">{option}</span>
+                  <span className="text-white group-hover:text-amber-400 font-medium transition-colors duration-300 text-sm sm:text-base font-grift">{option}</span>
                 </label>
               ))}
             </div>
           </div>
-        );      case 10:
+        );
+        
+      case 10:
         return (
-          <div className="space-y-6">            <h2 className="text-3xl font-bold text-center mb-8 text-white font-grift">Schedule Your Discovery Call</h2>
-            <div className="bg-gradient-to-r from-amber-400/20 to-yellow-500/20 border border-amber-400/40 rounded-xl p-6 mb-6 backdrop-blur-sm">
-              <h3 className="text-amber-400 font-semibold mb-2 text-lg font-grift">🎉 Congratulations!</h3>
-              <p className="text-neutral-300 font-grift">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white font-grift">Schedule Your Discovery Call</h2>
+            <div className="bg-gradient-to-r from-amber-400/20 to-yellow-500/20 border border-amber-400/40 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 backdrop-blur-sm">
+              <h3 className="text-amber-400 font-semibold mb-2 text-base sm:text-lg font-grift">🎉 Congratulations!</h3>
+              <p className="text-neutral-300 font-grift text-sm sm:text-base">
                 You&apos;ve qualified for our exclusive Discovery Call. Let&apos;s schedule a time that works best for you.
               </p>
             </div>
@@ -641,48 +658,51 @@ const BookingForm = () => {
                   dateFormat="MMM d, yyyy h:mm aa"
                   minDate={new Date()}
                   placeholderText="Select date and time"
+                  className="w-full sm:w-auto"
                   required
                 />
               </div>
-              <p className="text-sm text-neutral-400 mt-3 font-grift text-center">
+              <p className="text-xs sm:text-sm text-neutral-400 mt-2 sm:mt-3 font-grift text-center">
                 Please select a date and time in the next 2 weeks. We&apos;ll confirm availability and send you the meeting details.
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 rounded-xl p-6 backdrop-blur-sm">
-              <h4 className="font-semibold text-amber-400 mb-3 font-grift">What to expect in your Discovery Call:</h4>
-              <ul className="text-neutral-300 text-sm space-y-2">
+            <div className="bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 rounded-lg sm:rounded-xl p-4 sm:p-6 backdrop-blur-sm">
+              <h4 className="font-semibold text-amber-400 mb-3 font-grift text-sm sm:text-base">What to expect in your Discovery Call:</h4>
+              <ul className="text-neutral-300 text-xs sm:text-sm space-y-2">
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Comprehensive analysis of your current online presence</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Personalized growth strategy recommendations</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Content marketing opportunities specific to your industry</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Q&A session to address your specific challenges</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Next steps for implementation (if it&apos;s a good fit)</span>
                 </li>
               </ul>
             </div>
           </div>
-        );case 11:
+        );
+        
+        case 11:
         return (
-          <div className="text-center space-y-8">
+          <div className="text-center space-y-6 sm:space-y-8">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="mx-auto w-48 h-48 rounded-full overflow-hidden bg-gradient-to-r from-amber-400/20 to-yellow-500/20 p-4 backdrop-blur-sm border border-amber-400/30 shadow-2xl shadow-amber-400/20"
+              className="mx-auto w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden bg-gradient-to-r from-amber-400/20 to-yellow-500/20 p-3 sm:p-4 backdrop-blur-sm border border-amber-400/30 shadow-2xl shadow-amber-400/20"
             >
               <Image 
                 src="/images/success.gif" 
@@ -697,11 +717,12 @@ const BookingForm = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="space-y-4"
-            >              <h2 className="text-4xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent font-grift">
+              className="space-y-3 sm:space-y-4"
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent font-grift">
                 Discovery Call Scheduled!
               </h2>
-              <p className="text-lg text-neutral-300 max-w-md mx-auto leading-relaxed font-grift">
+              <p className="text-sm sm:text-base md:text-lg text-neutral-300 max-w-md mx-auto leading-relaxed font-grift px-4 sm:px-0">
                 Your Discovery Call has been successfully scheduled! We&apos;ll be in touch within 24 hours to confirm your appointment and provide meeting details.
               </p>
             </motion.div>
@@ -710,19 +731,20 @@ const BookingForm = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 rounded-xl p-6 max-w-md mx-auto backdrop-blur-sm shadow-lg shadow-amber-400/10"
-            >              <h4 className="font-semibold text-amber-400 mb-3 text-lg font-grift">Next Steps:</h4>
-              <ul className="text-neutral-300 text-sm space-y-2 text-left">
+              className="bg-gradient-to-r from-neutral-900/80 to-neutral-800/60 border border-amber-400/30 rounded-lg sm:rounded-xl p-4 sm:p-6 max-w-md mx-auto backdrop-blur-sm shadow-lg shadow-amber-400/10"
+            >
+              <h4 className="font-semibold text-amber-400 mb-3 text-base sm:text-lg font-grift">Next Steps:</h4>
+              <ul className="text-neutral-300 text-xs sm:text-sm space-y-2 text-left">
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Check your email for confirmation</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Add the meeting to your calendar</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-400 rounded-full flex-shrink-0"></div>
                   <span className="font-grift">Prepare any questions you&apos;d like to discuss</span>
                 </li>
               </ul>
@@ -732,8 +754,9 @@ const BookingForm = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.5 }}
-              className="bg-gradient-to-r from-amber-400/10 to-yellow-500/10 border border-amber-400/20 rounded-xl p-4 max-w-lg mx-auto backdrop-blur-sm"
-            >              <p className="text-amber-300 text-sm font-grift">
+              className="bg-gradient-to-r from-amber-400/10 to-yellow-500/10 border border-amber-400/20 rounded-lg sm:rounded-xl p-3 sm:p-4 max-w-lg mx-auto backdrop-blur-sm"
+            >
+              <p className="text-amber-300 text-xs sm:text-sm font-grift">
                 <strong className="text-amber-400 font-grift">What to expect:</strong><br />
                 Comprehensive analysis • Personalized strategy • Growth opportunities • Q&A session
               </p>
@@ -745,36 +768,36 @@ const BookingForm = () => {
         return null;
     }
   };  return (
-    <div className="bg-black px-4 sm:px-6 lg:px-8">
+    <div className="bg-black px-3 sm:px-4 md:px-6 lg:px-8">
       <Toaster position="top-center" toastOptions={{ style: { background: '#1a1a1a', color: '#fff', border: '1px solid #fbbf24' } }} />
       
       {/* Duplicate Dialog */}
       {showDuplicateDialog && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-neutral-900/90 backdrop-blur-xl border border-amber-400/30 rounded-2xl p-8 max-w-md w-full shadow-2xl shadow-amber-400/10"
+            className="bg-neutral-900/90 backdrop-blur-xl border border-amber-400/30 rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-xs sm:max-w-sm md:max-w-md w-full shadow-2xl shadow-amber-400/10"
           >
-            <div className="text-center space-y-6">
-              <div className="w-16 h-16 mx-auto bg-amber-400/20 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center space-y-4 sm:space-y-6">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-amber-400/20 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                 </svg>
-              </div>              <h3 className="text-xl font-bold text-white font-grift">Call Already Registered</h3>
-              <p className="text-neutral-300 font-grift">
+              </div>              <h3 className="text-lg sm:text-xl font-bold text-white font-grift">Call Already Registered</h3>
+              <p className="text-sm sm:text-base text-neutral-300 font-grift">
                 You&apos;ve already placed a discovery call with us. Would you like to update your information with the latest details?
               </p>
-              <div className="flex space-x-3">
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                 <button
                   onClick={() => handleDuplicateChoice(true)}
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-semibold rounded-lg hover:from-amber-500 hover:to-yellow-600 transition-all duration-300 font-grift"
+                  className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-semibold rounded-md sm:rounded-lg hover:from-amber-500 hover:to-yellow-600 transition-all duration-300 font-grift text-sm sm:text-base"
                 >
                   Update Info
                 </button>
                 <button
                   onClick={() => handleDuplicateChoice(false)}
-                  className="flex-1 px-4 py-3 bg-neutral-800 text-white font-semibold rounded-lg hover:bg-neutral-700 transition-all duration-300 border border-neutral-600 font-grift"
+                  className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-neutral-800 text-white font-semibold rounded-md sm:rounded-lg hover:bg-neutral-700 transition-all duration-300 border border-neutral-600 font-grift text-sm sm:text-base"
                 >
                   Keep Previous
                 </button>
@@ -784,24 +807,24 @@ const BookingForm = () => {
         </div>
       )}
       
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto">
         {step <= 10 && (
-          <div className="mb-8">            <div className="flex justify-between items-center mb-4">
-              <span className="text-sm font-medium text-neutral-400 font-grift">
+          <div className="mb-6 sm:mb-8">            <div className="flex justify-between items-center mb-3 sm:mb-4">
+              <span className="text-xs sm:text-sm font-medium text-neutral-400 font-grift">
                 Step {step} of 10
               </span>
-              <span className="text-sm font-medium text-neutral-400 font-grift">
+              <span className="text-xs sm:text-sm font-medium text-neutral-400 font-grift">
                 {Math.round((step / 10) * 100)}% Complete
               </span>
             </div>
-            <div className="w-full bg-neutral-800/50 rounded-full h-3 backdrop-blur-sm">
+            <div className="w-full bg-neutral-800/50 rounded-full h-2 sm:h-3 backdrop-blur-sm">
               <div 
-                className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 h-3 rounded-full transition-all duration-500 shadow-lg shadow-amber-400/30"
+                className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 h-2 sm:h-3 rounded-full transition-all duration-500 shadow-lg shadow-amber-400/30"
                 style={{ width: `${(step / 10) * 100}%` }}
               ></div>
             </div>
           </div>
-        )}        <div className="bg-neutral-900/60 backdrop-blur-xl border border-amber-400/20 rounded-2xl shadow-2xl shadow-amber-400/10 p-6 md:p-8">
+        )}        <div className="bg-neutral-900/60 backdrop-blur-xl border border-amber-400/20 rounded-xl sm:rounded-2xl shadow-2xl shadow-amber-400/10 p-4 sm:p-6 md:p-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -809,24 +832,24 @@ const BookingForm = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="px-4 py-2"
+              className="px-2 sm:px-3 md:px-4 py-2"
             >
               {renderStep()}
             </motion.div>
           </AnimatePresence>{step <= 10 && (
             <>
               {/* Validation Message - Only show when user attempts to proceed */}              {showValidationError && !isStepValid(step) && (
-                <div className="mt-6 p-3 bg-red-500/10 border border-red-500/30 rounded-lg backdrop-blur-sm">
-                  <p className="text-red-400 text-sm font-medium font-grift">
+                <div className="mt-4 sm:mt-5 md:mt-6 p-2.5 sm:p-3 bg-red-500/10 border border-red-500/30 rounded-md sm:rounded-lg backdrop-blur-sm">
+                  <p className="text-red-400 text-xs sm:text-sm font-medium font-grift">
                     {getValidationMessage(step)}
                   </p>
                 </div>
               )}
-                <div className="flex justify-between mt-8 pt-6 border-t border-amber-400/20">
+                <div className="flex flex-col sm:flex-row justify-between mt-6 sm:mt-7 md:mt-8 pt-4 sm:pt-5 md:pt-6 border-t border-amber-400/20 space-y-3 sm:space-y-0 sm:space-x-3">
                 <button
                   onClick={prevStep}
                   disabled={step === 1}
-                  className={`px-6 py-3 rounded-lg font-medium transition-all font-grift ${
+                  className={`px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-md sm:rounded-lg font-medium transition-all font-grift text-sm sm:text-base ${
                     step === 1
                       ? 'bg-neutral-800/50 text-neutral-600 cursor-not-allowed'
                       : 'bg-neutral-800/80 text-neutral-300 hover:bg-neutral-700/80 border border-neutral-600/50 hover:border-amber-400/50'
@@ -836,14 +859,14 @@ const BookingForm = () => {
                 </button>                {step === 10 ? (
                   <button
                     onClick={handleSubmit}
-                    className="px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-black rounded-lg font-medium hover:from-amber-500 hover:to-yellow-600 transition-all transform hover:scale-105 shadow-lg shadow-amber-400/30 font-grift"
+                    className="px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-black rounded-md sm:rounded-lg font-medium hover:from-amber-500 hover:to-yellow-600 transition-all transform hover:scale-105 shadow-lg shadow-amber-400/30 font-grift text-sm sm:text-base"
                   >
                     Schedule Call
                   </button>
                 ) : (
                   <button
                     onClick={nextStep}
-                    className="px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-black rounded-lg font-medium hover:from-amber-500 hover:to-yellow-600 transition-all transform hover:scale-105 shadow-lg shadow-amber-400/30 font-grift"
+                    className="px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-amber-400 to-yellow-500 text-black rounded-md sm:rounded-lg font-medium hover:from-amber-500 hover:to-yellow-600 transition-all transform hover:scale-105 shadow-lg shadow-amber-400/30 font-grift text-sm sm:text-base"
                   >
                     Next
                   </button>

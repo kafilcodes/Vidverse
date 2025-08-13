@@ -7,7 +7,7 @@ import { Zap } from 'lucide-react';
 import SectionChip from '@/components/ui/section-chip';
 
 const OurSystem = () => {
-  return (    <section className="relative py-24 md:py-40 overflow-hidden bg-black min-h-screen flex items-center justify-center">
+  return (    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden bg-black min-h-screen flex items-center justify-center">
     {/* Background Icons Layer - Lowest z-index */}
         <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
           {/* BG ICONS WHAT IT TAKES SECTION - Bottom Left */}
@@ -36,8 +36,8 @@ const OurSystem = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-gold-DEFAULT/5 to-gold-light/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 w-full">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center justify-center min-h-[80vh]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center justify-center min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh]">
           {/* Left Content */}
           <div className="text-center md:text-left order-2 md:order-1">
             <motion.div
@@ -48,7 +48,7 @@ const OurSystem = () => {
             >
               <div className="inline-block mb-6">
                 <SectionChip title="Our System" icon={Zap} />
-              </div>              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-relaxed mb-6">
+              </div>              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-5 md:mb-6">
                 Turn 1 Hour of Recording into a{' '}
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-extrabold">
@@ -65,7 +65,7 @@ const OurSystem = () => {
                 of Content!
               </h2>
               <motion.p 
-                className="text-lg md:text-xl text-neutral-300 max-w-xl mx-auto md:mx-0 leading-relaxed"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-300 max-w-lg mx-auto md:mx-0 leading-relaxed"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -81,7 +81,7 @@ const OurSystem = () => {
           </div>
 
           {/* Right Visual - Orbital Solar System */}
-          <div className="relative flex items-center justify-center h-[00px] md:h-[700px] order-1 md:order-2">
+          <div className="relative flex items-center justify-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] order-1 md:order-2">
             {/* Background gradient circle */}
             <motion.div 
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -90,7 +90,7 @@ const OurSystem = () => {
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             >
-              <div className="relative w-[420px] h-[420px]">
+              <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px]">
                 <Image
                   src="/logo/674ea9799973eeed9e76a540_system-circle-gradient.svg"
                   alt="System gradient ring"
@@ -149,7 +149,7 @@ const OurSystem = () => {
             </motion.div>            {/* Three Concentric Orbits with 2 Icons Each */}
             <div className="absolute inset-0 flex items-center justify-center z-30">              {/* Outermost Orbit - Radius 210px - Instagram & TikTok (matching the visible 420px orbital ring) */}
               <motion.div
-                className="absolute w-[420px] h-[420px]"
+                className="absolute w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px]"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
                 style={{ transformOrigin: 'center center' }}
@@ -172,7 +172,7 @@ const OurSystem = () => {
                     className="relative"
                   >                    {/* Instagram icon with glow effect */}
                     <motion.div
-                      className="relative w-10 h-10 filter drop-shadow-lg"
+                      className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 filter drop-shadow-lg"
                       style={{ 
                         filter: 'drop-shadow(0 0 15px #E4405F60) drop-shadow(0 0 30px #E4405F40) brightness(1.1)',
                       }}
@@ -194,7 +194,7 @@ const OurSystem = () => {
                         alt="Instagram" 
                         width={40} 
                         height={40} 
-                        className="object-contain" 
+                        className="object-contain w-full h-full" 
                         priority={true}
                       />
                     </motion.div>
@@ -218,7 +218,7 @@ const OurSystem = () => {
                     className="relative"
                   >                    {/* TikTok icon with glow effect */}
                     <motion.div
-                      className="relative w-10 h-10 filter drop-shadow-lg"
+                      className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 filter drop-shadow-lg"
                       style={{ 
                         filter: 'drop-shadow(0 0 15px #69C9D060) drop-shadow(0 0 30px #69C9D040) brightness(1.1)',
                       }}
@@ -240,7 +240,7 @@ const OurSystem = () => {
                         alt="TikTok" 
                         width={40} 
                         height={40} 
-                        className="object-contain" 
+                        className="object-contain w-full h-full" 
                         priority={true}
                       />
                     </motion.div>
@@ -248,7 +248,7 @@ const OurSystem = () => {
                 </motion.div>
               </motion.div>              {/* Outer Orbit - Radius 200px - YouTube & LinkedIn */}
               <motion.div
-                className="absolute w-[400px] h-[400px]"
+                className="absolute w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px]"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
                 style={{ transformOrigin: 'center center' }}
@@ -270,7 +270,7 @@ const OurSystem = () => {
                     className="relative"
                   >                    {/* YouTube icon with glow effect */}
                     <motion.div
-                      className="relative w-10 h-10 filter drop-shadow-lg"
+                      className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 filter drop-shadow-lg"
                       style={{ 
                         filter: 'drop-shadow(0 0 15px #FF000060) drop-shadow(0 0 30px #FF000040) brightness(1.1)',
                       }}
@@ -292,7 +292,7 @@ const OurSystem = () => {
                         alt="YouTube" 
                         width={40} 
                         height={40} 
-                        className="object-contain" 
+                        className="object-contain w-full h-full" 
                         priority={true}
                       />
                     </motion.div>
@@ -315,7 +315,7 @@ const OurSystem = () => {
                     className="relative"
                   >                    {/* LinkedIn icon with glow effect */}
                     <motion.div
-                      className="relative w-10 h-10 filter drop-shadow-lg"
+                      className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 filter drop-shadow-lg"
                       style={{ 
                         filter: 'drop-shadow(0 0 15px #0077B560) drop-shadow(0 0 30px #0077B540) brightness(1.1)',
                       }}
@@ -337,7 +337,7 @@ const OurSystem = () => {
                         alt="LinkedIn" 
                         width={40} 
                         height={40} 
-                        className="object-contain" 
+                        className="object-contain w-full h-full" 
                         priority={true}
                       />
                     </motion.div>
@@ -347,7 +347,7 @@ const OurSystem = () => {
 
               {/* Middle Orbit - Radius 150px - Spotify & Apple Podcasts */}
               <motion.div
-                className="absolute w-[300px] h-[300px]"
+                className="absolute w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] lg:w-[300px] lg:h-[300px]"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
                 style={{ transformOrigin: 'center center' }}
@@ -366,7 +366,7 @@ const OurSystem = () => {
                     className="relative"
                   >                    {/* Spotify icon with glow effect */}
                     <motion.div
-                      className="relative w-10 h-10 filter drop-shadow-lg"
+                      className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 filter drop-shadow-lg"
                       style={{ 
                         filter: 'drop-shadow(0 0 15px #1DB95460) drop-shadow(0 0 30px #1DB95440) brightness(1.1)',
                       }}
@@ -388,7 +388,7 @@ const OurSystem = () => {
                         alt="Spotify" 
                         width={40} 
                         height={40} 
-                        className="object-contain" 
+                        className="object-contain w-full h-full" 
                         priority={true}
                       />
                     </motion.div>
@@ -408,7 +408,7 @@ const OurSystem = () => {
                     className="relative"
                   >                    {/* Apple Podcasts icon with glow effect */}
                     <motion.div
-                      className="relative w-10 h-10 filter drop-shadow-lg"
+                      className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 filter drop-shadow-lg"
                       style={{ 
                         filter: 'drop-shadow(0 0 15px #9933CC60) drop-shadow(0 0 30px #9933CC40) brightness(1.1)',
                       }}
@@ -430,7 +430,7 @@ const OurSystem = () => {
                         alt="Apple Podcasts" 
                         width={40} 
                         height={40} 
-                        className="object-contain" 
+                        className="object-contain w-full h-full" 
                         priority={true}
                       />
                     </motion.div>
@@ -446,9 +446,9 @@ const OurSystem = () => {
               viewport={{ once: true }}
               transition={{ duration: 2, delay: 2.2 }}
             >
-              {/* Outer orbital ring - 400px */}
+              {/* Outer orbital ring */}
               <motion.div 
-                className="w-[420px] h-[420px] border border-gold-DEFAULT/10 rounded-full"
+                className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] border border-gold-DEFAULT/10 rounded-full"
                 animate={{ 
                   rotate: 360,
                   scale: [1, 1.01, 1]
@@ -459,9 +459,9 @@ const OurSystem = () => {
                 }}
               />
               
-              {/* Middle orbital ring - 300px */}
+              {/* Middle orbital ring */}
               <motion.div 
-                className="absolute w-[320px] h-[320px] border border-gold-DEFAULT/15 rounded-full"
+                className="absolute w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] border border-gold-DEFAULT/15 rounded-full"
                 animate={{ 
                   rotate: -360,
                   opacity: [0.4, 0.7, 0.4]
@@ -472,9 +472,9 @@ const OurSystem = () => {
                 }}
               />
               
-              {/* Inner orbital ring - 200px */}
+              {/* Inner orbital ring */}
               <motion.div 
-                className="absolute w-[220px] h-[220px] border border-gold-DEFAULT/8 rounded-full"
+                className="absolute w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px] border border-gold-DEFAULT/8 rounded-full"
                 animate={{ 
                   scale: [1, 1.03, 1],
                   opacity: [0.2, 0.4, 0.2]

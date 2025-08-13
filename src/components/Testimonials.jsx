@@ -13,7 +13,7 @@ const testimonialsData = [
   {
     name: 'Insane Curiosity',
     image: '/images/Insane Curiosity.jpg',
-    quote: 'Fast Delivery & Good editing!',
+    quote: 'Fast delivery and great editing — Vidverse actually helped me engage my audience, and it really surprised me',
   },
   {
     name: 'PBS Space Time',
@@ -87,7 +87,7 @@ const Testimonials = () => {
           <div className="flex justify-center mb-4">
             <SectionChip title="Testimonials" icon={MessageSquare} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 leading-tight">
             Hear From Creators Who&apos;ve <br />
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
@@ -109,7 +109,7 @@ const Testimonials = () => {
           <div className="embla__container">
             {testimonialsData.map((testimonial, index) => (
               <div className="embla__slide" key={index}>
-                <div className="relative h-auto min-h-[22rem] flex flex-col bg-neutral-900/20 backdrop-blur-xl border border-neutral-800/60 rounded-3xl p-8 shadow-lg transition-all duration-300 hover:border-golden/40 hover:shadow-2xl hover:shadow-golden/10">
+                <div className="relative h-[22rem] flex flex-col bg-neutral-900/20 backdrop-blur-xl border border-neutral-800/60 rounded-3xl p-8 shadow-lg transition-all duration-300 hover:border-golden/40 hover:shadow-2xl hover:shadow-golden/10">
                   <GlowingEffect
                     spread={40}
                     glow={false}
@@ -119,7 +119,7 @@ const Testimonials = () => {
                     variant="default"
                     borderWidth={2}
                   />
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center mb-6">
                       <Image
                         src={testimonial.image}
@@ -140,9 +140,9 @@ const Testimonials = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="relative flex-grow mt-4">
+                    <div className="relative flex-1 flex items-center mt-4">
                       <Quote className="absolute -top-2 -left-4 w-10 h-10 text-neutral-700/50" />
-                      <p className="text-neutral-300 flex-grow overflow-y-auto pr-2 testimonial-quote text-[15px] leading-relaxed italic z-10 relative">{testimonial.quote}</p>
+                      <p className="text-neutral-300 flex-1 pr-2 testimonial-quote text-[15px] leading-relaxed italic z-10 relative">{testimonial.quote}</p>
                       <Quote className="absolute -bottom-2 -right-2 w-10 h-10 text-neutral-700/50 transform scale-x-[-1] scale-y-[-1]" />
                     </div>
                   </div>

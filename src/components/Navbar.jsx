@@ -92,13 +92,13 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 py-4 px-4 md:px-6 bg-transparent transition-transform duration-300 ease-in-out ${isNavbarVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-6 bg-transparent transition-transform duration-300 ease-in-out ${isNavbarVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="container mx-auto">
-        <div className="flex items-center justify-between bg-black/20 backdrop-blur-lg border border-white/10 hover:border-gold rounded-2xl shadow-lg px-3 py-1.5 max-w-xl mx-auto transition-all duration-300">
-          <div className="text-2xl font-bold">
+        <div className="flex items-center justify-between bg-black/20 backdrop-blur-lg border border-white/10 hover:border-gold rounded-xl sm:rounded-2xl shadow-lg px-2 sm:px-3 py-1 sm:py-1.5 max-w-full sm:max-w-xl mx-auto transition-all duration-300">
+          <div className="text-lg sm:text-xl md:text-2xl font-bold">
             <Link href="/" className="flex items-center">
-              <Image src="/logo/vidverse.svg" alt="VidVerse Logo" width={32} height={32} className="h-8 w-8 mr-2" />
-              <span className="text-xl font-semibold text-shimmer">VidVerse</span>
+              <Image src="/logo/vidverse.svg" alt="VidVerse Logo" width={32} height={32} className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 mr-1.5 sm:mr-2" />
+              <span className="text-base sm:text-lg md:text-xl font-semibold text-shimmer">VidVerse</span>
             </Link>
           </div>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`nav-link px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 ease-in-out cursor-pointer ${activeSection === link.href ? 'text-golden bg-golden/20 font-semibold' : 'text-neutral-300 hover:text-golden'}`}>
+                className={`nav-link px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-medium rounded-md transition-all duration-200 ease-in-out cursor-pointer ${activeSection === link.href ? 'text-golden bg-golden/20 font-semibold' : 'text-neutral-300 hover:text-golden'}`}>
                 {link.name}
               </a>
             ))}
@@ -116,31 +116,31 @@ const Navbar = () => {
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="hover:bg-muted/20">
-                <Menu className="h-6 w-6 text-secondary-foreground" />
+              <Button variant="ghost" size="icon" className="hover:bg-muted/20 h-8 w-8 sm:h-9 sm:w-9">
+                <Menu className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-secondary-foreground" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-xs bg-card p-6">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center mb-8">
-                  <div className="text-2xl font-bold">
+                  <div className="text-xl sm:text-2xl font-bold">
                     <div className="flex items-center">
-                      <Image src="/logo/vidverse-icon.png" alt="VidVerse Logo" width={32} height={32} className="h-8 w-8 mr-2" />
-                      <span className="text-xl font-semibold text-shimmer">VidVerse</span>
+                      <Image src="/logo/vidverse-icon.png" alt="VidVerse Logo" width={32} height={32} className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 mr-2" />
+                      <span className="text-lg sm:text-xl font-semibold text-shimmer">VidVerse</span>
                     </div>
                   </div>
-                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
-                    <X className="h-6 w-6" />
+                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)} className="h-8 w-8">
+                    <X className="h-5 w-5 md:h-6 md:w-6" />
                   </Button>
                 </div>
                 
-                <nav className="flex flex-col space-y-4">
+                <nav className="flex flex-col space-y-3 sm:space-y-4">
                   {navLinks.map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className={`block w-full text-left px-4 py-3 rounded-lg text-lg font-medium transition-colors duration-200 ${activeSection === link.href ? 'bg-golden/20 text-golden' : 'text-neutral-200 hover:bg-neutral-700/50'}`}>
+                      className={`block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-medium transition-colors duration-200 ${activeSection === link.href ? 'bg-golden/20 text-golden' : 'text-neutral-200 hover:bg-neutral-700/50'}`}>
                       {link.name}
                     </a>
                   ))}

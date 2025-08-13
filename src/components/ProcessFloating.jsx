@@ -25,7 +25,7 @@ const ProcessFloating = () => {
       heading: "Strategy and Foundation",
       description: "The process begins by getting out what's in your head, out of your head. We give you 100% clarity after taking short interviews, researching your ICP, building a brand story and other assets, helping you gain crystal clarity about your brand's content direction.",
       output: "Strategy, brand story, and trust profile",
-      image: "/images/1.png"
+      image: "/logo/1.svg"
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const ProcessFloating = () => {
       heading: "Content Design",
       description: "Consistency means trust and with a solid foundation we will design the visual guidelines for editing your content. This builds authority and trust already warranted by your expertise. Already have a brand? We will build a complimentary visual identity specific to videos.",
       output: "Visual identity",
-      image: "/images/2.png"
+      image: "/logo/2.svg"
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const ProcessFloating = () => {
       heading: "Pre-Production",
       description: "This is where you invest 1 hour a week and record a content with an industry expert, interview with our team, or record long-form videos from the scripts we send. No overthinking, no confusion - Always create with confidence.",
       output: "Systematic scheduling process",
-      image: "/images/3.png"
+      image: "/logo/3.svg"
     },
     {
       id: 4,
@@ -49,7 +49,7 @@ const ProcessFloating = () => {
       heading: "Post-Production",
       description: "We take all the raw content and our team turns it into authority-driven content that builds trust for your brand at scale. We create and post 20 videos a month on every platform mainly - Instagram, YouTube, and Linkedin.",
       output: "5 videos every week",
-      image: "/images/4.png"
+      image: "/logo/4.svg"
     },
     {
       id: 5,
@@ -57,7 +57,7 @@ const ProcessFloating = () => {
       heading: "Backend Automation",
       description: "If you sell info-products we set automation and backend systems to predictably convert your followers into paying customers.",
       output: "Consistent organic leads",
-      image: "/images/5.png"
+      image: "/logo/5.svg"
     }
   ];  // Handle card swap callback from CardSwap component
   const handleCardSwap = (newFrontCardIndex) => {
@@ -118,7 +118,7 @@ const ProcessFloating = () => {
   return (<section
     ref={sectionRef}
     id="process"
-    className="relative py-6 md:py-10 overflow-visible bg-black min-h-screen"
+    className="relative py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 overflow-visible bg-black min-h-screen"
   >
     {/* Background Icons Layer - Lowest z-index */}
     <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
@@ -153,7 +153,7 @@ const ProcessFloating = () => {
           transition={{ duration: 0.8 }}
         >
           <SectionChip title="Our Process" icon={Settings} className="mb-3" />
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 font-grift leading-relaxed">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 font-grift leading-tight">
             Simple{' '}
             <span className="relative inline-block">
           <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent font-bold">
@@ -314,16 +314,22 @@ const ProcessFloating = () => {
                     {/* Card Content - Image */}
                     <div className="flex-1 flex flex-col justify-center items-center">
                       <div className="relative w-48 h-48 flex items-center justify-center">
-                        <Image
-                          src={step.image}
-                          alt={step.heading}
-                          width={192}
-                          height={192}
-                          className="object-contain w-full h-full opacity-90"
-                          style={{
-                            filter: 'brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1200%) hue-rotate(25deg) brightness(130%) drop-shadow(0 0 20px rgba(251, 191, 36, 0.8))'
-                          }}
-                        />
+                        <div className="relative">
+                          {/* Glassmorphism-style glow effect background */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 via-golden/25 to-amber-500/20 rounded-full blur-md scale-102 backdrop-blur-sm"></div>
+                          
+                          {/* Icon with refined glow */}
+                          <Image
+                            src={step.image}
+                            alt={step.heading}
+                            width={192}
+                            height={192}
+                            className="object-contain w-full h-full relative z-10"
+                            style={{
+                              filter: 'drop-shadow(0 0 6px rgba(212, 175, 55, 0.3)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.15))'
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

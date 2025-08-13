@@ -10,34 +10,34 @@ import Image from 'next/image';
 
 const statsData = [
   { 
-    value: 50, 
+    value: 70, 
     suffix: '+', 
     label: 'Projects Completed',
-    icon: '/logo/projectcompleted.png',
+    icon: '/logo/projectcompleted.svg',
     trendData: [20, 35, 42, 50],
     chartType: 'line'
   },
   { 
-    value: 10, 
+    value: 20, 
     suffix: 'K+', 
     label: 'Hours of Content',
-    icon: '/logo/hoursofcontent.png',
+    icon: '/logo/hoursofcontent.svg',
     trendData: [2, 5, 8, 10],
     chartType: 'progress'
   },
   { 
-    value: 1, 
+    value: 3, 
     suffix: 'M+', 
     label: 'People Reached',
-    icon: '/logo/peoplereached.png',
+    icon: '/logo/peoplereached.svg',
     trendData: [0.2, 0.5, 0.8, 1],
     chartType: 'circular'
   },
   { 
-    value: 10, 
+    value: 15, 
     suffix: 'M+', 
     label: 'Client Content Views',
-    icon: '/logo/clientcontentviews.png',
+    icon: '/logo/clientcontentviews.svg',
     trendData: [1, 3, 6, 10],
     chartType: 'area'
   },
@@ -141,7 +141,7 @@ const Stats = () => {
             </motion.div>
           </div>
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white leading-relaxed"
+            className="text-4xl md:text-5xl font-bold text-white leading-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -217,21 +217,21 @@ const Stats = () => {
                       alt={stat.label}
                       width={96}
                       height={96}
-                      className="w-full h-full object-contain filter brightness-0 invert"
+                      className="w-full h-full object-contain"
                     />
                     {/* Amber gradient overlay */}
                     <div 
-                      className="absolute inset-0 bg-gradient-to-br from-amber-300 via-amber-400 to-amber-400 opacity-90 mix-blend-multiply"
-                      style={{
-                        maskImage: `url(${stat.icon})`,
-                        WebkitMaskImage: `url(${stat.icon})`,
-                        maskSize: 'contain',
-                        maskRepeat: 'no-repeat',
-                        maskPosition: 'center',
-                        WebkitMaskSize: 'contain',
-                        WebkitMaskRepeat: 'no-repeat',
-                        WebkitMaskPosition: 'center'
-                      }}
+                      // className="absolute inset-0 bg-gradient-to-br from-amber-300 via-amber-400 to-amber-400 opacity-90 mix-blend-multiply"
+                      // style={{
+                      //   maskImage: `url(${stat.icon})`,
+                      //   WebkitMaskImage: `url(${stat.icon})`,
+                      //   maskSize: 'contain',
+                      //   maskRepeat: 'no-repeat',
+                      //   maskPosition: 'center',
+                      //   WebkitMaskSize: 'contain',
+                      //   WebkitMaskRepeat: 'no-repeat',
+                      //   WebkitMaskPosition: 'center'
+                      // }}
                     />
                   </div>
                   
