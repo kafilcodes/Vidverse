@@ -58,7 +58,6 @@ const Newsletter = () => {
       setMessage('Thank you for subscribing! You are on the list.');
       setEmail('');
     } catch (error) {
-      console.error('Firebase Error:', error);
       setStatus('error');
       setMessage('Something went wrong. Please try again later.');
     }

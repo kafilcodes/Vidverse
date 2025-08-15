@@ -44,7 +44,6 @@ const BookingForm = () => {
       })
       .then((data) => setAnimationData(data))
       .catch((error) => {
-        console.warn('Failed to load lottie animation:', error);
         // Set a fallback or continue without animation
         setAnimationData(null);
       });
@@ -67,7 +66,7 @@ const BookingForm = () => {
         setStep(parseInt(savedStep, 10));
       }
     } catch (error) {
-      console.error("Failed to load form data from localStorage", error);
+      // Failed to load form data from localStorage - continue with defaults
     }
   }, []);
   useEffect(() => {
@@ -75,7 +74,7 @@ const BookingForm = () => {
       localStorage.setItem('bookingFormData', JSON.stringify(formData));
       localStorage.setItem('bookingFormStep', step.toString());
     } catch (error) {
-      console.error("Failed to save form data to localStorage", error);
+      // Failed to save form data to localStorage - continue silently
     }
   }, [formData, step]);
 
@@ -210,7 +209,6 @@ const BookingForm = () => {
       // If no duplicate, proceed with submission
       await submitForm();
     } catch (error) {
-      console.error('❌ Error checking for duplicates:', error);
       toast.error('There was an error submitting your form. Please try again.');
     }
   };
@@ -218,7 +216,6 @@ const BookingForm = () => {
   const submitForm = async (forceUpdate = false) => {
     // Check if Firebase is available
     if (!db) {
-      console.error('❌ Firebase database not available');
       toast.error('Booking service is temporarily unavailable. Please try again later.');
       return;
     }
@@ -241,7 +238,6 @@ const BookingForm = () => {
       setShowDuplicateDialog(false);
       setStep(11);
     } catch (error) {
-      console.error('Error submitting form:', error);
       toast.error('There was an error submitting your form. Please try again.');
     }
   };

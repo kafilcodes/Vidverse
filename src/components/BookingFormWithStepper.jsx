@@ -51,7 +51,7 @@ const BookingForm = () => {
         setCurrentStep(parseInt(savedStep, 10));
       }
     } catch (error) {
-      console.error("Failed to load form data from localStorage", error);
+      // Failed to load form data from localStorage - continue with defaults
     }
   }, []);
 
@@ -60,7 +60,7 @@ const BookingForm = () => {
       localStorage.setItem('bookingFormData', JSON.stringify(formData));
       localStorage.setItem('bookingFormStep', currentStep.toString());
     } catch (error) {
-      console.error("Failed to save form data to localStorage", error);
+      // Failed to save form data to localStorage - continue silently
     }
   }, [formData, currentStep]);
 
@@ -181,7 +181,6 @@ const BookingForm = () => {
     } catch (error) {
       toast.dismiss();
       toast.error('Something went wrong. Please try again.');
-      console.error('Firebase Error:', error);
     }
   };
 

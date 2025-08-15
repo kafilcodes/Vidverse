@@ -107,7 +107,6 @@ const CardSwap = forwardRef(({
   useImperativeHandle(ref, () => ({
     startSwapping: () => {
       if (swapFunction.current && !intervalRef.current) {
-        console.log('CardSwap: Starting swapping manually');
         const initialDelay = firstSwapDelay || delay;
         
         intervalRef.current = window.setTimeout(() => {
@@ -119,7 +118,6 @@ const CardSwap = forwardRef(({
       }
     },
     stopSwapping: () => {
-      console.log('CardSwap: Stopping swapping manually');
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         clearTimeout(intervalRef.current);
@@ -236,11 +234,7 @@ const CardSwap = forwardRef(({
 
   // Handle autoStart - simple and clean
   useEffect(() => {
-    console.log('CardSwap: autoStart changed to', autoStart);
-    
     if (autoStart && swapFunction.current && !intervalRef.current) {
-      console.log('CardSwap: Auto-starting with firstSwapDelay:', firstSwapDelay || delay);
-      
       // Call onSwap immediately for the initial state (index 0)
       if (onSwap) {
         onSwap(0);
@@ -250,7 +244,6 @@ const CardSwap = forwardRef(({
       const initialDelay = firstSwapDelay || delay;
       intervalRef.current = window.setTimeout(() => {
         if (swapFunction.current) {
-          console.log('CardSwap: Executing first swap');
           swapFunction.current();
           // Continue with regular intervals
           intervalRef.current = window.setInterval(swapFunction.current, delay);
@@ -260,7 +253,6 @@ const CardSwap = forwardRef(({
     
     // Stop if autoStart becomes false
     if (!autoStart && intervalRef.current) {
-      console.log('CardSwap: Stopping due to autoStart false');
       clearInterval(intervalRef.current);
       clearTimeout(intervalRef.current);
       intervalRef.current = null;

@@ -21,7 +21,6 @@ let database;
 try {
   // Check if required config is present
   if (!firebaseConfig.projectId || !firebaseConfig.databaseURL) {
-    console.warn('⚠️ Firebase configuration incomplete. Some features may not work.');
     database = null;
   } else {
     if (!getApps().length) {
@@ -32,10 +31,8 @@ try {
     
     // Initialize database with explicit app parameter and URL
     database = getDatabase(app, firebaseConfig.databaseURL);
-    console.log('✅ Firebase initialized successfully');
   }
 } catch (error) {
-  console.error('❌ Firebase initialization failed:', error.message);
   // Set database to null so components can handle the error gracefully
   database = null;
 }

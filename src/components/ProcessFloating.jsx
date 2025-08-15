@@ -63,7 +63,6 @@ const ProcessFloating = () => {
 
   // Handle card swap callback from CardSwap component
   const handleCardSwap = (newFrontCardIndex) => {
-    console.log('CardSwap callback - newFrontCardIndex:', newFrontCardIndex);
     // Ensure the index is valid
     if (newFrontCardIndex >= 0 && newFrontCardIndex < processSteps.length) {
       setFrontCardIndex(newFrontCardIndex);
@@ -76,22 +75,18 @@ const ProcessFloating = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const isVisible = entry.isIntersecting;
-        console.log('Viewport status:', isVisible ? 'visible' : 'hidden');
 
         // Only start once when first coming into view
         if (isVisible && !hasStarted) {
-          console.log('Section in view - starting animation');
           setHasStarted(true);
         }
 
         // Simple pause/resume - don't reset, just pause/resume
         if (!isVisible && hasStarted) {
-          console.log('Section out of view - pausing');
           if (cardSwapRef.current && cardSwapRef.current.stopSwapping) {
             cardSwapRef.current.stopSwapping();
           }
         } else if (isVisible && hasStarted) {
-          console.log('Section back in view - resuming');
           if (cardSwapRef.current && cardSwapRef.current.startSwapping) {
             cardSwapRef.current.startSwapping();
           }
@@ -112,14 +107,6 @@ const ProcessFloating = () => {
       }
     };
   }, [hasStarted]);
-
-  // Remove the problematic progress bar reset effect that was causing issues
-  // The progress bar will reset naturally with the progressKey increment
-
-  // Debug effect to track state changes - remove in production
-  useEffect(() => {
-    console.log('ProcessFloating state - frontCardIndex:', frontCardIndex, 'hasStarted:', hasStarted);
-  }, [frontCardIndex, hasStarted]);
 
   return (
     <section

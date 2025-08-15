@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:production": "NODE_ENV=production next build",
     "start": "next start",
-    "lint": "next lint"
+    "start:production": "NODE_ENV=production next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "analyze": "ANALYZE=true next build",
+    "clean": "rm -rf .next out node_modules/.cache"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

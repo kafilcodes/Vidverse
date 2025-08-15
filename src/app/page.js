@@ -17,9 +17,6 @@ import SectionBoundary from '@/components/SectionBoundary';
 import ClientPageWrapper from '@/components/ClientPageWrapper';
 
 export default function Home() {
-  if (process.env.NODE_ENV === 'development') {
-    console.log('[VidVerse Debug] Rendering Home page (page.js) - All Components Restored');
-  }
   return (
     <ClientPageWrapper>
       <main className="min-h-screen no-scrollbar relative"> {/* Ensure no conflicting background here */}

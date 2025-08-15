@@ -7,16 +7,14 @@ import { loadAll } from "@tsparticles/all"; // Import loadAll
 
 const ParticleBackground = () => {
   const particlesInit = useCallback(async (engine) => {
-    // console.log("Particles engine starting to load...");
     // Load the full engine (all shapes, updaters, interactors, etc.)
     await loadAll(engine);
     // Load the firefly preset
     await loadFireflyPreset(engine);
-    // console.log("Particles engine and preset loaded.");
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
-    // await console.log("Particles container loaded:", container);
+    // Particles container loaded successfully
   }, []);
 
   const particleOptions = useMemo(

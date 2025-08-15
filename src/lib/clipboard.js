@@ -21,7 +21,7 @@ export const copyToClipboard = async (text) => {
       return success;
     }
   } catch (error) {
-    console.error('Failed to copy text to clipboard:', error);
+    // Fallback: return false if copy fails
     return false;
   }
 };

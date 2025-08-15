@@ -354,9 +354,7 @@ const WhatItTakes = () => {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               onClick={() => {
-                console.log('Book Discovery Call button clicked');
                 const discoverySection = document.getElementById('booking-form');
-                console.log('Found booking form element:', discoverySection);
 
                 if (discoverySection) {
                   discoverySection.scrollIntoView({
@@ -366,16 +364,13 @@ const WhatItTakes = () => {
                   // Focus on the first form input after scroll
                   setTimeout(() => {
                     const firstInput = discoverySection.querySelector('input, select, textarea');
-                    console.log('Found first input:', firstInput);
                     if (firstInput) {
                       firstInput.focus();
                     }
                   }, 1500); // Increased timeout for better timing
                 } else {
-                  console.error('Booking form element not found! Looking for alternatives...');
                   // Fallback: try to find any section with booking in its class or id
                   const alternativeBooking = document.querySelector('[id*="booking"], [class*="booking"], section:has([class*="form"])')
-                  console.log('Alternative booking element:', alternativeBooking);
                   if (alternativeBooking) {
                     alternativeBooking.scrollIntoView({
                       behavior: 'smooth',
