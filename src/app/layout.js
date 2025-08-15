@@ -9,11 +9,11 @@ export const metadata = {
   keywords: ['video content', 'organic marketing', 'content engine', 'SaaS for entrepreneurs', 'VC portfolio support', 'content creation', 'brand scaling'],
   icons: {
     icon: [
-      { url: '/logo/vidverse-icon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo/vidverse-icon.png', sizes: '16x16', type: 'image/png' }
+      { url: '/logo/vidverse.svg', sizes: '32x32', type: 'image/png' },
+      { url: '/logo/vidverse.svg', sizes: '16x16', type: 'image/png' }
     ],
-    shortcut: '/logo/vidverse-icon.png',
-    apple: '/logo/vidverse-icon.png',
+    shortcut: '/logo/vidverse.svg',
+    apple: '/logo/vidverse.svg',
   },
 };
 

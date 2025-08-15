@@ -23,7 +23,7 @@ const SectionChip = ({
   const chipContent = (
     <div className={`inline-block ${className}`}>
       {/* Filled Golden Gradient Design */}
-      <div className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-golden-gradient text-black flex items-center gap-2">
+      <div className="px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full bg-amber-400 text-black flex items-center gap-2">
         {Icon && (
           <Icon className="h-3 w-3 text-black" />
         )}

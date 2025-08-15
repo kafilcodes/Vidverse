@@ -10,24 +10,36 @@ import SectionChip from '@/components/ui/section-chip';
 const DiscoveryCall = () => {
   return (
     <section id="booking-form" className="relative bg-transparent py-12 md:py-16 pb-8 md:pb-10 overflow-hidden" style={{ fontFamily: 'Manrope, sans-serif' }}>
+      
+      {/* Grain Background - Same as Newsletter */}
+      <div className="absolute inset-0 z-[-3]">
+        <Image
+          src="/bg-icons/67417cccd10005101c0c23e5_grain.png"
+          fill
+          className="object-cover w-full h-full opacity-40"
+          alt=""
+          priority={false}
+        />
+      </div>
+
       {/* Background Icons Layer - Lowest z-index */}
       <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
-        {/* BG ICONS PORTFOLIO SECTION - Bottom Right - Using working icon from Benefits */}
+        {/* BG ICONS DISCOVERY CALL SECTION - Responsive positioning */}
         <Image
           src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
           width={600}
           height={600}
-          className="absolute bottom-30 -right-70 opacity-50 "
+          className="absolute bottom-16 -right-48 opacity-30 scale-75 sm:bottom-20 sm:-right-56 sm:opacity-40 sm:scale-90 md:bottom-30 md:-right-70 md:opacity-50 md:scale-100"
           alt=""
           priority={false}
         />
 
-        {/* BG ICONS PORTFOLIO SECTION - Top Left - Using working icon from Benefits */}
+        {/* BG ICONS DISCOVERY CALL SECTION - Top Left */}
         <Image
           src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
           width={600}
           height={600}
-          className="absolute top-30 -left-70 opacity-50 "
+          className="absolute top-16 -left-48 opacity-30 scale-75 sm:top-20 sm:-left-56 sm:opacity-40 sm:scale-90 md:top-30 md:-left-70 md:opacity-50 md:scale-100"
           alt=""
           priority={false}
         />

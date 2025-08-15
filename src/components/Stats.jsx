@@ -71,6 +71,18 @@ const Stats = () => {
 
   return (
     <section className="relative bg-transparent py-16 md:py-20 overflow-hidden">
+      
+      {/* Grain Background - Same as Newsletter */}
+      <div className="absolute inset-0 z-[-3]">
+        <Image
+          src="/bg-icons/67417cccd10005101c0c23e5_grain.png"
+          fill
+          className="object-cover w-full h-full opacity-40"
+          alt=""
+          priority={false}
+        />
+      </div>
+
       {/* Background Icons Layer - Lowest z-index */}
             <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
               {/* BG ICONS PORTFOLIO SECTION - Bottom Right - Using working icon from Benefits */}
@@ -78,7 +90,7 @@ const Stats = () => {
                 src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
                 width={600}
                 height={600}
-                className="absolute bottom-30 -right-70 opacity-50 "
+                className="absolute bottom-30 -right-70 opacity-30 scale-50 sm:opacity-40 sm:scale-75 md:opacity-50 md:scale-100"
                 alt=""
                 priority={false}
               />
@@ -88,7 +100,7 @@ const Stats = () => {
                 src="/bg-icons/674183bd7eb1543409d0f095_polygon-dark.svg"
                 width={600}
                 height={600}
-                className="absolute top-30 -left-70 opacity-50 "
+                className="absolute top-30 -left-70 opacity-30 scale-50 sm:opacity-40 sm:scale-75 md:opacity-50 md:scale-100"
                 alt=""
                 priority={false}
               />

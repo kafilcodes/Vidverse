@@ -63,8 +63,30 @@ const VideoCard = ({ item, isVisible, position, hoveredCard, setHoveredCard, car
   };
 
   const aspectRatio = item.type === 'shorts' ? '9/16' : '16/9';
-  const cardWidth = item.type === 'shorts' ? '322.65px' : '720px'; // Keep width as is
-  const cardHeight = item.type === 'shorts' ? '530.23px' : '405px'; // Use proper 16:9 ratio height for long videos (720/16*9 = 405px)
+  
+  // Responsive video dimensions
+  const getVideoDimensions = () => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+      
+      if (item.type === 'shorts') {
+        if (isMobile) return { width: '280px', height: '460px' };
+        if (isTablet) return { width: '300px', height: '490px' };
+        return { width: '322.65px', height: '530.23px' };
+      } else {
+        if (isMobile) return { width: '320px', height: '180px' };
+        if (isTablet) return { width: '480px', height: '270px' };
+        return { width: '720px', height: '405px' };
+      }
+    }
+    // Fallback for SSR
+    return item.type === 'shorts' 
+      ? { width: '322.65px', height: '530.23px' }
+      : { width: '720px', height: '405px' };
+  };
+  
+  const { width: cardWidth, height: cardHeight } = getVideoDimensions();
 
   // Enhanced Wistia embed URL with maximum quality parameters, full coverage (fitStrategy=cover ensures video fills entire container)
   const wistiaEmbedUrl = `https://fast.wistia.net/embed/iframe/${item.videoId}?seo=true&videoFoam=true&playerColor=ffcc33&silentAutoPlay=false&autoPlay=false&muted=true&qualityControl=true&volume=1&controlsVisibleOnLoad=true&fullscreenButton=true&settingsControl=true&volumeControl=true&qualityMin=720&qualityMax=4K&playbackRateControl=true&fitStrategy=${item.type === 'long' ? 'fill' : 'cover'}&wmode=transparent&plugin[socialbar-v1][on]=false&plugin[captions-v1][on]=false`;
@@ -337,20 +359,6 @@ const Portfolio = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const carouselRef = useRef(null);
   
-  // Create unified slides structure
-  const slides = [
-    {
-      id: 'slide-1',
-      title: 'Short-Form Content Collection',
-      items: portfolioItems.slice(0, 3) // First 3 short videos
-    },
-    {
-      id: 'slide-2', 
-      title: 'Mixed Content Collection',
-      items: portfolioItems.slice(3) // Remaining content (1 short + 1 long video)
-    }
-  ];
-
   const handlePrev = () => {
     setCurrentSlide((prev) => Math.max(0, prev - 1));
   };
@@ -404,8 +412,58 @@ const Portfolio = () => {
   };
 
   const getVisibleItems = (slideItems) => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 768;
+      // On mobile, show individual cards by creating individual slides
+      if (isMobile) {
+        return slideItems.slice(0, 1);
+      }
+    }
     return slideItems;
   };
+
+  // Create responsive slides structure - individual cards for mobile, grouped for desktop
+  const createSlides = () => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 768;
+      
+      if (isMobile) {
+        // Create individual slides for each video on mobile
+        return portfolioItems.map((item, index) => ({
+          id: `slide-mobile-${index + 1}`,
+          title: item.title,
+          items: [item]
+        }));
+      }
+    }
+    
+    // Desktop grouped structure
+    return [
+      {
+        id: 'slide-1',
+        title: 'Short-Form Content Collection',
+        items: portfolioItems.slice(0, 3) // First 3 short videos
+      },
+      {
+        id: 'slide-2', 
+        title: 'Mixed Content Collection',
+        items: portfolioItems.slice(3) // Remaining content (1 short + 1 long video)
+      }
+    ];
+  };
+
+  const [slides, setSlides] = useState(createSlides());
+
+  // Update slides when window resizes
+  useEffect(() => {
+    const handleResize = () => {
+      setSlides(createSlides());
+      setCurrentSlide(0); // Reset to first slide when switching layouts
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section id="portfolio" className="relative bg-transparent text-white py-24 md:py-32">
@@ -416,7 +474,7 @@ const Portfolio = () => {
           src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
           width={600}
           height={600}
-          className="absolute bottom-30 -right-70 opacity-50 "
+          className="absolute bottom-16 -right-48 opacity-30 scale-75 sm:bottom-20 sm:-right-56 sm:opacity-40 sm:scale-90 md:bottom-30 md:-right-70 md:opacity-50 md:scale-100"
           alt=""
           priority={false}
         />
@@ -426,7 +484,7 @@ const Portfolio = () => {
           src="/bg-icons/674182bc8e24b82a86a39cf5_elipse-on-white.svg"
           width={600}
           height={600}
-          className="absolute top-30 -left-70 opacity-50 "
+          className="absolute top-16 -left-48 opacity-30 scale-75 sm:top-20 sm:-left-56 sm:opacity-40 sm:scale-90 md:top-30 md:-left-70 md:opacity-50 md:scale-100"
           alt=""
           priority={false}
         />
@@ -459,14 +517,14 @@ const Portfolio = () => {
         </div>
 
         {/* Unified Carousel */}
-        <div className="relative max-w-7xl mx-auto px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           {/* Slide Indicator */}
-          <div className="flex justify-center mb-8 gap-2">
+          <div className="flex justify-center mb-6 sm:mb-8 gap-2">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                   currentSlide === index 
                     ? 'bg-gold-DEFAULT scale-125' 
                     : 'bg-neutral-600 hover:bg-neutral-500'
@@ -476,7 +534,7 @@ const Portfolio = () => {
           </div>
 
           {/* Current Slide Title */}
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gold-DEFAULT">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8 text-gold-DEFAULT px-4">
             {slides[currentSlide]?.title}
           </h3>
 
@@ -490,12 +548,12 @@ const Portfolio = () => {
             <AnimatePresence initial={false} mode="wait">
               <motion.div
                 key={`slide-${currentSlide}`}
-                className={`flex items-center gap-4 md:gap-8 ${
+                className={`flex items-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 ${
                   // For long video slide, align to right with more spacing
                   slides[currentSlide]?.items?.[0]?.type === 'long' 
-                    ? 'justify-end pr-8' 
+                    ? 'justify-center sm:justify-end sm:pr-4 md:pr-8' 
                     : 'justify-center'
-                }`}
+                } overflow-x-auto sm:overflow-x-visible scrollbar-hide`}
                 initial={{ x: 300, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -300, opacity: 0 }}
@@ -532,16 +590,16 @@ const Portfolio = () => {
           <button 
             onClick={handlePrev} 
             disabled={currentSlide === 0}
-            className="absolute top-1/2 -left-4 md:-left-8 transform -translate-y-1/2 bg-neutral-800/80 hover:bg-golden-gradient text-white hover:text-black p-3 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm z-10"
+            className="absolute top-1/2 -left-2 sm:-left-4 md:-left-8 transform -translate-y-1/2 bg-neutral-800/80 hover:bg-golden-gradient text-white hover:text-black p-2 sm:p-3 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm z-10"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
           </button>
           <button 
             onClick={handleNext} 
             disabled={currentSlide >= slides.length - 1}
-            className="absolute top-1/2 -right-4 md:-right-8 transform -translate-y-1/2 bg-neutral-800/80 hover:bg-golden-gradient text-white hover:text-black p-3 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm z-10"
+            className="absolute top-1/2 -right-2 sm:-right-4 md:-right-8 transform -translate-y-1/2 bg-neutral-800/80 hover:bg-golden-gradient text-white hover:text-black p-2 sm:p-3 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 backdrop-blur-sm z-10"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} className="sm:w-6 sm:h-6" />
           </button>
         </div>
       </div>

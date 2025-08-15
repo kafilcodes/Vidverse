@@ -45,18 +45,58 @@ const benefitsData = [
 
 const Benefits = () => {
   const benefitsSectionRef = useRef(null);
+  
+  // Responsive ScrollStack parameters
+  const getScrollStackParams = () => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+      
+      if (isMobile) {
+        return {
+          itemDistance: 20,
+          itemScale: 0.03,
+          itemStackDistance: 15,
+          baseScale: 0.98
+        };
+      } else if (isTablet) {
+        return {
+          itemDistance: 30,
+          itemScale: 0.04,
+          itemStackDistance: 20,
+          baseScale: 0.96
+        };
+      } else {
+        return {
+          itemDistance: 40,
+          itemScale: 0.05,
+          itemStackDistance: 30,
+          baseScale: 0.95
+        };
+      }
+    }
+    // Fallback for SSR
+    return {
+      itemDistance: 40,
+      itemScale: 0.05,
+      itemStackDistance: 30,
+      baseScale: 0.95
+    };
+  };
+  
+  const scrollStackParams = getScrollStackParams();
 
   return (
     <section id="benefits" className="relative overflow-hidden" ref={benefitsSectionRef}>
 
-       <div className="absolute inset-0 pointer-events-none z-[-1]">
+       <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
       
               {/* BG ICONS BENEFITS SECTION - Large SVG */}
               <Image
                 src="/bg-icons/6745d59d7487a3832bc141de_element-on-benefits.svg"
                 width={700}
                 height={700}
-                className="absolute -bottom-50  -left-50 opacity-70 scale-130 hidden md:block"
+                className="absolute -bottom-32 -left-32 opacity-50 scale-75 sm:-bottom-40 sm:-left-40 sm:opacity-60 sm:scale-90 md:-bottom-50 md:-left-50 md:opacity-70 md:scale-130"
                 alt=""
                 priority={false}
               />
@@ -65,7 +105,7 @@ const Benefits = () => {
                 src="/bg-icons/6745d59d7487a3832bc141de_element-on-benefits.svg"
                 width={700}
                 height={700}
-                className="absolute -top-50  -right-50 opacity-70 scale-130 hidden md:block"
+                className="absolute -top-32 -right-32 opacity-50 scale-75 sm:-top-40 sm:-right-40 sm:opacity-60 sm:scale-90 md:-top-50 md:-right-50 md:opacity-70 md:scale-130"
                 alt=""
                 priority={false}
               />
@@ -115,21 +155,23 @@ const Benefits = () => {
       {/* ScrollStack Section - Normal flow, no hijacking */}
       <div className="relative w-full bg-transparent pt-3 sm:pt-4 pb-6 sm:pb-7 md:pb-8">
         <ScrollStack
-          className="w-full bg-transparent"z
-          itemDistance={40}
-          itemScale={0.05}
-          itemStackDistance={30}
+          className="w-full bg-transparent"
+          itemDistance={scrollStackParams.itemDistance}
+          itemScale={scrollStackParams.itemScale}
+          itemStackDistance={scrollStackParams.itemStackDistance}
           stackPosition="50%"
           scaleEndPosition="30%"
-          baseScale={0.95}
+          baseScale={scrollStackParams.baseScale}
           rotationAmount={0}
           blurAmount={0}
         >
           {benefitsData.map((benefit) => (
             <ScrollStackItem
               key={benefit.id}
-              itemClassName="relative overflow-hidden bg-transparent w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto p-4 sm:p-5 md:p-6"
-              style={{ height: '320px' }}
+              itemClassName="relative overflow-hidden bg-transparent w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto p-3 sm:p-4 md:p-5 lg:p-6"
+              style={{ 
+                height: typeof window !== 'undefined' && window.innerWidth < 768 ? '280px' : '320px' 
+              }}
             >
               {/* Process-Style Solid Card with Gradients */}
               <div className="relative w-full h-full">
@@ -173,32 +215,32 @@ const Benefits = () => {
                     </div>
                     
                     {/* Card Content Grid - Number Left, Content Right */}
-                    <div className="relative z-10 p-4 sm:p-6 md:p-8 h-full flex items-center">
+                    <div className="relative z-10 p-3 sm:p-4 md:p-6 lg:p-8 h-full flex flex-col sm:flex-row items-center">
                       
                       {/* Left Side - Large Faded Number */}
-                      <div className="flex-shrink-0 w-20 sm:w-24 md:w-28 lg:w-32 flex items-center justify-center">
-                        <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-grift bg-gradient-to-b from-amber-400 from-0% via-amber-400 via-45% via-amber-400/20 via-65% to-transparent to-100% bg-clip-text text-transparent">
+                      <div className="flex-shrink-0 w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 flex items-center justify-center mb-3 sm:mb-0">
+                        <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-grift bg-gradient-to-b from-amber-400 from-0% via-amber-400 via-45% via-amber-400/20 via-65% to-transparent to-100% bg-clip-text text-transparent">
                           {benefit.number}
                         </span>
                       </div>
                       
                       {/* Right Side - Content */}
-                      <div className="flex-1 ml-4 sm:ml-6 md:ml-8 space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
+                      <div className="flex-1 sm:ml-4 md:ml-6 lg:ml-8 space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 text-center sm:text-left">
                         {/* Title - Crisp and Clear */}
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white font-grift tracking-tight leading-tight antialiased">
+                        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-white font-grift tracking-tight leading-tight antialiased">
                           {benefit.title}
                         </h3>
                         
                         {/* Decorative Line */}
-                        <div className="w-12 sm:w-14 md:w-16 h-px bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400"></div>
+                        <div className="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16 h-px bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 mx-auto sm:mx-0"></div>
                         
                         {/* Subtitle/Description - Crisp and Clear */}
-                        <p className="text-white text-xs sm:text-sm md:text-base leading-relaxed font-grift max-w-xs sm:max-w-sm md:max-w-md antialiased">
+                        <p className="text-white text-xs sm:text-sm md:text-base leading-relaxed font-grift max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg antialiased">
                           {benefit.subtitle}
                         </p>
                         
                         {/* Output Badge - Crisp and Clear */}
-                        <div className="inline-flex items-center px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full shadow-lg shadow-amber-400/10 border border-amber-400/40 bg-gradient-to-r from-black to-neutral-900">
+                        <div className="inline-flex items-center px-2 sm:px-3 md:px-4 lg:px-5 py-1.5 sm:py-2 md:py-2.5 rounded-full shadow-lg shadow-amber-400/10 border border-amber-400/40 bg-gradient-to-r from-black to-neutral-900">
                           <span className="text-amber-400 font-medium font-grift text-xs tracking-wide antialiased">Output: </span>
                           <span className="text-amber-400 font-bold ml-1 sm:ml-2 font-grift text-xs tracking-wide antialiased">
                             {benefit.outcome}

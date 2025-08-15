@@ -125,7 +125,7 @@ const Hero = () => {
     };
   }, []);
   return (
-    <section id="hero-section" className="relative min-h-screen flex flex-col items-center justify-center bg-transparent text-foreground overflow-hidden">
+    <section id="hero-section" className="relative min-h-screen flex flex-col items-center justify-center bg-transparent text-foreground overflow-hidden py-12 sm:py-16 md:py-20 lg:py-16">
 
       <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
 
@@ -134,8 +134,7 @@ const Hero = () => {
           src="/bg-icons/6741920c46039eebb45b5b76_elipse-hero-left.svg"
           width={700}
           height={700}
-
-          className="absolute -top-50 -left-60 opacity-100 scale-110 hidden md:block"
+          className="absolute -top-32 -left-40 opacity-80 scale-75 sm:-top-40 sm:-left-50 sm:opacity-90 sm:scale-90 md:-top-50 md:-left-60 md:opacity-100 md:scale-110"
           alt=""
           priority={false}
         />
@@ -143,8 +142,7 @@ const Hero = () => {
           src="/bg-icons/6741920c019ec243876fef54_elipse-hero-right.svg"
           width={700}
           height={700}
-
-          className="absolute -bottom-50 -right-60 opacity-100 scale-110 hidden md:block"
+          className="absolute -bottom-32 -right-40 opacity-80 scale-75 sm:-bottom-40 sm:-right-50 sm:opacity-90 sm:scale-90 md:-bottom-50 md:-right-60 md:opacity-100 md:scale-110"
           alt=""
           priority={false}
         />
@@ -152,7 +150,7 @@ const Hero = () => {
           src="/bg-icons/674fe125b28eb4eb17b40d25_hero-shapes-01.svg"
           width={32}
           height={32}
-          className="absolute top-30 left-90 scale-110 hidden md:block"
+          className="absolute top-20 left-60 scale-90 opacity-80 sm:top-24 sm:left-70 sm:scale-100 sm:opacity-90 md:top-30 md:left-90 md:scale-110 md:opacity-100"
           alt=""
           priority={false}
           style={{
@@ -164,7 +162,7 @@ const Hero = () => {
           src="/bg-icons/674fe125c81340ba38928817_hero-shapes-02.svg"
           width={32}
           height={32}
-          className="absolute top-55 right-45 scale-110 hidden md:block"
+          className="absolute top-36 right-24 scale-90 opacity-80 sm:top-42 sm:right-32 sm:scale-100 sm:opacity-90 md:top-55 md:right-45 md:scale-110 md:opacity-100"
           alt=""
           priority={false}
           style={{
@@ -177,7 +175,7 @@ const Hero = () => {
           src="/bg-icons/674fe126c81340ba3892882b_hero-shapes-03.svg"
           width={32}
           height={32}
-          className="absolute bottom-58 right-115 scale-110 hidden md:block"
+          className="absolute bottom-40 right-80 scale-90 opacity-80 sm:bottom-48 sm:right-96 sm:scale-100 sm:opacity-90 md:bottom-58 md:right-115 md:scale-110 md:opacity-100"
           alt=""
           priority={false}
           style={{
@@ -189,7 +187,7 @@ const Hero = () => {
           src="/bg-icons/674fe126e96249102a1940a1_hero-shapes-04.svg"
           width={32}
           height={32}
-          className="absolute bottom-69 left-135 scale-110 hidden md:block"
+          className="absolute bottom-48 left-96 scale-90 opacity-80 sm:bottom-56 sm:left-110 sm:scale-100 sm:opacity-90 md:bottom-69 md:left-135 md:scale-110 md:opacity-100"
           alt=""
           priority={false}
           style={{
@@ -214,7 +212,7 @@ const Hero = () => {
             style={{ zIndex: -1 }}
             priority={true}
           />
-          <div className="hidden md:block absolute top-4 right-4 -translate-y-1/2">
+          <div className="hidden md:block absolute top-4 sm:top-8 md:top-4 lg:top-2 right-4 -translate-y-1/2">
             <Image
               src="/logo/674fe125e96249102a19409d_hero_cursors-03.svg"
               alt="Podcast Host Cursor"
@@ -222,7 +220,7 @@ const Hero = () => {
               height={60}
               ref={svg2Ref}
               id="hero-svg-cursor-2"
-              className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 pointer-events-none lg:translate-x-3/4 lg:-translate-y-1/4"
+              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 pointer-events-none lg:translate-x-1/2 lg:-translate-y-1/4"
               style={{ zIndex: -1 }}
               priority={true}
             />
@@ -240,15 +238,15 @@ const Hero = () => {
           />
 
           {/* Original Content Wrapper */}
-          <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
+          <div className="flex flex-col items-center text-center space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-6 xl:space-y-8 pt-4 sm:pt-6 md:pt-8 lg:pt-4">
             <div className="inline-flex items-center gap-x-2 bg-gold/20 text-gold text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide border border-gold/50 shadow-sm">
               <div className="w-4 h-4 icon-gold" />
               <span>SCALE ORGANICALLY</span>
             </div>
-            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-foreground text-center leading-tight max-w-7xl mx-auto">
+            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tighter text-foreground text-center leading-tight max-w-7xl mx-auto">
               We build organic content engines for<br className="hidden sm:block" />
               <span className="relative inline-block">
-                <span className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-gold-shimmer block mt-2 sm:mt-3 md:mt-4">
+                <span className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gold-shimmer block mt-2 sm:mt-3 md:mt-4 lg:mt-2">
                   Entrepreneurs &amp; VCs
                 </span>
                 <motion.div
@@ -260,13 +258,13 @@ const Hero = () => {
                 />
               </span>
             </h1>
-            <p className="text-base sm:text-lg font-bold text-muted-foreground max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto leading-relaxed mt-4 sm:mt-5 md:mt-6 text-shimmer px-4 sm:px-0">
+            <p className="text-base sm:text-lg lg:text-base xl:text-lg font-bold text-muted-foreground max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto leading-relaxed mt-4 sm:mt-5 md:mt-6 lg:mt-3 text-shimmer px-4 sm:px-0">
               We help you build organic distribution that predictably brings 
               more engagement and leads, and builds trust in your market segment.
             </p>
-            <div className="mt-6 sm:mt-7 md:mt-8">
+            <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-4">
               <Button
-                className="btn-hero-cta px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 lg:py-7 text-base sm:text-lg md:text-xl bg-transparent text-gold hover:text-text-on-accent border border-gold rounded-full font-bold tracking-wide relative overflow-hidden transition-all duration-300 ease-in-out group"
+                className="btn-hero-cta px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 lg:py-5 xl:py-6 text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl bg-transparent text-gold hover:text-text-on-accent border border-gold rounded-full font-bold tracking-wide relative overflow-hidden transition-all duration-300 ease-in-out group"
                 onClick={() => {
                   const section = document.getElementById('booking-form');
                   if (section) {
@@ -281,28 +279,28 @@ const Hero = () => {
 
         </div> {/* Closing tag for inner text content wrapper */}
         {/* Social Proof Section */}
-        <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24">
-          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4 md:gap-x-8 lg:gap-x-12">
+        <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-12 xl:mt-16">
+          <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 sm:gap-x-4 sm:gap-y-3 md:gap-x-6 md:gap-y-4 lg:gap-x-4 lg:gap-y-3 xl:gap-x-8 xl:gap-y-4">
             {socialProofData.map((client) => (
               <Link
                 href={client.href}
                 key={client.name}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white/5 backdrop-blur-xl border border-white/20 rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center space-x-3 sm:space-x-4 hover:border-gold transition-all duration-300 ease-in-out w-full sm:w-auto max-w-[280px] sm:max-w-[260px] md:max-w-none hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-gold/30 hover:bg-white/10"
+                className="group bg-white/5 backdrop-blur-xl border border-white/20 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 lg:p-2 xl:p-4 flex items-center space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-2 xl:space-x-4 hover:border-gold transition-all duration-300 ease-in-out w-full sm:w-auto max-w-[260px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[220px] xl:max-w-none hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-gold/30 hover:bg-white/10"
               >
-                <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-md sm:rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center text-foreground font-semibold text-sm sm:text-base group-hover:bg-gold/25 transition-colors duration-150 overflow-hidden">
+                <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-9 lg:h-9 xl:w-12 xl:h-12 rounded-md sm:rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center text-foreground font-semibold text-xs sm:text-sm md:text-base lg:text-sm xl:text-base group-hover:bg-gold/25 transition-colors duration-150 overflow-hidden">
                   <ClientImage
                     src={client.channelImage}
                     alt={client.name}
-                    fallback={<Youtube className="w-5 h-5 sm:w-6 sm:h-6 text-muted-foreground group-hover:text-gold/80 transition-colors duration-150" />}
+                    fallback={<Youtube className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-5 lg:h-5 xl:w-6 xl:h-6 text-muted-foreground group-hover:text-gold/80 transition-colors duration-150" />}
                   />
                 </div>
                 <div className="flex flex-col min-w-0 flex-1">
-                  <span className="text-sm sm:text-base font-semibold text-foreground group-hover:text-gold transition-colors duration-150 truncate">
+                  <span className="text-xs sm:text-sm md:text-base lg:text-sm xl:text-base font-semibold text-foreground group-hover:text-gold transition-colors duration-150 truncate">
                     {client.name}
                   </span>
-                  <span className="text-xs sm:text-sm text-muted-foreground group-hover:text-gold/80 transition-colors duration-150 truncate">
+                  <span className="text-xs sm:text-xs md:text-sm lg:text-xs xl:text-sm text-muted-foreground group-hover:text-gold/80 transition-colors duration-150 truncate">
                     {client.followers}
                   </span>
                 </div>

@@ -7,7 +7,7 @@ import { Zap } from 'lucide-react';
 import SectionChip from '@/components/ui/section-chip';
 
 const OurSystem = () => {
-  return (    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden bg-black min-h-screen flex items-center justify-center">
+  return (    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden bg-black min-h-[90vh] flex items-center justify-center">
     {/* Background Icons Layer - Lowest z-index */}
         <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
           {/* BG ICONS WHAT IT TAKES SECTION - Bottom Left */}
@@ -15,7 +15,7 @@ const OurSystem = () => {
             src="/bg-icons/675290c78101ac77f602fa40_system-shapes-01.svg"
             width={800}
             height={800}
-            className="absolute -bottom-50 -right-90 opacity-50 "
+            className="absolute -bottom-50 -right-90 opacity-30 scale-50 sm:opacity-40 sm:scale-75 md:opacity-50 md:scale-100"
             alt=""
             priority={false}
           />
@@ -23,7 +23,7 @@ const OurSystem = () => {
             src="/bg-icons/675290c850a93f05b4716e44_system-shapes-02.svg"
             width={800}
             height={800}
-            className="absolute -top-60 -left-60 opacity-50  "
+            className="absolute -top-60 -left-60 opacity-30 scale-50 sm:opacity-40 sm:scale-75 md:opacity-50 md:scale-100"
             alt=""
             priority={false}
           />
@@ -37,9 +37,9 @@ const OurSystem = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center justify-center min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center justify-center min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh]">
           {/* Left Content */}
-          <div className="text-center md:text-left order-2 md:order-1">
+          <div className="text-center md:text-left order-1 md:order-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ const OurSystem = () => {
           </div>
 
           {/* Right Visual - Orbital Solar System */}
-          <div className="relative flex items-center justify-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] order-1 md:order-2">
+          <div className="relative flex items-center justify-center h-[280px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px] order-2 md:order-2 px-4 sm:px-6">
             {/* Background gradient circle */}
             <motion.div 
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -90,7 +90,7 @@ const OurSystem = () => {
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             >
-              <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px]">
+              <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[420px] xl:h-[420px]">
                 <Image
                   src="/logo/674ea9799973eeed9e76a540_system-circle-gradient.svg"
                   alt="System gradient ring"
@@ -112,7 +112,7 @@ const OurSystem = () => {
               <div className="relative">
                 {/* Soft glow effect around central circle */}
                 <motion.div
-                  className="absolute inset-0 w-72 h-72 bg-gradient-to-r from-gold-light/20 via-gold-DEFAULT/30 to-gold-dark/20 rounded-full blur-xl"
+                  className="absolute inset-0 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-gradient-to-r from-gold-light/20 via-gold-DEFAULT/30 to-gold-dark/20 rounded-full blur-xl"
                   animate={{ 
                     scale: [1, 1.1, 1],
                     opacity: [0.5, 0.8, 0.5]
@@ -125,7 +125,7 @@ const OurSystem = () => {
                 />
                 
                 {/* Central content circle */}
-                <div className="relative w-64 h-64 rounded-full bg-gradient-to-r from-gold-light via-gold-DEFAULT to-gold-dark p-1">
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-gold-light via-gold-DEFAULT to-gold-dark p-1">
                   <div className="w-full h-full bg-black rounded-full flex flex-col items-center justify-center relative overflow-hidden">
                     {/* Inner gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-gold-light/10 via-transparent to-gold-dark/10 rounded-full" />
@@ -149,7 +149,7 @@ const OurSystem = () => {
             </motion.div>            {/* Three Concentric Orbits with 2 Icons Each */}
             <div className="absolute inset-0 flex items-center justify-center z-30">              {/* Outermost Orbit - Radius 210px - Instagram & TikTok (matching the visible 420px orbital ring) */}
               <motion.div
-                className="absolute w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px]"
+                className="absolute w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[420px] xl:h-[420px]"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
                 style={{ transformOrigin: 'center center' }}
@@ -347,7 +347,7 @@ const OurSystem = () => {
 
               {/* Middle Orbit - Radius 150px - Spotify & Apple Podcasts */}
               <motion.div
-                className="absolute w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] lg:w-[300px] lg:h-[300px]"
+                className="absolute w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[260px] md:h-[260px] lg:w-[300px] lg:h-[300px]"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
                 style={{ transformOrigin: 'center center' }}
@@ -448,7 +448,7 @@ const OurSystem = () => {
             >
               {/* Outer orbital ring */}
               <motion.div 
-                className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] border border-gold-DEFAULT/10 rounded-full"
+                className="w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[420px] xl:h-[420px] border border-gold-DEFAULT/10 rounded-full"
                 animate={{ 
                   rotate: 360,
                   scale: [1, 1.01, 1]
@@ -461,10 +461,10 @@ const OurSystem = () => {
               
               {/* Middle orbital ring */}
               <motion.div 
-                className="absolute w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] border border-gold-DEFAULT/15 rounded-full"
+                className="absolute w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[260px] md:h-[260px] lg:w-[300px] lg:h-[300px] border border-gold-DEFAULT/25 rounded-full"
                 animate={{ 
                   rotate: -360,
-                  opacity: [0.4, 0.7, 0.4]
+                  opacity: [0.6, 0.9, 0.6]
                 }}
                 transition={{ 
                   rotate: { duration: 80, repeat: Infinity, ease: "linear" },
@@ -474,10 +474,10 @@ const OurSystem = () => {
               
               {/* Inner orbital ring */}
               <motion.div 
-                className="absolute w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px] border border-gold-DEFAULT/8 rounded-full"
+                className="absolute w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px] border-2 border-gold-DEFAULT/40 rounded-full"
                 animate={{ 
                   scale: [1, 1.03, 1],
-                  opacity: [0.2, 0.4, 0.2]
+                  opacity: [0.7, 1, 0.7]
                 }}
                 transition={{ 
                   duration: 7, 

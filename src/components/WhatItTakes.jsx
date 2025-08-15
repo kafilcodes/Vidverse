@@ -118,6 +118,18 @@ const WhatItTakes = () => {
     }
   ]; return (
     <section ref={sectionRef} className="relative bg-transparent py-20 md:py-24 min-h-screen overflow-hidden" style={{ fontFamily: 'Manrope, sans-serif' }}>
+      
+      {/* Grain Background - Same as Newsletter */}
+      <div className="absolute inset-0 z-[-3]">
+        <Image
+          src="/bg-icons/67417cccd10005101c0c23e5_grain.png"
+          fill
+          className="object-cover w-full h-full opacity-100"
+          alt=""
+          priority={false}
+        />
+      </div>
+
       {/* Background Icons Layer - Lowest z-index */}
       <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
         {/* BG ICONS WHAT IT TAKES SECTION - Bottom Left */}
@@ -125,7 +137,7 @@ const WhatItTakes = () => {
           src="/bg-icons/6745d59d7487a3832bc141de_element-on-benefits.svg"
           width={900}
           height={900}
-          className="absolute -top-75 -left-74 opacity-50 "
+          className="absolute -bottom-48 -left-48 opacity-30 scale-75 sm:-bottom-60 sm:-left-60 sm:opacity-40 sm:scale-90 md:-bottom-75 md:-left-74 md:opacity-50 md:scale-100"
           alt=""
           priority={false}
         />
@@ -133,7 +145,7 @@ const WhatItTakes = () => {
           src="/bg-icons/6745e8d5ab5bc1d0e39a1a97_cta-banner-bottom.svg"
           width={900}
           height={900}
-          className="absolute -bottom-75 -right-74 opacity-50 "
+          className="absolute -bottom-48 -right-48 opacity-30 scale-75 sm:-bottom-60 sm:-right-60 sm:opacity-40 sm:scale-90 md:-bottom-75 md:-right-74 md:opacity-50 md:scale-100"
           alt=""
           priority={false}
         />
@@ -190,14 +202,14 @@ const WhatItTakes = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           {/* Top Labels */}
-          <div className="flex justify-between items-center mb-12 px-4">
-            <div className="text-left">
-              <h3 className="text-lg md:text-xl font-medium text-neutral-300">
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-8 sm:mb-12 px-4 space-y-2 sm:space-y-0">
+            <div className="text-center sm:text-left">
+              <h3 className="text-base sm:text-lg md:text-xl font-medium text-neutral-300">
                 <span className="text-amber-400">14 Days</span> to launch
               </h3>
             </div>
-            <div className="text-right">
-              <h3 className="text-lg md:text-xl font-medium text-neutral-300">
+            <div className="text-center sm:text-right">
+              <h3 className="text-base sm:text-lg md:text-xl font-medium text-neutral-300">
                 <span className="text-amber-400">60 mins</span> per week
               </h3>
             </div>
@@ -205,11 +217,14 @@ const WhatItTakes = () => {
 
           {/* Professional Icon-Based Timeline */}
           <div className="relative">
-            {/* Main Timeline Container */}
-            <div className="relative flex justify-between items-center px-8">
+            {/* Main Timeline Container - Responsive Layout */}
+            <div className="relative flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 space-y-8 sm:space-y-0">
 
-              {/* Background Connection Line - Full Width */}
-              <div className="hidden md:block absolute top-1/2 transform -translate-y-1/2 left-8 right-2 h-0.5 bg-gradient-to-r from-transparent via-neutral-700 via-neutral-700 to-transparent z-0"></div>
+              {/* Background Connection Line - Full Width - Hidden on mobile */}
+              <div className="hidden sm:block absolute top-1/2 transform -translate-y-1/2 left-8 right-2 h-0.5 bg-gradient-to-r from-transparent via-neutral-700 via-neutral-700 to-transparent z-0"></div>
+
+              {/* Mobile Vertical Line */}
+              <div className="sm:hidden absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-neutral-700 via-neutral-700 to-transparent z-0"></div>
 
               {/* Animated Progress Line Segments */}
               <motion.div
@@ -245,7 +260,7 @@ const WhatItTakes = () => {
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={index}
-                  className="relative flex flex-col items-center"
+                  className="relative flex flex-col items-center z-10"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{
                     opacity: activeStep > index ? 1 : 0.5,
@@ -268,9 +283,9 @@ const WhatItTakes = () => {
                   </div>
 
                   {/* Content Below Icon */}
-                  <div className="text-center mt-16">
+                  <div className="text-center mt-8 sm:mt-12 md:mt-16 max-w-xs sm:max-w-sm">
                     <motion.h3
-                      className="text-xl font-semibold mb-4 transition-colors duration-300"
+                      className="text-lg sm:text-xl md:text-xl font-semibold mb-3 sm:mb-4 transition-colors duration-300"
                       initial={{ opacity: 0 }}
                       animate={{
                         opacity: activeStep > index ? 1 : 0.6,
@@ -285,7 +300,7 @@ const WhatItTakes = () => {
                     </motion.h3>
 
                     <motion.p
-                      className="text-neutral-400 text-base leading-relaxed group-hover:text-neutral-300 transition-colors duration-300 max-w-sm mx-auto"
+                      className="text-neutral-400 text-sm sm:text-base leading-relaxed group-hover:text-neutral-300 transition-colors duration-300 mx-auto px-2"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: activeStep > index ? 1 : 0.5 }}
                       transition={{ delay: index * 1 + 0.5 }}

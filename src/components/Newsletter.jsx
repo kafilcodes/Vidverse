@@ -70,7 +70,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="newsletter" className="relative py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-transparent overflow-hidden">
+    <section id="newsletter" className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 bg-transparent overflow-hidden">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-[-3]">
@@ -85,15 +85,14 @@ const Newsletter = () => {
 
       {/* Clean section - you can add bg icons manually here later */}
 
-      <div className="absolute inset-0 pointer-events-none z-[-1]">
+      <div className="absolute inset-0 pointer-events-none z-[-1] overflow-hidden">
 
-        {/* BG ICONS HERO SECTION - Large SVG */}
+        {/* BG ICONS NEWSLETTER SECTION - Responsive positioning */}
         <Image
           src="/bg-icons/674182bc8e24b82a86a39cf5_elipse-on-white.svg"
           width={700}
           height={700}
-
-          className="absolute center-50 -left-95 opacity-50 scale-130 hidden md:block"
+          className="absolute top-1/2 -left-60 opacity-20 scale-50 sm:-left-75 sm:opacity-30 sm:scale-75 md:-left-95 md:opacity-40 md:scale-100"
           alt=""
           priority={false}
         />
@@ -101,8 +100,7 @@ const Newsletter = () => {
           src="/bg-icons/6741825e22e3b1a9fcca38cf_rectangle-on-white.svg"
           width={700}
           height={700}
-
-          className="absolute center-50 -right-95 opacity-50 scale-130 hidden md:block"
+          className="absolute top-1/2 -right-60 opacity-20 scale-50 sm:-right-75 sm:opacity-30 sm:scale-75 md:-right-95 md:opacity-40 md:scale-100"
           alt=""
           priority={false}
         />
@@ -160,24 +158,34 @@ const Newsletter = () => {
 
             <form onSubmit={handleSubmit} className="max-w-[300px] sm:max-w-sm md:max-w-md mx-auto">
               <div className="relative flex items-center">
-                <Mail className="absolute left-2.5 sm:left-3 md:left-4 w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-neutral-500" />
+                <Mail className="absolute left-2.5 sm:left-3 md:left-4 w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-neutral-500 z-10" />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your.email@company.com"
-                  className="w-full pl-9 sm:pl-10 md:pl-12 pr-16 sm:pr-20 md:pr-24 py-2 sm:py-2.5 md:py-3 bg-neutral-950/50 border border-neutral-700 rounded-full text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition-shadow duration-300 text-xs sm:text-sm md:text-base"
+                  className="w-full pl-9 sm:pl-10 md:pl-12 pr-12 sm:pr-14 md:pr-16 py-2 sm:py-2.5 md:py-3 bg-neutral-950/50 border border-neutral-700 rounded-full text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition-shadow duration-300 text-xs sm:text-sm md:text-base"
                   disabled={status === 'loading'}
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 px-2.5 sm:px-3 md:px-4 bg-golden-gradient text-black font-semibold rounded-full hover:shadow-lg hover:shadow-amber-500/20 transition-shadow duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-amber-400 text-black rounded-full hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   disabled={status === 'loading'}
                 >
                   {status === 'loading' ? (
-                    <Loader className="animate-spin w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <Loader className="animate-spin w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   ) : (
-                    'Subscribe'
+                    <svg 
+                      className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-black" 
+                      fill="currentColor" 
+                      viewBox="0 0 20 20"
+                    >
+                      <path 
+                        fillRule="evenodd" 
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
+                        clipRule="evenodd" 
+                      />
+                    </svg>
                   )}
                 </button>
               </div>

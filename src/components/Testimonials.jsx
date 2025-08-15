@@ -59,7 +59,7 @@ const Testimonials = () => {
           src="/bg-icons/675290c850a93f05b4716e44_system-shapes-02.svg"
           width={600}
           height={600}
-          className="absolute -top-50 -left-50 opacity-30 "
+          className="absolute -top-50 -left-50 opacity-20 scale-50 sm:opacity-25 sm:scale-75 md:opacity-30 md:scale-100"
           alt=""
           priority={false}
         />
@@ -69,7 +69,7 @@ const Testimonials = () => {
           src="/bg-icons/675290c78101ac77f602fa40_system-shapes-01.svg"
           width={600}
           height={600}
-          className="absolute -top-50 -right-50 opacity-30 "
+          className="absolute -top-50 -right-50 opacity-20 scale-50 sm:opacity-25 sm:scale-75 md:opacity-30 md:scale-100"
           alt=""
           priority={false}
         />

@@ -200,35 +200,30 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="relative bg-black py-16 sm:py-18 md:py-20 lg:py-24" style={{ fontFamily: 'Manrope, sans-serif' }}>
+    <section id="services" className="relative bg-black py-16 sm:py-18 md:py-20 lg:py-24 w-full overflow-hidden" style={{ fontFamily: 'Manrope, sans-serif' }}>
       {/* Background Graphics */}
-      
-      
-      
+      <div className="absolute inset-0 pointer-events-none z-[1] overflow-hidden">
+        {/* BG ICONS SERVICES SECTION - Fixed positioning for full visibility */}
+        <Image
+          src="/bg-icons/674183bd7a9afd8a5f4419f7_elipse-dark.svg"
+          width={600}
+          height={600}
+          className="absolute top-16 -left-48 opacity-30 scale-75 sm:top-20 sm:-left-56 sm:opacity-40 sm:scale-90 md:top-30 md:-left-70 md:opacity-50 md:scale-100 lg:top-40 lg:-left-80 lg:opacity-60 lg:scale-110"
+          alt=""
+          priority={false}
+        />
+        <Image
+          src="/bg-icons/674183bd7eb1543409d0f095_polygon-dark.svg"
+          width={600}
+          height={600}
+          className="absolute top-8 -right-48 opacity-30 scale-75 sm:top-12 sm:-right-56 sm:opacity-40 sm:scale-90 md:top-20 md:-right-70 md:opacity-50 md:scale-100 lg:top-30 lg:-right-80 lg:opacity-60 lg:scale-110"
+          alt=""
+          priority={false}
+        />
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
-        <div className="absolute inset-0 pointer-events-none z-[-1]">
-        
-                {/* BG ICONS HERO SECTION - Large SVG */}
-                <Image
-                  src="/bg-icons/674183bd7a9afd8a5f4419f7_elipse-dark.svg"
-                  width={500}
-                  height={500}
-        
-                  className="absolute top-70 -left-145 opacity-50 scale-130 hidden md:block"
-                  alt=""
-                  priority={false}
-                />
-                <Image
-                  src="/bg-icons/674183bd7eb1543409d0f095_polygon-dark.svg"
-                  width={500}
-                  height={500}
-        
-                  className="absolute top-10 -right-125 opacity-50 scale-130 hidden md:block"
-                  alt=""
-                  priority={false}
-                />
-              </div>
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-none">
+        <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20"
           initial={{ opacity: 0, y: 20 }}
@@ -289,6 +284,7 @@ const Services = () => {
             />
           ))}
         </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -4,8 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 const navLinks = [
   { name: 'Services', href: '#services' },
@@ -19,6 +18,18 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const lastScrollY = useRef(0);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   // Navbar visibility on scroll
   useEffect(() => {
@@ -114,42 +125,57 @@ const Navbar = () => {
             ))}
           </nav>
 
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="hover:bg-muted/20 h-8 w-8 sm:h-9 sm:w-9">
-                <Menu className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-secondary-foreground" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs bg-card p-6">
-              <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center mb-8">
-                  <div className="text-xl sm:text-2xl font-bold">
-                    <div className="flex items-center">
-                      <Image src="/logo/vidverse-icon.png" alt="VidVerse Logo" width={32} height={32} className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 mr-2" />
-                      <span className="text-lg sm:text-xl font-semibold text-shimmer">VidVerse</span>
-                    </div>
-                  </div>
-                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)} className="h-8 w-8">
-                    <X className="h-5 w-5 md:h-6 md:w-6" />
-                  </Button>
-                </div>
-                
-                <nav className="flex flex-col space-y-3 sm:space-y-4">
-                  {navLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      onClick={(e) => handleLinkClick(e, link.href)}
-                      className={`block w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-medium transition-colors duration-200 ${activeSection === link.href ? 'bg-golden/20 text-golden' : 'text-neutral-200 hover:bg-neutral-700/50'}`}>
-                      {link.name}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
+          {/* Mobile Menu */}
+          <div className="md:hidden relative mobile-menu-container">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-8 w-8 sm:h-9 sm:w-9 bg-black/40 backdrop-blur-md border border-amber-400/20 hover:border-amber-400/40 hover:bg-black/60 transition-all duration-300 rounded-lg"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <Menu className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
+            </Button>
+            
+            {/* Animated Dropdown Menu */}
+            <div className={`absolute right-0 top-full mt-2 w-48 bg-black/95 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl overflow-hidden z-50 transition-all duration-300 ease-out ${
+              isMobileMenuOpen 
+                ? 'opacity-100 transform translate-y-0 scale-100' 
+                : 'opacity-0 transform -translate-y-2 scale-95 pointer-events-none'
+            }`}>
+              <nav className="py-2">
+                {navLinks.map((link, index) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className={`block px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-golden/20 hover:pl-6 ${activeSection === link.href ? 'bg-golden/20 text-golden border-l-2 border-golden' : 'text-neutral-200 hover:text-golden'}`}
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                      animation: isMobileMenuOpen ? 'slideInFromRight 0.3s ease-out forwards' : ''
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Animation Styles */}
+      <style jsx>{`
+        @keyframes slideInFromRight {
+          0% {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </header>
   );
 };
